@@ -11,6 +11,7 @@ import DemonBounce from '../sprites/characters/enemies/demon/DemonBounce.js';
 import DemonSplit from '../sprites/characters/enemies/demon/DemonSplit.js';
 import LeafSad from '../sprites/characters/enemies/leaf/LeafSad.js';
 import LeafBig from '../sprites/characters/enemies/leaf/LeafBig.js';
+import Rot from '../sprites/characters/enemies/undead/Rot.js';
 import UndeadSimple from '../sprites/characters/enemies/undead/UndeadSimple.js';
 import OrcSimple from '../sprites/characters/enemies/orc/OrcSimple.js';
 import OrcMask from '../sprites/characters/enemies/orc/OrcMask.js';
@@ -199,6 +200,8 @@ export default class GameScene extends Phaser.Scene {
     // Enemies, awful.
     this.map.getObjectLayer('enemies').objects.forEach(enemy => {
       let enemyObject;
+      enemy.x += 16;
+      enemy.y -= 16;
       switch (enemy.type) {
         case 'ice-lizard':
           enemyObject = new Lizard({
@@ -300,6 +303,14 @@ export default class GameScene extends Phaser.Scene {
           enemyObject = new UndeadSimple({
             scene: this,
             key: 'undead-simple',
+            x: enemy.x,
+            y: enemy.y
+          });
+          break;
+        case 'rot':
+          enemyObject = new Rot({
+            scene: this,
+            key: 'rot',
             x: enemy.x,
             y: enemy.y
           });

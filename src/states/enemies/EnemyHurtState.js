@@ -9,7 +9,7 @@ export default class EnemyHurtState extends State {
 
     enemy.body.setVelocity(direction.x, direction.y);
 
-    enemy.setTintFill(0xb20000);
+    enemy.setTint(0xb20000);
     scene.time.delayedCall(600, _ => {
       if (enemy.isDead()) {
         enemy.actionStateMachine.transition('dead');

@@ -8,7 +8,7 @@ import eventsManager from '../../scenes/EventsManager.js';
 export default class PlayerHurtState extends State {
   enter(scene, player, enemy) {
     player.hitBy(enemy.meleeDamage);
-    player.setTintFill(0xb20000);
+    player.setTint(0xb20000);
     scene.cameras.main.shake(500, 0.02);
 
     eventsManager.emit('update-health', player.health);

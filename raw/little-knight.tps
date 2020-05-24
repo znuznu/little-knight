@@ -88,14 +88,14 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>2048</int>
+            <int>1024</int>
             <key>height</key>
             <int>2048</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>512</int>
+            <int>-1</int>
             <key>height</key>
             <int>-1</int>
         </QSize>
@@ -181,8 +181,10 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">../../../Desktop/arrow-break/arrow-break-0.png</key>
+            <key type="filename">../../../Desktop/arrow-break/arrow-break-1.png</key>
+            <key type="filename">../../../Desktop/arrow-break/arrow-break-2.png</key>
             <key type="filename">../../../Desktop/arrow-small/arrow-small.png</key>
-            <key type="filename">../../../Desktop/arrow/arrow.png</key>
             <key type="filename">../../../Desktop/bow-and-arrow/bow-and-arrow.png</key>
             <key type="filename">../../../Desktop/bow/bow.png</key>
             <key type="filename">../../../Desktop/chest/chest-0.png</key>
@@ -192,10 +194,14 @@
             <key type="filename">../../../Desktop/demon-bounce-idle/demon-bounce-idle-1.png</key>
             <key type="filename">../../../Desktop/demon-bounce-idle/demon-bounce-idle-2.png</key>
             <key type="filename">../../../Desktop/demon-bounce-idle/demon-bounce-idle-3.png</key>
-            <key type="filename">../../../Desktop/green-rot/green-rot-0.png</key>
-            <key type="filename">../../../Desktop/green-rot/green-rot-1.png</key>
-            <key type="filename">../../../Desktop/green-rot/green-rot-2.png</key>
-            <key type="filename">../../../Desktop/green-rot/green-rot-3.png</key>
+            <key type="filename">../../../Desktop/fireball-arcanic-explosion/fireball-arcanic-explosion-0.png</key>
+            <key type="filename">../../../Desktop/fireball-arcanic-explosion/fireball-arcanic-explosion-1.png</key>
+            <key type="filename">../../../Desktop/fireball-arcanic-explosion/fireball-arcanic-explosion-2.png</key>
+            <key type="filename">../../../Desktop/fireball-arcanic-explosion/fireball-arcanic-explosion-3.png</key>
+            <key type="filename">../../../Desktop/fireball-simple-explosion/fireball-simple-explosion-0.png</key>
+            <key type="filename">../../../Desktop/fireball-simple-explosion/fireball-simple-explosion-1.png</key>
+            <key type="filename">../../../Desktop/fireball-simple-explosion/fireball-simple-explosion-2.png</key>
+            <key type="filename">../../../Desktop/fireball-simple-explosion/fireball-simple-explosion-3.png</key>
             <key type="filename">../../../Desktop/heart/heart-0.png</key>
             <key type="filename">../../../Desktop/heart/heart-1.png</key>
             <key type="filename">../../../Desktop/heart/heart-2.png</key>
@@ -219,10 +225,14 @@
             <key type="filename">../../../Desktop/orc-simple-idle/orc-simple-idle-1.png</key>
             <key type="filename">../../../Desktop/orc-simple-idle/orc-simple-idle-2.png</key>
             <key type="filename">../../../Desktop/orc-simple-idle/orc-simple-idle-3.png</key>
-            <key type="filename">../../../Desktop/orc-tatoo-idle/orc-tatoo-idle-0.png</key>
-            <key type="filename">../../../Desktop/orc-tatoo-idle/orc-tatoo-idle-1.png</key>
-            <key type="filename">../../../Desktop/orc-tatoo-idle/orc-tatoo-idle-2.png</key>
-            <key type="filename">../../../Desktop/orc-tatoo-idle/orc-tatoo-idle-3.png</key>
+            <key type="filename">../../../Desktop/orc-tattoo-idle/orc-tattoo-idle-0.png</key>
+            <key type="filename">../../../Desktop/orc-tattoo-idle/orc-tattoo-idle-1.png</key>
+            <key type="filename">../../../Desktop/orc-tattoo-idle/orc-tattoo-idle-2.png</key>
+            <key type="filename">../../../Desktop/orc-tattoo-idle/orc-tattoo-idle-3.png</key>
+            <key type="filename">../../../Desktop/rot/rot-0.png</key>
+            <key type="filename">../../../Desktop/rot/rot-1.png</key>
+            <key type="filename">../../../Desktop/rot/rot-2.png</key>
+            <key type="filename">../../../Desktop/rot/rot-3.png</key>
             <key type="filename">../../../Desktop/sister-idle/sister-idle-0.png</key>
             <key type="filename">../../../Desktop/sister-idle/sister-idle-1.png</key>
             <key type="filename">../../../Desktop/sister-idle/sister-idle-2.png</key>
@@ -235,12 +245,6 @@
             <key type="filename">../../../Desktop/smoke-small/smoke-small-2.png</key>
             <key type="filename">../../../Desktop/smoke-small/smoke-small-3.png</key>
             <key type="filename">../../../Desktop/sword/sword.png</key>
-            <key type="filename">../../../Desktop/torch/torch-0.png</key>
-            <key type="filename">../../../Desktop/torch/torch-1.png</key>
-            <key type="filename">../../../Desktop/torch/torch-2.png</key>
-            <key type="filename">../../../Desktop/torch/torch-3.png</key>
-            <key type="filename">../../../Desktop/torch/torch-4.png</key>
-            <key type="filename">../../../Desktop/torch/torch-5.png</key>
             <key type="filename">../../../Desktop/undead-simple-idle/undead-simple-idle-0.png</key>
             <key type="filename">../../../Desktop/undead-simple-idle/undead-simple-idle-1.png</key>
             <key type="filename">../../../Desktop/undead-simple-idle/undead-simple-idle-2.png</key>
@@ -402,6 +406,28 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../../../Desktop/fireball-arcanic/fireball-arcanic-0.png</key>
+            <key type="filename">../../../Desktop/fireball-arcanic/fireball-arcanic-1.png</key>
+            <key type="filename">../../../Desktop/fireball-arcanic/fireball-arcanic-2.png</key>
+            <key type="filename">../../../Desktop/fireball-arcanic/fireball-arcanic-3.png</key>
+            <key type="filename">../../../Desktop/fireball-simple/fireball-simple-0.png</key>
+            <key type="filename">../../../Desktop/fireball-simple/fireball-simple-1.png</key>
+            <key type="filename">../../../Desktop/fireball-simple/fireball-simple-2.png</key>
+            <key type="filename">../../../Desktop/fireball-simple/fireball-simple-3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>10,8,20,16</rect>
+                <key>scale9Paddings</key>
+                <rect>10,8,20,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../../../Desktop/ice-lizard-idle/ice-lizard-idle-0.png</key>
             <key type="filename">../../../Desktop/ice-lizard-idle/ice-lizard-idle-1.png</key>
             <key type="filename">../../../Desktop/ice-lizard-idle/ice-lizard-idle-2.png</key>
@@ -508,10 +534,10 @@
             <key type="filename">../../../Desktop/mage/mage-1.png</key>
             <key type="filename">../../../Desktop/mage/mage-2.png</key>
             <key type="filename">../../../Desktop/mage/mage-3.png</key>
-            <key type="filename">../../../Desktop/orc-tatoo-run/orc-tatoo-run-0.png</key>
-            <key type="filename">../../../Desktop/orc-tatoo-run/orc-tatoo-run-1.png</key>
-            <key type="filename">../../../Desktop/orc-tatoo-run/orc-tatoo-run-2.png</key>
-            <key type="filename">../../../Desktop/orc-tatoo-run/orc-tatoo-run-3.png</key>
+            <key type="filename">../../../Desktop/orc-tattoo-run/orc-tattoo-run-0.png</key>
+            <key type="filename">../../../Desktop/orc-tattoo-run/orc-tattoo-run-1.png</key>
+            <key type="filename">../../../Desktop/orc-tattoo-run/orc-tattoo-run-2.png</key>
+            <key type="filename">../../../Desktop/orc-tattoo-run/orc-tattoo-run-3.png</key>
             <key type="filename">../../../Desktop/undead-simple-run/undead-simple-run-0.png</key>
             <key type="filename">../../../Desktop/undead-simple-run/undead-simple-run-1.png</key>
             <key type="filename">../../../Desktop/undead-simple-run/undead-simple-run-2.png</key>
@@ -602,7 +628,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../../Desktop/arrow</filename>
+            <filename>../../../Desktop/arrow-break</filename>
             <filename>../../../Desktop/arrow-small</filename>
             <filename>../../../Desktop/boss-01-idle</filename>
             <filename>../../../Desktop/boss-01-run</filename>
@@ -621,7 +647,10 @@
             <filename>../../../Desktop/door-boss-open</filename>
             <filename>../../../Desktop/door-simple-closed</filename>
             <filename>../../../Desktop/door-simple-open</filename>
-            <filename>../../../Desktop/green-rot</filename>
+            <filename>../../../Desktop/fireball-arcanic</filename>
+            <filename>../../../Desktop/fireball-arcanic-explosion</filename>
+            <filename>../../../Desktop/fireball-simple</filename>
+            <filename>../../../Desktop/fireball-simple-explosion</filename>
             <filename>../../../Desktop/heart</filename>
             <filename>../../../Desktop/ice-lizard-idle</filename>
             <filename>../../../Desktop/ice-lizard-run</filename>
@@ -644,8 +673,8 @@
             <filename>../../../Desktop/orc-mask-run</filename>
             <filename>../../../Desktop/orc-simple-idle</filename>
             <filename>../../../Desktop/orc-simple-run</filename>
-            <filename>../../../Desktop/orc-tatoo-idle</filename>
-            <filename>../../../Desktop/orc-tatoo-run</filename>
+            <filename>../../../Desktop/orc-tattoo-idle</filename>
+            <filename>../../../Desktop/orc-tattoo-run</filename>
             <filename>../../../Desktop/paladin-agony</filename>
             <filename>../../../Desktop/potion-red</filename>
             <filename>../../../Desktop/sister-idle</filename>
@@ -655,9 +684,9 @@
             <filename>../../../Desktop/sword</filename>
             <filename>../../../Desktop/sword-boss-01</filename>
             <filename>../../../Desktop/sword-boss-01-simple</filename>
-            <filename>../../../Desktop/torch</filename>
             <filename>../../../Desktop/undead-simple-idle</filename>
             <filename>../../../Desktop/undead-simple-run</filename>
+            <filename>../../../Desktop/rot</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
