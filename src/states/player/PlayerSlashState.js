@@ -56,8 +56,8 @@ export default class PlayerSlashState extends State {
     this.slash = new PlayerSlash({
       scene: scene,
       key: 'slash-effect',
-      x: position[0] + 16,
-      y: position[1] + 16
+      x: position[0],
+      y: position[1]
     });
 
     let directionToAngle = {

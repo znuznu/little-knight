@@ -38,7 +38,7 @@ export default class GameScene extends Phaser.Scene {
       this.createPlayer(player.health, player.weapons, player.inventory);
     } else {
       this.scene.run('hudScene');
-      this.createPlayer(6, [], {});
+      this.createPlayer(6, ['sword'], {});
     }
   }
 
@@ -96,6 +96,25 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.player, this.blocks);
     this.physics.add.collider(this.player, this.doors);
     this.physics.add.collider(this.player, this.void);
+
+    // Ugly, should be inside the Player[Idle/Run]State but dunno
+    // how to test only one time.
+    this.input.on('pointerdown', pointer => {
+      let state = this.player.actionStateMachine.state;
+      console.log(this.player.body);
+      if (state === 'idle' || state === 'run') {
+        switch (this.player.getCurrentWeapon()) {
+          case 'sword':
+            this.player.actionStateMachine.transition('slash');
+            break;
+          case 'bow':
+            this.player.actionStateMachine.transition('shoot');
+            break;
+          default:
+            break;
+        }
+      }
+   });
   }
 
   createCrosshair() {

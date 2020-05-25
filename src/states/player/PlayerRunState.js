@@ -15,20 +15,6 @@ export default class PlayerRunState extends State {
     player.body.setVelocity(0);
     player.resetDirection();
 
-    if (scene.input.mousePointer.primaryDown) {
-      switch (player.getCurrentWeapon()) {
-        case 'sword':
-          player.actionStateMachine.transition('slash');
-          break;
-        case 'bow':
-          player.actionStateMachine.transition('shoot');
-          break;
-        default:
-          break;
-      }
-      return;
-    }
-
     if (!(left || right || up || down)) {
       player.actionStateMachine.transition('idle');
       return;
