@@ -155,7 +155,9 @@ export default class GameScene extends Phaser.Scene {
 
   createGroups() {
     this.enemyGroup = this.add.group();
-    this.doorsGroup = this.add.group();
+    this.doorsGroup = this.add.group({
+      runChildUpdate: true
+    });
     this.playerArrows = this.add.group({
       classType: PlayerArrow,
       maxSize: 5
@@ -208,6 +210,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.physics.add.collider(this.enemyGroup, this.enemyGroup);
     this.physics.add.collider(this.enemyGroup, this.blocks);
+    this.physics.add.collider(this.enemyGroup, this.void);
     this.physics.add.collider(
       this.transitionsGroup,
       this.player,

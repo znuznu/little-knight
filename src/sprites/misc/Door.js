@@ -54,4 +54,13 @@ export default class Door extends Phaser.GameObjects.Sprite {
     this.scene.physics.world.removeCollider(this.playerCollider);
     this.scene.physics.world.removeCollider(this.enemyCollider);
   }
+
+  // Funny code. Doors shouldn't be Sprite but it's easier.
+  update() {
+    if (this.y > this.scene.player.y) {
+      this.setDepth(this.scene.player.depth + 1);
+    } else {
+      this.setDepth(this.scene.player.depth - 1);
+    }
+  }
 }
