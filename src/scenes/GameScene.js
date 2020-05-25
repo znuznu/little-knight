@@ -74,10 +74,13 @@ export default class GameScene extends Phaser.Scene {
     this.map = this.make.tilemap({ key: mapName });
     const tileset = this.map.addTilesetImage('tileset', 'tileset', 32, 32, 1, 2);
     this.walkables = this.map.createDynamicLayer('walkable', tileset, 0, 0);
+    this.details = this.map.createDynamicLayer('detail', tileset, 0, 0);
     this.blocks = this.map.createDynamicLayer('block', tileset, 0, 0);
+    this.void = this.map.createDynamicLayer('void', tileset, 0, 0);
     this.above = this.map.createDynamicLayer('above', tileset, 0, 0);
     this.above.setDepth(10);
     this.blocks.setCollisionByProperty({ collides: true });
+    this.void.setCollisionByProperty({ collides: true });
   }
 
   createPlayer(health, inventory, weapons) {
@@ -92,6 +95,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.physics.add.collider(this.player, this.blocks);
     this.physics.add.collider(this.player, this.doors);
+    this.physics.add.collider(this.player, this.void);
   }
 
   createCrosshair() {
@@ -136,7 +140,7 @@ export default class GameScene extends Phaser.Scene {
     this.doorsGroup = this.add.group();
     this.playerArrows = this.add.group({
       classType: PlayerArrow,
-      maxSize: 2
+      maxSize: 5
     });
     this.transitionsGroup = this.add.group({
       classType: Phaser.GameObjects.Zone

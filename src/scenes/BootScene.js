@@ -14,6 +14,7 @@ export default class BootScene extends Phaser.Scene {
     this.load.tilemapTiledJSON('map', 'assets/tilemaps/map.json');
     this.load.tilemapTiledJSON('level-1-floor-1', 'assets/tilemaps/level-1-floor-1.json');
     this.load.tilemapTiledJSON('level-1-floor-2', 'assets/tilemaps/level-1-floor-2.json');
+    this.load.tilemapTiledJSON('level-1-floor-3', 'assets/tilemaps/level-1-floor-3.json');
     this.load.tilemapTiledJSON('level-1-floor-666', 'assets/tilemaps/level-1-floor-666.json');
 
     this.load.atlas(
@@ -105,6 +106,20 @@ export default class BootScene extends Phaser.Scene {
         }
       ),
       duration: 300,
+      repeat: 0
+    });
+
+    this.anims.create({
+      key: 'arrow-break',
+      frames: this.anims.generateFrameNames(
+        'atlas', {
+          prefix: 'arrow-break-',
+          suffix: '',
+          start: 0,
+          end: 2,
+          zeroPad: 0
+        }
+      ),
       repeat: 0
     });
 

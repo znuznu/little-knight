@@ -9,7 +9,7 @@ import InstructionsScene from './scenes/InstructionsScene.js';
 
 var config = {
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    backgroundColor: '#1c1117',
+    backgroundColor: '#222222',
     type: Phaser.AUTO,
     width: 800,
     height: 480,

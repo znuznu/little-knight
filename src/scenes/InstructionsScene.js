@@ -24,7 +24,7 @@ export default class InstructionsScene extends Phaser.Scene {
         'gameScene',
         {
           level: '1',
-          floor: '2',
+          floor: '3',
           player: undefined
         }
       );
