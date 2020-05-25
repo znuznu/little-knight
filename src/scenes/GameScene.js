@@ -101,7 +101,6 @@ export default class GameScene extends Phaser.Scene {
     // how to test only one time.
     this.input.on('pointerdown', pointer => {
       let state = this.player.actionStateMachine.state;
-      console.log(this.player.body);
       if (state === 'idle' || state === 'run') {
         switch (this.player.getCurrentWeapon()) {
           case 'sword':
@@ -164,6 +163,24 @@ export default class GameScene extends Phaser.Scene {
     this.transitionsGroup = this.add.group({
       classType: Phaser.GameObjects.Zone
     });
+    this.dashShadowsGroup = this.add.group({
+      maxSize: 5
+    });
+
+    this.dashShadowsGroup.createMultiple({
+      key: 'atlas',
+      frame: 'little-knight-run-0',
+      setXY: {
+        x: this.player.x,
+        y: this.player.y
+      },
+      quantity: 5
+     });
+
+     this.dashShadowsGroup.children.each(c => {
+       c.setVisible(false);
+       c.setActive(false);
+     })
 
     this.physics.add.collider(
       this.playerArrows,

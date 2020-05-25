@@ -2,6 +2,30 @@ import State from '../State.js';
 
 export default class PlayerDashState extends State {
   enter(scene, player) {
+    let t = setInterval(_ => {
+      let dashShadow = scene.dashShadowsGroup.get();
+      if (dashShadow) {
+        dashShadow.setX(player.x);
+        dashShadow.setY(player.y);
+        dashShadow.setFlipX(player.view === 'left');
+        dashShadow.setAlpha(1);
+        dashShadow.setVisible(true);
+        dashShadow.setActive(true);
+
+        let tw = scene.tweens.add({
+          targets: dashShadow,
+          alpha: 0,
+          ease: 'Cubic.easeOut',
+          duration: 300,
+          repeat: 0,
+          onComplete: _ => {
+            dashShadow.setVisible(false);
+            dashShadow.setActive(false);
+          }
+        });
+      }
+    }, 50);
+
     if (player.direction.up) {
       player.body.setVelocityY(-player.speed*2);
     } else if (player.direction.down) {
@@ -16,10 +40,8 @@ export default class PlayerDashState extends State {
       player.body.setVelocityX(player.speed*2);
     }
 
-    player.setAlpha(0.5);
-
-    scene.time.delayedCall(300, _ => {
-      player.setAlpha(1);
+    scene.time.delayedCall(player.dashDuration, _ => {
+      clearInterval(t);
       player.actionStateMachine.transition('idle');
     });
   }

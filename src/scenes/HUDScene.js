@@ -70,7 +70,7 @@ export default class HUDScene extends Phaser.Scene {
     this.keys.children.each(c => {
       c.setVisible(false);
       c.setActive(false);
-    })
+    });
   }
 
   createKeyBoss() {

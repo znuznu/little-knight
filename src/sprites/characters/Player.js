@@ -30,6 +30,8 @@ export default class Player extends Character {
     // Delta time since the last shot with the bow.
     this.lastShot = 0;
 
+    this.dashDuration = 300;
+
     this.setData({
       'weapons': weapons,
       'inventory': inventory
