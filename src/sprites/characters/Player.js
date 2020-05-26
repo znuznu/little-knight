@@ -106,6 +106,9 @@ export default class Player extends Character {
       case 'key-boss':
         this.storeInInventory(item);
         break;
+      case 'potion-heal':
+        this.drink(item);
+        break;
     }
   }
 
@@ -122,6 +125,15 @@ export default class Player extends Character {
         break;
       case 'key-boss':
         eventsManager.emit('update-key-boss', this.getData('inventory')['key-boss']);
+        break;
+    }
+  }
+
+  drink(item) {
+    switch (item) {
+      case 'potion-heal':
+        this.health += 2;
+        eventsManager.emit('update-health', this.health);
         break;
     }
   }
