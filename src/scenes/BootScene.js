@@ -15,6 +15,7 @@ export default class BootScene extends Phaser.Scene {
     this.load.tilemapTiledJSON('level-1-floor-1', 'assets/tilemaps/level-1-floor-1.json');
     this.load.tilemapTiledJSON('level-1-floor-2', 'assets/tilemaps/level-1-floor-2.json');
     this.load.tilemapTiledJSON('level-1-floor-3', 'assets/tilemaps/level-1-floor-3.json');
+    this.load.tilemapTiledJSON('level-1-floor-4', 'assets/tilemaps/level-1-floor-4.json');
     this.load.tilemapTiledJSON('level-1-floor-666', 'assets/tilemaps/level-1-floor-666.json');
 
     this.load.atlas(
@@ -26,11 +27,11 @@ export default class BootScene extends Phaser.Scene {
 
   create() {
     this.add.text(20, 20, 'Loading...');
-    this.createAnimation();
+    this.createAnimations();
     this.scene.start('menuScene');
   }
 
-  createAnimation() {
+  createAnimations() {
     /* Player */
     this.anims.create({
       key: 'player-menu-flex',
@@ -120,6 +121,36 @@ export default class BootScene extends Phaser.Scene {
           zeroPad: 0
         }
       ),
+      repeat: 0
+    });
+
+    this.anims.create({
+      key: 'fireball-simple',
+      frames: this.anims.generateFrameNames(
+        'atlas', {
+          prefix: 'fireball-simple-',
+          suffix: '',
+          start: 0,
+          end: 3,
+          zeroPad: 0
+        }
+      ),
+      frameRate: 8,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: 'fireball-simple-explosion',
+      frames: this.anims.generateFrameNames(
+        'atlas', {
+          prefix: 'fireball-simple-explosion-',
+          suffix: '',
+          start: 0,
+          end: 3,
+          zeroPad: 0
+        }
+      ),
+      frameRate: 8,
       repeat: 0
     });
 

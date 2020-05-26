@@ -26,7 +26,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
     });
   }
 
-  hitBy(damage) {
+  hit(damage) {
     this.health -= damage;
     if (this.health < 0) this.health = 0;
   }

@@ -1,9 +1,10 @@
-import State from '../State.js';
-import PlayerSlash from '../../sprites/movesets/PlayerSlash.js';
-
-/* State of the player attacking with a sword.
- * Huge improvements possible here, to simple, need some maths.
+/*
+ * State of the player attacking with a sword.
+ * Huge improvements possible here, too simple, need some maths.
  */
+
+import State from '../State.js';
+import PlayerSlash from '../../sprites/movesets/player/PlayerSlash.js';
 
 export default class PlayerSlashState extends State {
   enter(scene, player) {

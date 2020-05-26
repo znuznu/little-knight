@@ -7,7 +7,7 @@ export default class IceSad extends Enemy {
     this.body.setOffset(6, 15);
     this.health = 1;
     this.meleeDamage = 1;
-    this.speed = 200;
+    this.speed = 160;
 
     this.animationState = {
       'idle': 'ice-sad',

@@ -3,6 +3,7 @@
  * of Michael Kelly. His (awesome) article can be found on his
  * blog: https://www.mkelly.me/blog/phaser-finite-state-machine/
  */
+ 
 import State from './State.js';
 
 export default class StateMachine {

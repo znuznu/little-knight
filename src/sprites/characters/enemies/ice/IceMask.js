@@ -5,7 +5,7 @@ export default class IceMask extends Enemy {
     super(config);
     this.body.setSize(20, 15);
     this.body.setOffset(10, 20);
-    this.health = 2;
+    this.health = 3;
     this.meleeDamage = 2;
     this.speed = 150;
 

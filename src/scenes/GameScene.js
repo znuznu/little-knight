@@ -1,7 +1,6 @@
 import Character from '../sprites/characters/Character.js';
 import Father from '../sprites/characters/npcs/Father.js';
 import Player from '../sprites/characters/Player.js';
-
 import Enemy from '../sprites/characters/enemies/Enemy.js';
 import Lizard from '../sprites/characters/enemies/ice/Lizard.js';
 import IceSad from '../sprites/characters/enemies/ice/IceSad.js';
@@ -18,8 +17,8 @@ import OrcMask from '../sprites/characters/enemies/orc/OrcMask.js';
 import OrcBig from '../sprites/characters/enemies/orc/OrcBig.js';
 import OrcTattoo from '../sprites/characters/enemies/orc/OrcTattoo.js';
 import Mage from '../sprites/characters/enemies/mage/Mage.js';
-
-import PlayerArrow from '../sprites/movesets/PlayerArrow.js';
+import PlayerArrow from '../sprites/movesets/player/PlayerArrow.js';
+import FireballSimple from '../sprites/movesets/enemies/FireballSimple.js';
 import Chest from '../sprites/misc/Chest.js';
 import Door from '../sprites/misc/Door.js';
 import eventsManager from './EventsManager.js';
@@ -158,17 +157,26 @@ export default class GameScene extends Phaser.Scene {
     this.doorsGroup = this.add.group({
       runChildUpdate: true
     });
+
     this.playerArrows = this.add.group({
       classType: PlayerArrow,
       maxSize: 5
     });
+
     this.transitionsGroup = this.add.group({
       classType: Phaser.GameObjects.Zone
     });
+
     this.dashShadowsGroup = this.add.group({
       maxSize: 5
     });
 
+    this.fireballsSimple = this.add.group({
+      classType: FireballSimple,
+      maxSize: 1
+    });
+
+    // Player dash shadows.
     this.dashShadowsGroup.createMultiple({
       key: 'atlas',
       frame: 'little-knight-run-0',
@@ -177,14 +185,15 @@ export default class GameScene extends Phaser.Scene {
         y: this.player.y
       },
       quantity: 5
-     });
+    });
 
      this.dashShadowsGroup.children.each(c => {
        c.setVisible(false);
        c.setActive(false);
-     })
+     });
 
-    this.physics.add.collider(
+     // Player arrows.
+     this.physics.add.collider(
       this.playerArrows,
       this.doorsGroup,
       (a, d) => { a.blocksCollide(); }
@@ -202,15 +211,26 @@ export default class GameScene extends Phaser.Scene {
       (a, e) => { a.enemyCollide(e) }
     );
 
+    // Player.
     this.physics.add.collider(
       this.player,
       this.enemyGroup,
       (p, e) => { e.meleeAttack(p); }
     );
 
+    // Fireballs.
+    this.physics.add.collider(
+      this.fireballsSimple,
+      this.blocks,
+      (fb, b) => { fb.explode(); }
+    );
+
+    // Enemies.
     this.physics.add.collider(this.enemyGroup, this.enemyGroup);
     this.physics.add.collider(this.enemyGroup, this.blocks);
     this.physics.add.collider(this.enemyGroup, this.void);
+
+    // Transitions.
     this.physics.add.collider(
       this.transitionsGroup,
       this.player,
@@ -220,7 +240,8 @@ export default class GameScene extends Phaser.Scene {
     );
   }
 
-  /* Change level and pass player's arguments to the next scene.
+  /*
+   * Change level and pass player's arguments to the next scene.
    * I'm not passing the player itself because in this case his
    * scene from his states machines needs to be updated and it's
    * tricky.
@@ -240,7 +261,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createObjects() {
-    // Enemies, awful.
+    // Enemies.
     this.map.getObjectLayer('enemies').objects.forEach(enemy => {
       let enemyObject;
       enemy.x += 16;

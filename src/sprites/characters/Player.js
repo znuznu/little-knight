@@ -67,10 +67,9 @@ export default class Player extends Character {
     this.healthStateMachine.update();
   }
 
-  /* I dont like doing the step manually here. */
-  hurt(enemy) {
+  hurt(damage) {
     if (this.healthStateMachine.state == 'normal')
-      this.healthStateMachine.transition('hurt', enemy);
+      this.healthStateMachine.transition('hurt', damage);
   }
 
   nextWeapon() {

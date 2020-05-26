@@ -22,6 +22,8 @@ export default class Enemy extends Character {
     // Some enemies could do more or less than 1 hp, (whole number only).
     this.meleeDamage = 1;
 
+    // Default state machine for enemies, they simply chase
+    // the player when he's at range and might be hurt/die.
     this.actionStateMachine = new StateMachine('idle', {
         idle: new EnemyIdleState(),
         chase: new EnemyChaseState(),
@@ -32,7 +34,7 @@ export default class Enemy extends Character {
 
   // Attack from the enemy to the player.
   meleeAttack(player) {
-    player.hurt(this);
+    player.hurt(this.meleeDamage);
   }
 
   // Attack taken from an enemy with a melee weapon of the player.

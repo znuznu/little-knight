@@ -1,7 +1,9 @@
-import State from '../State.js';
-import PlayerArrow from '../../sprites/movesets/PlayerArrow.js';
+/*
+ * State of the player attacking with a bow.
+ */
 
-/* State of the player attacking with a bow. */
+import State from '../State.js';
+import PlayerArrow from '../../sprites/movesets/player/PlayerArrow.js';
 
 export default class PlayerShootState extends State {
   enter(scene, player) {

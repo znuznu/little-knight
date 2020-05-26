@@ -20,8 +20,6 @@ export default class PlayerArrow extends Phaser.GameObjects.Sprite {
     this.x = this.scene.player.body.x;
     this.y = this.scene.player.body.y;
 
-    console.log(this.x, this.y)
-
     let crosshair = this.scene.crosshair;
     let angleRad = Phaser.Math.Angle.Between(
       this.x,
