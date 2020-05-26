@@ -17,8 +17,6 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
   }
 
   cast() {
-    console.tab()
-
     let angleRad = Phaser.Math.Angle.Between(
       this.x,
       this.y,
@@ -44,9 +42,8 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
   }
 
   explode() {
-    //this.anims.stop();
     this.play('fireball-simple-explosion', true);
-    this.on('animationcomplete', _ => {
+    this.once('animationcomplete', _ => {
       this.setActive(false);
       this.setVisible(false);
       this.body.checkCollision.none = true;

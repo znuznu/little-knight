@@ -1,4 +1,11 @@
 { "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
  "height":50,
  "infinite":false,
  "layers":[
@@ -103,15 +110,15 @@
          "objects":[
                 {
                  "height":0,
-                 "id":5,
+                 "id":7,
                  "name":"",
                  "point":true,
                  "rotation":0,
                  "type":"mage",
                  "visible":true,
                  "width":0,
-                 "x":1696,
-                 "y":576
+                 "x":1728,
+                 "y":512
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -153,7 +160,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":6,
+ "nextobjectid":8,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.3.4",

@@ -117,11 +117,12 @@ export default class BootScene extends Phaser.Scene {
           prefix: 'arrow-break-',
           suffix: '',
           start: 0,
-          end: 2,
+          end: 1,
           zeroPad: 0
         }
       ),
-      repeat: 0
+      repeat: 0,
+      duration: 150
     });
 
     this.anims.create({

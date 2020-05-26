@@ -37,7 +37,7 @@ export default class GameScene extends Phaser.Scene {
       this.createPlayer(player.health, player.weapons, player.inventory);
     } else {
       this.scene.run('hudScene');
-      this.createPlayer(6, ['sword'], {});
+      this.createPlayer(6, ['bow'], {});
     }
   }
 
@@ -171,9 +171,9 @@ export default class GameScene extends Phaser.Scene {
       maxSize: 5
     });
 
-    this.fireballsSimple = this.add.group({
+    this.fireballsSimpleGroup = this.add.group({
       classType: FireballSimple,
-      maxSize: 1
+      maxSize: 30
     });
 
     // Player dash shadows.
@@ -196,13 +196,13 @@ export default class GameScene extends Phaser.Scene {
      this.physics.add.collider(
       this.playerArrows,
       this.doorsGroup,
-      (a, d) => { a.blocksCollide(); }
+      (a, d) => { a.break(); }
     );
 
     this.physics.add.collider(
       this.playerArrows,
       this.blocks,
-      (a, b) => { a.blocksCollide(); }
+      (a, b) => { a.break(); }
     );
 
     this.physics.add.collider(
@@ -220,7 +220,7 @@ export default class GameScene extends Phaser.Scene {
 
     // Fireballs.
     this.physics.add.collider(
-      this.fireballsSimple,
+      this.fireballsSimpleGroup,
       this.blocks,
       (fb, b) => { fb.explode(); }
     );
