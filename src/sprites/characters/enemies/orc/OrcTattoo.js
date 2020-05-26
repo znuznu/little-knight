@@ -7,7 +7,7 @@ export default class OrcTattoo extends Enemy {
     this.body.setOffset(7, 16);
     this.health = 3;
     this.meleeDamage = 1;
-    this.speed = 200;
+    this.speed = 180;
 
     this.animationState = {
       'idle': 'orc-tattoo-idle',

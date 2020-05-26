@@ -13,7 +13,7 @@ export default class Mage extends Enemy {
     this.health = 2;
     this.meleeDamage = 1;
     this.speed = 50;
-    this.aggroRadius = 320;
+    this.aggroRadius = 352;
     this.castLoadDuration = 2000;
 
     this.actionStateMachine = new StateMachine('idle', {

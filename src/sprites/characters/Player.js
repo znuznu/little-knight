@@ -132,6 +132,8 @@ export default class Player extends Character {
     switch (item) {
       case 'potion-heal':
         this.health += 2;
+        if (this.health > this.maximumHealth)
+          this.health = this.maximumHealth;
         eventsManager.emit('update-health', this.health);
         break;
     }

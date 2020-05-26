@@ -7,7 +7,7 @@ export default class OrcMask extends Enemy {
     this.body.setOffset(7, 16);
     this.health = 5;
     this.meleeDamage = 1;
-    this.speed = 200;
+    this.speed = 180;
 
     this.animationState = {
       'idle': 'orc-mask-idle',

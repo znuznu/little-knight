@@ -136,7 +136,7 @@ export default class BootScene extends Phaser.Scene {
           zeroPad: 0
         }
       ),
-      frameRate: 8,
+      frameRate: 4,
       repeat: -1
     });
 

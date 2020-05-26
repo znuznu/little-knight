@@ -37,7 +37,7 @@ export default class GameScene extends Phaser.Scene {
       this.createPlayer(player.health, player.weapons, player.inventory);
     } else {
       this.scene.run('hudScene');
-      this.createPlayer(6, ['bow'], {});
+      this.createPlayer(6, ['bow', 'sword'], {});
     }
   }
 
@@ -88,8 +88,8 @@ export default class GameScene extends Phaser.Scene {
     this.player = new Player({
       scene: this,
       key: 'player',
-      x: spawnObject.x,
-      y: spawnObject.y
+      x: spawnObject.x + 16,
+      y: spawnObject.y - 16
     }, health, inventory, weapons);
 
     this.physics.add.collider(this.player, this.blocks);
