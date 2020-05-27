@@ -77,9 +77,11 @@ export default class GameScene extends Phaser.Scene {
     this.blocks = this.map.createDynamicLayer('block', tileset, 0, 0);
     this.void = this.map.createDynamicLayer('void', tileset, 0, 0);
     this.above = this.map.createDynamicLayer('above', tileset, 0, 0);
+    this.spikes = this.map.createDynamicLayer('spike', tileset, 0, 0);
     this.above.setDepth(10);
     this.blocks.setCollisionByProperty({ collides: true });
     this.void.setCollisionByProperty({ collides: true });
+    this.spikes.setCollisionByProperty({ collides: true });
   }
 
   createPlayer(health, inventory, weapons) {
@@ -95,12 +97,17 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.player, this.blocks);
     this.physics.add.collider(this.player, this.doors);
     this.physics.add.collider(this.player, this.void);
+    this.physics.add.collider(
+      this.player,
+      this.spikes,
+      _ => { this.player.hurt(80); }
+    );
 
-    // Ugly, should be inside the Player[Idle/Run]State but dunno
-    // how to test only one time.
+    // Ugly, should be inside the Player[Idle/Run]State
+    // but dunno how to test only one time.
     this.input.on('pointerdown', pointer => {
       let state = this.player.actionStateMachine.state;
-      if (state === 'idle' || state === 'run') {
+      if (!this.player.isDead() && (state === 'idle' || state === 'run')) {
         switch (this.player.getCurrentWeapon()) {
           case 'sword':
             this.player.actionStateMachine.transition('slash');
@@ -202,6 +209,12 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(
       this.playerArrows,
       this.blocks,
+      (a, b) => { a.break(); }
+    );
+
+    this.physics.add.collider(
+      this.playerArrows,
+      this.spikes,
       (a, b) => { a.break(); }
     );
 
@@ -453,7 +466,8 @@ export default class GameScene extends Phaser.Scene {
   }
 
   updatePlayer(time, delta) {
-    this.player.update(time, delta);
+    if (!this.player.isDead())
+      this.player.update(time, delta);
   }
 
   updateEnemies() {

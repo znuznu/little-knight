@@ -15,10 +15,11 @@ export default class PlayerHurtState extends State {
     eventsManager.emit('update-health', player.health);
 
     scene.time.delayedCall(1000, _ => {
-      if (player.isDead())
+      if (player.isDead()) {
         player.healthStateMachine.transition('dead');
-      else
+      } else {
         player.healthStateMachine.transition('normal');
+      }
     });
   }
 }
