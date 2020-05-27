@@ -17,8 +17,11 @@ import OrcMask from '../sprites/characters/enemies/orc/OrcMask.js';
 import OrcBig from '../sprites/characters/enemies/orc/OrcBig.js';
 import OrcTattoo from '../sprites/characters/enemies/orc/OrcTattoo.js';
 import Mage from '../sprites/characters/enemies/mage/Mage.js';
+import DesolationKnight from '../sprites/characters/enemies/boss/DesolationKnight.js';
 import PlayerArrow from '../sprites/movesets/player/PlayerArrow.js';
 import FireballSimple from '../sprites/movesets/enemies/FireballSimple.js';
+import FireballArcanic from '../sprites/movesets/enemies/FireballArcanic.js';
+import PursuitSword from '../sprites/movesets/enemies/PursuitSword.js';
 import Chest from '../sprites/misc/Chest.js';
 import Door from '../sprites/misc/Door.js';
 import eventsManager from './EventsManager.js';
@@ -30,7 +33,8 @@ export default class GameScene extends Phaser.Scene {
 
   init(data) {
     this.createMap(data.level, data.floor);
-
+    /*this.level = data.level;
+    this.floor = data.floor;*/
     let player = data.player;
 
     if (player) {
@@ -72,15 +76,20 @@ export default class GameScene extends Phaser.Scene {
     let mapName = 'level-' + level + '-floor-' + floor;
     this.map = this.make.tilemap({ key: mapName });
     const tileset = this.map.addTilesetImage('tileset', 'tileset', 32, 32, 1, 2);
-    this.walkables = this.map.createDynamicLayer('walkable', tileset, 0, 0);
-    this.details = this.map.createDynamicLayer('detail', tileset, 0, 0);
-    this.blocks = this.map.createDynamicLayer('block', tileset, 0, 0);
-    this.void = this.map.createDynamicLayer('void', tileset, 0, 0);
     this.above = this.map.createDynamicLayer('above', tileset, 0, 0);
-    this.spikes = this.map.createDynamicLayer('spike', tileset, 0, 0);
     this.above.setDepth(10);
-    this.blocks.setCollisionByProperty({ collides: true });
+
+    this.void = this.map.createDynamicLayer('void', tileset, 0, 0);
     this.void.setCollisionByProperty({ collides: true });
+
+    this.walkables = this.map.createDynamicLayer('walkable', tileset, 0, 0);
+
+    this.blocks = this.map.createDynamicLayer('block', tileset, 0, 0);
+    this.blocks.setCollisionByProperty({ collides: true });
+
+    this.details = this.map.createDynamicLayer('detail', tileset, 0, 0);
+
+    this.spikes = this.map.createDynamicLayer('spike', tileset, 0, 0);
     this.spikes.setCollisionByProperty({ collides: true });
   }
 
@@ -106,6 +115,7 @@ export default class GameScene extends Phaser.Scene {
     // Ugly, should be inside the Player[Idle/Run]State
     // but dunno how to test only one time.
     this.input.on('pointerdown', pointer => {
+      console.log(this.crosshair.x, this.crosshair.y)
       let state = this.player.actionStateMachine.state;
       if (!this.player.isDead() && (state === 'idle' || state === 'run')) {
         switch (this.player.getCurrentWeapon()) {
@@ -183,6 +193,16 @@ export default class GameScene extends Phaser.Scene {
       maxSize: 30
     });
 
+    this.fireballsArcanicGroup = this.add.group({
+      classType: FireballArcanic,
+      maxSize: 96
+    });
+
+    this.pursuitSwordGroup = this.add.group({
+      classType: PursuitSword,
+      runChildUpdate: true
+    });
+
     // Player dash shadows.
     this.dashShadowsGroup.createMultiple({
       key: 'atlas',
@@ -238,6 +258,31 @@ export default class GameScene extends Phaser.Scene {
       (fb, b) => { fb.explode(); }
     );
 
+    this.physics.add.collider(
+      this.fireballsArcanicGroup,
+      this.blocks,
+      (fba, b) => { fba.explode(); }
+    );
+
+    this.physics.add.collider(
+      this.fireballsArcanicGroup,
+      this.spikes,
+      (fba, b) => { fba.explode(); }
+    );
+
+    // Pursuit sword.
+    this.physics.add.collider(
+      this.pursuitSwordGroup,
+      this.player,
+      (ps, p) => { ps.collidePlayer(p); }
+    );
+
+    this.physics.add.collider(
+      this.pursuitSwordGroup,
+      this.spikes,
+      (ps, p) => { ps.collide(); }
+    );
+
     // Enemies.
     this.physics.add.collider(this.enemyGroup, this.enemyGroup);
     this.physics.add.collider(this.enemyGroup, this.blocks);
@@ -280,6 +325,14 @@ export default class GameScene extends Phaser.Scene {
       enemy.x += 16;
       enemy.y -= 16;
       switch (enemy.type) {
+        case 'desolation-knight':
+          enemyObject = new DesolationKnight({
+            scene: this,
+            key: 'desolation-knight',
+            x: enemy.x,
+            y: enemy.y
+          });
+          break;
         case 'ice-lizard':
           enemyObject = new Lizard({
             scene: this,

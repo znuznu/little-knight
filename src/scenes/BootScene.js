@@ -94,6 +94,37 @@ export default class BootScene extends Phaser.Scene {
       repeat: -1
     });
 
+    /* Bosses */
+    this.anims.create({
+      key: 'desolation-knight-idle',
+      frames: this.anims.generateFrameNames(
+        'atlas', {
+          prefix: 'boss-01-idle-',
+          suffix: '',
+          start: 0,
+          end: 3,
+          zeroPad: 0
+        }
+      ),
+      frameRate: 5,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: 'desolation-knight-run',
+      frames: this.anims.generateFrameNames(
+        'atlas', {
+          prefix: 'boss-01-run-',
+          suffix: '',
+          start: 0,
+          end: 3,
+          zeroPad: 0
+        }
+      ),
+      frameRate: 5,
+      repeat: -1
+    });
+
     /* Movesets (player & enemies) */
 
     this.anims.create({
@@ -146,6 +177,36 @@ export default class BootScene extends Phaser.Scene {
       frames: this.anims.generateFrameNames(
         'atlas', {
           prefix: 'fireball-simple-explosion-',
+          suffix: '',
+          start: 0,
+          end: 3,
+          zeroPad: 0
+        }
+      ),
+      frameRate: 8,
+      repeat: 0
+    });
+
+    this.anims.create({
+      key: 'fireball-arcanic',
+      frames: this.anims.generateFrameNames(
+        'atlas', {
+          prefix: 'fireball-arcanic-',
+          suffix: '',
+          start: 0,
+          end: 3,
+          zeroPad: 0
+        }
+      ),
+      frameRate: 4,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: 'fireball-arcanic-explosion',
+      frames: this.anims.generateFrameNames(
+        'atlas', {
+          prefix: 'fireball-arcanic-explosion-',
           suffix: '',
           start: 0,
           end: 3,

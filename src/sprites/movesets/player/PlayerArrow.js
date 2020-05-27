@@ -27,9 +27,7 @@ export default class PlayerArrow extends Phaser.GameObjects.Sprite {
     );
 
     let angleDeg = Phaser.Math.RadToDeg(angleRad);
-
     this.angle = angleDeg;
-
     let leftLimit = 135, rightLimit = 45;
     let top = this.angle > rightLimit && this.angle < leftLimit;
     let bottom = this.angle < -rightLimit && this.angle > -leftLimit;
