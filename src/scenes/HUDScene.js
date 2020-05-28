@@ -193,6 +193,10 @@ export default class HUDScene extends Phaser.Scene {
   updateBossHealth(maximum, current) {
     let percentage = 100 * current / maximum;
     let widthPercentage = percentage * (this.maximumHealthBar.width / 100);
+
+    if (widthPercentage == 0)
+      widthPercentage = 4;
+
     this.currentHealthBar.setSize(
       widthPercentage - 4,
       this.maximumHealthBar.height - 4

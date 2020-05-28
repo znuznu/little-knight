@@ -18,6 +18,8 @@ export default class DesolationKnightDeadState extends State {
     scene.pursuitSwordGroup.clear(true, true);
     dk.destroy();
 
+    scene.cameras.main.shake(1000, 0.03);
+    
     smoke.on('animationcomplete', _ => {
       HUDEventsManager.emit('hide-boss-stats');
       scene.events.emit('replace-tiles', dk.areaGuarded, 'spike', 79);

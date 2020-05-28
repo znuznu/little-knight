@@ -86,9 +86,6 @@ export default class GameScene extends Phaser.Scene {
     let mapName = 'level-' + level + '-floor-' + floor;
     this.map = this.make.tilemap({ key: mapName });
 
-    console.log(this.map.getTileAtWorldXY(401, 303));
-    console.log(this.map.getTileAtWorldXY(595, 523));
-
     const tileset = this.map.addTilesetImage('tileset', 'tileset', 32, 32, 1, 2);
 
     this.above = this.map.createDynamicLayer('above', tileset, 0, 0);
@@ -130,8 +127,7 @@ export default class GameScene extends Phaser.Scene {
     // Ugly, should be inside the Player[Idle/Run]State
     // but dunno how to test only one time.
     this.input.on('pointerdown', pointer => {
-      console.log(this.crosshair.x, this.crosshair.y)
-      console.log(this.map.getTileAtWorldXY(this.crosshair.x, this.crosshair.y));
+
       let state = this.player.actionStateMachine.state;
       if (!this.player.isDead() && (state === 'idle' || state === 'run')) {
         switch (this.player.getCurrentWeapon()) {
