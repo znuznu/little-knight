@@ -1,4 +1,4 @@
-import eventsManager from './EventsManager.js';
+import HUDEventsManager from '../events/HUDEventsManager.js';
 
 export default class HUDScene extends Phaser.Scene {
   constructor() {
@@ -12,13 +12,20 @@ export default class HUDScene extends Phaser.Scene {
     this.createWeapons();
     this.createKeys();
     this.createKeyBoss();
+    this.createBossName();
+    this.createBossHealth();
+    this.hideBossStats();
   }
 
   createEventsListener() {
-    eventsManager.on('update-health', this.updateHealth, this);
-    eventsManager.on('update-weapons', this.updateWeapons, this);
-    eventsManager.on('update-keys', this.updateKeys, this);
-    eventsManager.on('update-key-boss', this.updateKeyBoss, this);
+    HUDEventsManager.on('update-health', this.updateHealth, this);
+    HUDEventsManager.on('update-weapons', this.updateWeapons, this);
+    HUDEventsManager.on('update-keys', this.updateKeys, this);
+    HUDEventsManager.on('update-key-boss', this.updateKeyBoss, this);
+    HUDEventsManager.on('update-boss-health', this.updateBossHealth, this);
+    HUDEventsManager.on('update-boss-name', this.updateBossName, this);
+    HUDEventsManager.on('show-boss-stats', this.showBossStats, this);
+    HUDEventsManager.on('hide-boss-stats', this.hideBossStats, this);
   }
 
   createHealth() {
@@ -26,7 +33,7 @@ export default class HUDScene extends Phaser.Scene {
 			classType: Phaser.GameObjects.Image
 		});
 
-    // I'm sure there's a better way, like using createMultiple().
+    // Better to pass a player as argument with his hearts.
     for (let hearts = 1; hearts <= 3; hearts++) {
       this.health.add(
         this.add.sprite(32 * hearts, 32, 'atlas', 'heart-0')
@@ -78,6 +85,51 @@ export default class HUDScene extends Phaser.Scene {
     this.keyBoss.setVisible(false);
   }
 
+  createBossName() {
+    this.bossName = this.add.text(
+      128,
+      384,
+      'Default',
+      { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' }
+    ).setOrigin(0, 0);
+  }
+
+  createBossHealth() {
+    this.maximumHealthBar = this.add.rectangle(
+      128, 416, 544, 32, 0x222222
+    ).setOrigin(0, 0);
+
+    this.borderTop = this.add.rectangle(
+      this.maximumHealthBar.x,
+      this.maximumHealthBar.y - 2,
+      this.maximumHealthBar.width, 2, 0xffffff
+    ).setOrigin(0, 0);
+
+    this.borderDown = this.add.rectangle(
+      this.maximumHealthBar.x,
+      this.maximumHealthBar.y + this.maximumHealthBar.height,
+      this.maximumHealthBar.width, 2, 0xffffff
+    ).setOrigin(0, 0);
+
+    this.borderRight = this.add.rectangle(
+      this.maximumHealthBar.x - 2 ,
+      this.maximumHealthBar.y,
+      2, this.maximumHealthBar.height, 0xffffff
+    ).setOrigin(0, 0);
+
+    this.borderLeft = this.add.rectangle(
+      this.maximumHealthBar.x + this.maximumHealthBar.width,
+      this.maximumHealthBar.y,
+      2, this.maximumHealthBar.height, 0xffffff
+    ).setOrigin(0, 0);
+
+    this.currentHealthBar = this.add.rectangle(
+      this.maximumHealthBar.x + 2,
+      this.maximumHealthBar.y + 2,
+      0, this.maximumHealthBar.height - 4, 0xa40000
+    ).setOrigin(0, 0);
+  }
+
   updateWeapons(weapons) {
     this.weapons.children.each((weapon, index) => {
       switch (weapons[index]) {
@@ -86,6 +138,9 @@ export default class HUDScene extends Phaser.Scene {
           break;
         case 'sword':
           weapon.setFrame('sword');
+          break;
+        default:
+          weapon.setFrame('items-container');
           break;
       }
     });
@@ -129,5 +184,38 @@ export default class HUDScene extends Phaser.Scene {
       this.keyBoss.setVisible(true);
     else
       this.keyBoss.setVisible(false);
+  }
+
+  updateBossName(name) {
+    this.bossName.setText(name);
+  }
+
+  updateBossHealth(maximum, current) {
+    let percentage = 100 * current / maximum;
+    let widthPercentage = percentage * (this.maximumHealthBar.width / 100);
+    this.currentHealthBar.setSize(
+      widthPercentage - 4,
+      this.maximumHealthBar.height - 4
+    );
+  }
+
+  showBossStats() {
+    this.maximumHealthBar.setVisible(true);
+    this.currentHealthBar.setVisible(true);
+    this.borderTop.setVisible(true);
+    this.borderDown.setVisible(true);
+    this.borderRight.setVisible(true);
+    this.borderLeft.setVisible(true);
+    this.bossName.setVisible(true);
+  }
+
+  hideBossStats() {
+    this.maximumHealthBar.setVisible(false);
+    this.currentHealthBar.setVisible(false);
+    this.borderTop.setVisible(false);
+    this.borderDown.setVisible(false);
+    this.borderRight.setVisible(false);
+    this.borderLeft.setVisible(false);
+    this.bossName.setVisible(false);
   }
 }

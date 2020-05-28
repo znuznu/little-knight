@@ -24,7 +24,7 @@ import FireballArcanic from '../sprites/movesets/enemies/FireballArcanic.js';
 import PursuitSword from '../sprites/movesets/enemies/PursuitSword.js';
 import Chest from '../sprites/misc/Chest.js';
 import Door from '../sprites/misc/Door.js';
-import eventsManager from './EventsManager.js';
+import HUDEventsManager from '../events/HUDEventsManager.js';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -39,18 +39,19 @@ export default class GameScene extends Phaser.Scene {
       this.createPlayer(player.health, player.weapons, player.inventory);
     } else {
       this.scene.run('hudScene');
+      this.scene.run('bossHudScene');
       this.createPlayer(6, [], {});
     }
 
     this.saveState(data.level, data.floor, this.player);
 
     // Clear the HUD in case we're restarting the level after a death.
-    eventsManager.emit('update-weapons', this.player.getData('weapons'));
-    eventsManager.emit('update-health', this.player.health);
+    HUDEventsManager.emit('update-weapons', this.player.getData('weapons'));
+    HUDEventsManager.emit('update-health', this.player.health);
 
     // There's never a key to take from a level to another.
-    eventsManager.emit('update-keys', 0);
-    eventsManager.emit('update-key-boss', 0);
+    HUDEventsManager.emit('update-keys', 0);
+    HUDEventsManager.emit('update-key-boss', 0);
   }
 
   create() {
@@ -123,7 +124,6 @@ export default class GameScene extends Phaser.Scene {
     // Ugly, should be inside the Player[Idle/Run]State
     // but dunno how to test only one time.
     this.input.on('pointerdown', pointer => {
-      console.log(this.crosshair.x, this.crosshair.y)
       let state = this.player.actionStateMachine.state;
       if (!this.player.isDead() && (state === 'idle' || state === 'run')) {
         switch (this.player.getCurrentWeapon()) {
@@ -141,11 +141,17 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createCrosshair() {
+    let crosshairFrame = 'crosshair-simple';
+
+    if (this.player.getCurrentWeapon() == 'bow') {
+      crosshairFrame = 'crosshair-bow';
+    }
+
     this.crosshair = this.physics.add.sprite(
       this.player.x,
       this.player.y,
       'atlas',
-      'crosshair-simple'
+      crosshairFrame
     );
 
     this.crosshair.setDepth(11);
@@ -521,10 +527,10 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createEvents() {
-    // Don't need more than one time this event.
-    //this.events.removeListener('player-death');
-
     this.events.on('player-death', _ => {
+      // If the player dies against a boss.
+      HUDEventsManager.emit('hide-boss-stats');
+
       this.scene.start('endScene', {
         result: 'over',
         dataSaved: this.dataSaved

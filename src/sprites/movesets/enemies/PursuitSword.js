@@ -5,13 +5,13 @@ export default class PursuitSword extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.master = undefined;
     this.damage = 1;
-    this.speed = 200;
+    this.speed = 300;
     this.charge = 3;
     this.setDepth(3);
   }
 
   chase(target) {
-    this.scene.physics.moveToObject(this, target, this.speed);
+    this.scene.physics.moveTo(this, target.body.center.x, target.body.center.y, this.speed);
     this.rotateToward(target);
   }
 
@@ -23,18 +23,6 @@ export default class PursuitSword extends Phaser.GameObjects.Sprite {
   collidePlayer(player) {
     player.hurt(this.damage);
     this.charge = 0;
-  }
-
-  setColliderMaster() {
-    this.scene.physics.add.collider(
-      this,
-      this.scene.enemyGroup,
-      (s, m) => {
-        m.takeBack(this);
-      },
-      null,
-      this.scene
-    );
   }
 
   rotateToward(target) {

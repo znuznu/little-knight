@@ -29,6 +29,7 @@ export default class DesolationKnightCastFireballsState extends State {
     positions.forEach(p => {
       let fireballArcanic = scene.fireballsArcanicGroup.get();
       if (fireballArcanic) {
+        scene.cameras.main.shake(1000, 0.01);
         // Fireballs around the knight.
         fireballArcanic.setX(dk.x);
         fireballArcanic.setY(dk.y);
@@ -36,7 +37,7 @@ export default class DesolationKnightCastFireballsState extends State {
       }
     });
 
-    // 3 seconds then go back to idle, thus the
+    // 2 seconds then go back to idle, thus the
     // player can hit him if he's fast enough.
     scene.time.delayedCall(2000, _ => {
       dk.actionStateMachine.transition('idle');

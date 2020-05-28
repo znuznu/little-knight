@@ -1,5 +1,4 @@
 import State from '../State.js';
-import eventsManager from '../../scenes/EventsManager.js';
 import SmokeSmall from '../../sprites/effects/SmokeSmall.js';
 
 export default class PlayerDeadState extends State {

@@ -6,6 +6,7 @@ import DesolationKnightCastFireballsState from '../../../../states/enemies/boss/
 import DesolationKnightNormalState from '../../../../states/enemies/boss/DesolationKnightNormalState.js';
 import DesolationKnightHurtState from '../../../../states/enemies/boss/DesolationKnightHurtState.js';
 import DesolationKnightDeadState from '../../../../states/enemies/boss/DesolationKnightDeadState.js';
+import DesolationKnightWaitState from '../../../../states/enemies/boss/DesolationKnightWaitState.js';
 import EnemyHurtState from '../../../../states/enemies/EnemyHurtState.js';
 import EnemyDeadState from '../../../../states/enemies/EnemyDeadState.js';
 
@@ -14,13 +15,17 @@ export default class DesolationKnight extends Enemy {
     super(config);
     this.body.setSize(36, 26);
     this.body.setOffset(15, 40);
-    this.health = 50;
+    this.maximumHealth = 20;
+    this.health = 20;
     this.meleeDamage = 3;
     this.speed = 100;
     this.aggroRadius = 3200;
 
     // Sword throw at the player.
     this.hasSword = true;
+
+    // Cannot be damaged by arrow (phase 1).
+    this.arrowProof = true;
 
     this.body.setImmovable(true);
     this.teleportationTiles = [
@@ -38,19 +43,32 @@ export default class DesolationKnight extends Enemy {
 
     this.healthStateMachine.update();
 
-    this.actionStateMachine = new StateMachine('idle', {
+    this.actionStateMachine = new StateMachine('wait', {
+      wait: new DesolationKnightWaitState(),
       idle: new DesolationKnightIdleState(),
       teleport: new DesolationKnightTeleportState(),
       cast: new DesolationKnightCastFireballsState()
     }, [config.scene, this]);
 
     this.animationState = {
+      'wait': 'boss-01-idle',
       'idle': 'boss-01-idle',
       'cast': 'boss-01-idle',
       'teleport': 'boss-01-idle',
       'hurt': undefined,
       'dead': 'smoke-big'
     };
+
+    this.scene.physics.add.overlap(
+      this,
+      this.scene.pursuitSwordGroup,
+      (dk, s) => {
+        if (s.charge <= 0)
+          this.takeBack(s);
+      },
+      null,
+      this.scene
+    );
   }
 
   /*
@@ -64,14 +82,6 @@ export default class DesolationKnight extends Enemy {
     this.setY((randTile.y - 1) * 32);
   }
 
-  meleeAttackTaken(damage) {
-    this.hurt(damage);
-  }
-
-  arrowAttackTaken(damage) {
-    this.hurt(damage);
-  }
-
   hurt(damage) {
     if (this.healthStateMachine.state === 'normal') {
       this.healthStateMachine.transition('hurt', damage);
@@ -81,7 +91,6 @@ export default class DesolationKnight extends Enemy {
   throwPursuitSword() {
     let pursuitSword = this.scene.pursuitSwordGroup.get();
     if (pursuitSword) {
-      pursuitSword.setColliderMaster();
       pursuitSword.setVisible(true);
       pursuitSword.setActive(true);
       pursuitSword.body.checkCollision.none = false;

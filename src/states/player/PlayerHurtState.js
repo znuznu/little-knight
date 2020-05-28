@@ -4,7 +4,7 @@
  */
 
 import State from '../State.js';
-import eventsManager from '../../scenes/EventsManager.js';
+import HUDEventsManager from '../../events/HUDEventsManager.js';
 
 export default class PlayerHurtState extends State {
   enter(scene, player, damage) {
@@ -12,7 +12,7 @@ export default class PlayerHurtState extends State {
     player.setTint(0xb20000);
     scene.cameras.main.shake(500, 0.02);
 
-    eventsManager.emit('update-health', player.health);
+    HUDEventsManager.emit('update-health', player.health);
 
     scene.time.delayedCall(1000, _ => {
       if (player.isDead()) {

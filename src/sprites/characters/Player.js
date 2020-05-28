@@ -8,7 +8,7 @@ import PlayerHurtState from '../../states/player/PlayerHurtState.js';
 import PlayerSlashState from '../../states/player/PlayerSlashState.js';
 import PlayerShootState from '../../states/player/PlayerShootState.js';
 import PlayerDeadState from '../../states/player/PlayerDeadState.js';
-import eventsManager from '../../scenes/EventsManager.js';
+import HUDEventsManager from '../../events/HUDEventsManager.js';
 
 export default class Player extends Character {
   constructor(config, health, weapons, inventory) {
@@ -87,7 +87,7 @@ export default class Player extends Character {
       this.scene.crosshair.setFrame('crosshair-simple');
     }
 
-    eventsManager.emit('update-weapons', this.getData('weapons'));
+    HUDEventsManager.emit('update-weapons', this.getData('weapons'));
   }
 
   getCurrentWeapon() {
@@ -120,10 +120,10 @@ export default class Player extends Character {
 
     switch (item) {
       case 'key-simple':
-        eventsManager.emit('update-keys', this.getData('inventory')['key-simple']);
+        HUDEventsManager.emit('update-keys', this.getData('inventory')['key-simple']);
         break;
       case 'key-boss':
-        eventsManager.emit('update-key-boss', this.getData('inventory')['key-boss']);
+        HUDEventsManager.emit('update-key-boss', this.getData('inventory')['key-boss']);
         break;
     }
   }
@@ -134,7 +134,7 @@ export default class Player extends Character {
         this.health += 2;
         if (this.health > this.maximumHealth)
           this.health = this.maximumHealth;
-        eventsManager.emit('update-health', this.health);
+        HUDEventsManager.emit('update-health', this.health);
         break;
     }
   }

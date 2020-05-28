@@ -1,11 +1,11 @@
 import State from '../../State.js';
-import eventsManager from '../../../scenes/EventsManager.js';
+import HUDEventsManager from '../../../events/HUDEventsManager.js';
 
 export default class DesolationKnightHurtState extends State {
   enter(scene, dk, damage) {
     dk.hit(damage);
     dk.setTint(0xb20000);
-    //eventsManager.emit('update-health', player.health);
+    HUDEventsManager.emit('update-boss-health', dk.maximumHealth, dk.health);
     scene.time.delayedCall(1000, _ => {
       if (dk.isDead()) {
         dk.healthStateMachine.transition('dead');

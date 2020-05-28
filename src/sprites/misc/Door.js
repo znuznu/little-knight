@@ -1,4 +1,4 @@
-import eventsManager from '../../scenes/EventsManager.js';
+import HUDEventsManager from '../../events/HUDEventsManager.js';
 
 export default class Door extends Phaser.GameObjects.Sprite {
   constructor(config, type) {
@@ -43,7 +43,7 @@ export default class Door extends Phaser.GameObjects.Sprite {
           return 'update-key-boss';
       }
 
-      eventsManager.emit(
+      HUDEventsManager.emit(
         type(this.type),
         this.scene.player.getData('inventory')[keyType]
       );

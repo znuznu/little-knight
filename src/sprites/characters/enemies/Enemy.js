@@ -22,6 +22,9 @@ export default class Enemy extends Character {
     // Some enemies could do more or less than 1 hp, (whole number only).
     this.meleeDamage = 1;
 
+    // Some enemies might be invulnerable against arrow.
+    this.arrowProof = false;
+
     // Default state machine for enemies, they simply chase
     // the player when he's at range and might be hurt/die.
     this.actionStateMachine = new StateMachine('idle', {
@@ -44,7 +47,8 @@ export default class Enemy extends Character {
 
   // Attack taken from an enemy with an arrow of the player.
   arrowAttackTaken(damage) {
-    this.hurt(damage);
+    if (!this.arrowProof)
+      this.hurt(damage);
   }
 
   // Take damage.

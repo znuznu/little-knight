@@ -20,9 +20,7 @@ export default class InstructionsScene extends Phaser.Scene {
 
   update() {
     if (this.cursors.space.isDown) {
-      this.scene.start(
-        'gameScene',
-        {
+      this.scene.start('gameScene', {
           level: '1',
           floor: '5',
           player: undefined

@@ -53,7 +53,11 @@ export default class PlayerArrow extends Phaser.GameObjects.Sprite {
 
   enemyCollide(enemy) {
     enemy.arrowAttackTaken(this.damage);
-    this.hide();
+    if (enemy.arrowProof) {
+      this.break();
+    } else {
+      this.hide();
+    }
   }
 
   break() {
