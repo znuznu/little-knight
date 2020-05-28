@@ -33,16 +33,24 @@ export default class GameScene extends Phaser.Scene {
 
   init(data) {
     this.createMap(data.level, data.floor);
-    /*this.level = data.level;
-    this.floor = data.floor;*/
     let player = data.player;
 
     if (player) {
       this.createPlayer(player.health, player.weapons, player.inventory);
     } else {
       this.scene.run('hudScene');
-      this.createPlayer(6, ['bow', 'sword'], {});
+      this.createPlayer(6, [], {});
     }
+
+    this.saveState(data.level, data.floor, this.player);
+
+    // Clear the HUD in case we're restarting the level after a death.
+    eventsManager.emit('update-weapons', this.player.getData('weapons'));
+    eventsManager.emit('update-health', this.player.health);
+
+    // There's never a key to take from a level to another.
+    eventsManager.emit('update-keys', 0);
+    eventsManager.emit('update-key-boss', 0);
   }
 
   create() {
@@ -513,8 +521,14 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createEvents() {
+    // Don't need more than one time this event.
+    //this.events.removeListener('player-death');
+
     this.events.on('player-death', _ => {
-      this.scene.start('endScene', {result: 'over'});
+      this.scene.start('endScene', {
+        result: 'over',
+        dataSaved: this.dataSaved
+      });
     }, this);
   }
 
@@ -557,6 +571,27 @@ export default class GameScene extends Phaser.Scene {
     // Crosshair linked to the player velocity.
     this.crosshair.body.velocity.x = this.player.body.velocity.x;
     this.crosshair.body.velocity.y = this.player.body.velocity.y;
+  }
+
+  /*
+   * Save-state of the player for this scene at the beginning of
+   * the level. If he die we can simply restart the level with
+   * this stats.
+   */
+  saveState(level, floor, player) {
+    let weaponsCopy = [];
+    player.getData('weapons').forEach(weapon => {
+      weaponsCopy.push(weapon);
+    });
+
+    this.dataSaved = {
+      level: level,
+      floor: floor,
+      player: {
+        health: player.health,
+        weapons: weaponsCopy
+      }
+    };
   }
 
   enableTilemapDebug() {

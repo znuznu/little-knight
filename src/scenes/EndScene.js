@@ -5,6 +5,7 @@ export default class MenuScene extends Phaser.Scene {
 
   init(data) {
     this.result = data.result;
+    this.dataSaved = data.dataSaved;
   }
 
   create() {
@@ -32,7 +33,15 @@ export default class MenuScene extends Phaser.Scene {
 
   update() {
     if (this.cursors.space.isDown) {
-      this.scene.start('menuScene');
+      this.scene.start('gameScene', {
+        level: this.dataSaved.level,
+        floor: this.dataSaved.floor,
+        player: {
+          health: this.dataSaved.player.health,
+          inventory: [],
+          weapons: this.dataSaved.player.weapons
+        }
+      });
     }
   }
 }

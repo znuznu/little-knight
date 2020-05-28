@@ -17,10 +17,10 @@ export default class Player extends Character {
     this.body.setOffset(5, 15);
 
     this.aimDirection = {
-      up: 'up',
-      down: 'down',
-      right: 'right',
-      left: 'left'
+      up:     'up',
+      down:   'down',
+      right:  'right',
+      left:   'left'
     };
     this.speed = 150;
 
