@@ -266,18 +266,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":40,
-                 "name":"",
-                 "point":true,
-                 "rotation":0,
-                 "type":"orc-big",
-                 "visible":true,
-                 "width":0,
-                 "x":2752,
-                 "y":2464
-                }, 
-                {
-                 "height":0,
                  "id":41,
                  "name":"",
                  "point":true,
@@ -310,18 +298,6 @@
                  "visible":true,
                  "width":0,
                  "x":2848,
-                 "y":2048
-                }, 
-                {
-                 "height":0,
-                 "id":44,
-                 "name":"",
-                 "point":true,
-                 "rotation":0,
-                 "type":"orc-simple",
-                 "visible":true,
-                 "width":0,
-                 "x":2688,
                  "y":2048
                 }, 
                 {

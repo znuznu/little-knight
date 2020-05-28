@@ -41,7 +41,7 @@ export default class GameScene extends Phaser.Scene {
     } else {
       this.scene.run('hudScene');
       this.scene.run('bossHudScene');
-      this.createPlayer(6, ['sword'], {});
+      this.createPlayer(6, [], {});
     }
 
     this.saveState(data.level, data.floor, this.player);
@@ -601,6 +601,9 @@ export default class GameScene extends Phaser.Scene {
    * this stats.
    */
   saveState(level, floor, player) {
+    // Trap floor.
+    if (floor == 666) return;
+
     let weaponsCopy = [];
     player.getData('weapons').forEach(weapon => {
       weaponsCopy.push(weapon);
