@@ -4,6 +4,22 @@ export default class BootScene extends Phaser.Scene {
   }
 
   preload() {
+    this.progress = this.add.graphics();
+    this.load.on('progress', (value) => {
+        this.progress.clear();
+        this.progress.fillStyle(0xffffff, 1);
+        this.progress.fillRect(
+          0,
+          this.sys.game.config.height / 2,
+          this.sys.game.config.width * value,
+          60
+        );
+    });
+
+    this.load.on('complete', function () {
+      this.progress.destroy();
+    }, this);
+
     this.load.image('background-menu', 'assets/images/backgrounds/background-menu.png');
     this.load.image('background-instructions', 'assets/images/backgrounds/background-instructions.png');
     this.load.image('background-game-victory', 'assets/images/backgrounds/background-game-victory.png');
@@ -27,7 +43,6 @@ export default class BootScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.text(20, 20, 'Loading...');
     this.createAnimations();
     this.scene.start('menuScene');
   }
@@ -701,6 +716,21 @@ export default class BootScene extends Phaser.Scene {
       repeat: 0
     });
 
+    this.anims.create({
+      key: 'smoke-boss',
+      frames: this.anims.generateFrameNames(
+        'atlas', {
+          prefix: 'smoke-big-',
+          suffix: '',
+          start: 1,
+          end: 4,
+          zeroPad: 0
+        }
+      ),
+      frameRate: 8,
+      repeat: 0
+    });
+
     /* NPCs */
     this.anims.create({
       key: 'paladin-agony',
@@ -728,7 +758,7 @@ export default class BootScene extends Phaser.Scene {
           zeroPad: 0
         }
       ),
-      frameRate: 3,
+      frameRate: 7,
       repeat: -1
     });
   }

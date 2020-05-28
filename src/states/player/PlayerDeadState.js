@@ -13,6 +13,7 @@ export default class PlayerDeadState extends State {
     });
 
     smoke.on('animationcomplete', _ => {
+      player.actionStateMachine.stop();
       scene.events.emit('player-death');
     }, this);
   }

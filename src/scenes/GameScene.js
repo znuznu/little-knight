@@ -1,5 +1,6 @@
 import Character from '../sprites/characters/Character.js';
 import Father from '../sprites/characters/npcs/Father.js';
+import Sister from '../sprites/characters/npcs/Sister.js';
 import Player from '../sprites/characters/Player.js';
 import Enemy from '../sprites/characters/enemies/Enemy.js';
 import Lizard from '../sprites/characters/enemies/ice/Lizard.js';
@@ -40,7 +41,7 @@ export default class GameScene extends Phaser.Scene {
     } else {
       this.scene.run('hudScene');
       this.scene.run('bossHudScene');
-      this.createPlayer(6, [], {});
+      this.createPlayer(6, ['sword'], {});
     }
 
     this.saveState(data.level, data.floor, this.player);
@@ -84,7 +85,12 @@ export default class GameScene extends Phaser.Scene {
   createMap(level, floor) {
     let mapName = 'level-' + level + '-floor-' + floor;
     this.map = this.make.tilemap({ key: mapName });
+
+    console.log(this.map.getTileAtWorldXY(401, 303));
+    console.log(this.map.getTileAtWorldXY(595, 523));
+
     const tileset = this.map.addTilesetImage('tileset', 'tileset', 32, 32, 1, 2);
+
     this.above = this.map.createDynamicLayer('above', tileset, 0, 0);
     this.above.setDepth(10);
 
@@ -124,6 +130,8 @@ export default class GameScene extends Phaser.Scene {
     // Ugly, should be inside the Player[Idle/Run]State
     // but dunno how to test only one time.
     this.input.on('pointerdown', pointer => {
+      console.log(this.crosshair.x, this.crosshair.y)
+      console.log(this.map.getTileAtWorldXY(this.crosshair.x, this.crosshair.y));
       let state = this.player.actionStateMachine.state;
       if (!this.player.isDead() && (state === 'idle' || state === 'run')) {
         switch (this.player.getCurrentWeapon()) {
@@ -521,7 +529,15 @@ export default class GameScene extends Phaser.Scene {
             x: npc.x + 16,
             y: npc.y - 16
           });
-        break;
+          break;
+        case 'sister':
+          npcObject = new Sister({
+            scene: this,
+            key: 'sister',
+            x: npc.x + 16,
+            y: npc.y - 16
+          });
+          break;
       }
     });
   }
@@ -535,6 +551,10 @@ export default class GameScene extends Phaser.Scene {
         result: 'over',
         dataSaved: this.dataSaved
       });
+    }, this);
+
+    this.events.on('replace-tiles', (area, layer, index) => {
+      this.map.fill(index, area.topLeft.x, area.topLeft.y, area.size.w, area.size.h, false, layer);
     }, this);
   }
 

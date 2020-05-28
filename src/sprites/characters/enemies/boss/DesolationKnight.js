@@ -16,10 +16,17 @@ export default class DesolationKnight extends Enemy {
     this.body.setSize(36, 26);
     this.body.setOffset(15, 40);
     this.maximumHealth = 20;
-    this.health = 20;
+    this.health = 1;
     this.meleeDamage = 3;
     this.speed = 100;
     this.aggroRadius = 3200;
+    this.pursuitSword = undefined;
+
+    // Tiles to open after the death of this boss.
+    this.areaGuarded = {
+      topLeft: {x: 38, y: 14},
+      size: {w: 1, h: 5}
+    };
 
     // Sword throw at the player.
     this.hasSword = true;
@@ -89,17 +96,10 @@ export default class DesolationKnight extends Enemy {
   }
 
   throwPursuitSword() {
-    let pursuitSword = this.scene.pursuitSwordGroup.get();
-    if (pursuitSword) {
-      pursuitSword.setVisible(true);
-      pursuitSword.setActive(true);
-      pursuitSword.body.checkCollision.none = false;
-      pursuitSword.master = this;
-      pursuitSword.x = this.x + 16;
-      pursuitSword.y = this.y + 16;
-      pursuitSword.charge = 3;
-      pursuitSword.chase(this.target);
+    this.pursuitSword = this.scene.pursuitSwordGroup.get();
+    if (this.pursuitSword) {
       this.hasSword = false;
+      this.pursuitSword.throw(this, this.target);
     }
   }
 

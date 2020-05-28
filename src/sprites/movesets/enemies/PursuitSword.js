@@ -45,6 +45,17 @@ export default class PursuitSword extends Phaser.GameObjects.Sprite {
     }
   }
 
+  throw(master, target) {
+    this.setVisible(true);
+    this.setActive(true);
+    this.body.checkCollision.none = false;
+    this.master = master;
+    this.x = this.master.x + 16;
+    this.y = this.master.y + 16;
+    this.charge = 3;
+    this.chase(target);
+  }
+
   update() {
     if (this.charge <= 0) {
       this.chase(this.master);
