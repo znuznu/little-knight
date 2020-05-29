@@ -22,7 +22,7 @@ export default class InstructionsScene extends Phaser.Scene {
     if (this.cursors.space.isDown) {
       this.scene.start('gameScene', {
           level: '1',
-          floor: '1',
+          floor: '5',
           player: undefined
         }
       );

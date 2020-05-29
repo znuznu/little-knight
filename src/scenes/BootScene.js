@@ -40,6 +40,8 @@ export default class BootScene extends Phaser.Scene {
       'assets/images/atlas/atlas.png',
       'assets/images/atlas/atlas.json',
     );
+
+    this.load.bitmapFont('bitty', 'assets/fonts/bitty.png', 'assets/fonts/bitty.fnt');
   }
 
   create() {

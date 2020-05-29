@@ -17,7 +17,5 @@ export default class DesolationKnightIdleState extends State {
     } else {
       dk.actionStateMachine.transition('cast');
     }
-
-    // Death first time -> phase 2
   }
 }

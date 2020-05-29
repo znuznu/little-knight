@@ -86,11 +86,8 @@ export default class HUDScene extends Phaser.Scene {
   }
 
   createBossName() {
-    this.bossName = this.add.text(
-      128,
-      384,
-      'Default',
-      { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' }
+    this.bossName = this.add.bitmapText(
+      128, 384, 'bitty', 'Default', 32
     ).setOrigin(0, 0);
   }
 

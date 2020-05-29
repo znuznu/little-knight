@@ -11,7 +11,7 @@ export default class DesolationKnightWaitState extends State {
       HUDEventsManager.emit('show-boss-stats');
       HUDEventsManager.emit(
         'update-boss-name',
-        'Depressum, the relentless Knight of Desolation'
+        'Depressum'
       );
       HUDEventsManager.emit('update-boss-health', dk.maximumHealth, dk.health);
       dk.actionStateMachine.transition('idle');
