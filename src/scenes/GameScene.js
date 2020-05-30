@@ -42,7 +42,7 @@ export default class GameScene extends Phaser.Scene {
     } else {
       this.scene.run('hudScene');
       this.scene.run('bossHudScene');
-      this.createPlayer(6, ['sword'], {});
+      this.createPlayer(6, [], {});
     }
 
     this.saveState(data.level, data.floor, this.player, this.moveControls);
@@ -98,6 +98,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.blocks = this.map.createDynamicLayer('block', tileset, 0, 0);
     this.blocks.setCollisionByProperty({ collides: true });
+    this.blocks.setDepth(2);
 
     this.details = this.map.createDynamicLayer('detail', tileset, 0, 0);
 

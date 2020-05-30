@@ -5,7 +5,7 @@ export default class Sister extends NonPlayableCharacter {
       super(config);
       this.body.setSize(320, 320);
       this.body.setOffset(-128, -128);
-      this.dialog = 'Little brother...\nYou came here to save me ? What a chad !';
+      this.dialog = 'Little brother...\nYou came here to save me ?\nWhat a chad !';
       this.setFlipX(true);
       this.play('sister-idle', true);
     }

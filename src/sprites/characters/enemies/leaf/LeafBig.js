@@ -5,7 +5,7 @@ export default class LeafBig extends Enemy {
     super(config);
     this.body.setSize(36, 26);
     this.body.setOffset(15, 40);
-    this.health = 10;
+    this.health = 8;
     this.meleeDamage = 3;
     this.speed = 100;
 

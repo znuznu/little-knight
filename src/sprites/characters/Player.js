@@ -36,7 +36,6 @@ export default class Player extends Character {
       'weapons': weapons,
       'inventory': inventory
     });
-    this.setDepth(3);
 
     // A complete heart is 2 points, so 6 is 3 hearts.
     this.maximumHealth = 6;

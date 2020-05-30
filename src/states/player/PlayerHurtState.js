@@ -14,12 +14,12 @@ export default class PlayerHurtState extends State {
 
     HUDEventsManager.emit('update-health', player.health);
 
+    if (player.isDead()) {
+      player.healthStateMachine.transition('dead');
+    }
+
     scene.time.delayedCall(1000, _ => {
-      if (player.isDead()) {
-        player.healthStateMachine.transition('dead');
-      } else {
-        player.healthStateMachine.transition('normal');
-      }
+      player.healthStateMachine.transition('normal');
     });
   }
 }

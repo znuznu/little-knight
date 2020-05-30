@@ -11,7 +11,7 @@ export default class PlayerSlash extends Phaser.GameObjects.Sprite {
       config.scene
     );
 
-    this.setDepth(3);
+    this.setDepth(4);
     this.play('slash-effect');
     this.on('animationcomplete', _ => {
       this.destroy();

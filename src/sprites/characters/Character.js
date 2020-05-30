@@ -14,7 +14,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
       right: false
     };
 
-    this.setDepth(1);
+    this.setDepth(4);
     this.health = 1;
     this.animationState = {};
     this.actionStateMachine = {};
