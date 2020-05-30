@@ -1,16 +1,16 @@
 import Enemy from '../Enemy.js';
 import StateMachine from '../../../../states/StateMachine.js';
-import DesolationKnightIdleState from '../../../../states/enemies/boss/DesolationKnightIdleState.js';
-import DesolationKnightTeleportState from '../../../../states/enemies/boss/DesolationKnightTeleportState.js';
-import DesolationKnightCastFireballsState from '../../../../states/enemies/boss/DesolationKnightCastFireballsState.js';
-import DesolationKnightNormalState from '../../../../states/enemies/boss/DesolationKnightNormalState.js';
-import DesolationKnightHurtState from '../../../../states/enemies/boss/DesolationKnightHurtState.js';
-import DesolationKnightDeadState from '../../../../states/enemies/boss/DesolationKnightDeadState.js';
-import DesolationKnightWaitState from '../../../../states/enemies/boss/DesolationKnightWaitState.js';
+import DepressumIdleState from '../../../../states/enemies/boss/DepressumIdleState.js';
+import DepressumTeleportState from '../../../../states/enemies/boss/DepressumTeleportState.js';
+import DepressumCastFireballsState from '../../../../states/enemies/boss/DepressumCastFireballsState.js';
+import DepressumNormalState from '../../../../states/enemies/boss/DepressumNormalState.js';
+import DepressumHurtState from '../../../../states/enemies/boss/DepressumHurtState.js';
+import DepressumDeadState from '../../../../states/enemies/boss/DepressumDeadState.js';
+import DepressumWaitState from '../../../../states/enemies/boss/DepressumWaitState.js';
 import EnemyHurtState from '../../../../states/enemies/EnemyHurtState.js';
 import EnemyDeadState from '../../../../states/enemies/EnemyDeadState.js';
 
-export default class DesolationKnight extends Enemy {
+export default class Depressum extends Enemy {
   constructor(config) {
     super(config);
     this.body.setSize(36, 26);
@@ -43,18 +43,18 @@ export default class DesolationKnight extends Enemy {
     ];
 
     this.healthStateMachine = new StateMachine('normal', {
-      normal: new DesolationKnightNormalState(),
-      hurt: new DesolationKnightHurtState(),
-      dead: new DesolationKnightDeadState()
+      normal: new DepressumNormalState(),
+      hurt: new DepressumHurtState(),
+      dead: new DepressumDeadState()
     }, [config.scene, this]);
 
     this.healthStateMachine.update();
 
     this.actionStateMachine = new StateMachine('wait', {
-      wait: new DesolationKnightWaitState(),
-      idle: new DesolationKnightIdleState(),
-      teleport: new DesolationKnightTeleportState(),
-      cast: new DesolationKnightCastFireballsState()
+      wait: new DepressumWaitState(),
+      idle: new DepressumIdleState(),
+      teleport: new DepressumTeleportState(),
+      cast: new DepressumCastFireballsState()
     }, [config.scene, this]);
 
     this.animationState = {
@@ -79,7 +79,7 @@ export default class DesolationKnight extends Enemy {
   }
 
   /*
-   * Teleport the Desolation Knight to a random position.
+   * Teleport the boss to a random position.
    * The positions are part of a set of 8 positions.
    */
   teleport() {

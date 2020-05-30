@@ -1,6 +1,6 @@
 import Character from '../sprites/characters/Character.js';
-import Father from '../sprites/characters/npcs/Father.js';
-import Sister from '../sprites/characters/npcs/Sister.js';
+import Father from '../sprites/npcs/Father.js';
+import Sister from '../sprites/npcs/Sister.js';
 import Player from '../sprites/characters/Player.js';
 import Enemy from '../sprites/characters/enemies/Enemy.js';
 import Lizard from '../sprites/characters/enemies/ice/Lizard.js';
@@ -18,7 +18,7 @@ import OrcMask from '../sprites/characters/enemies/orc/OrcMask.js';
 import OrcBig from '../sprites/characters/enemies/orc/OrcBig.js';
 import OrcTattoo from '../sprites/characters/enemies/orc/OrcTattoo.js';
 import Mage from '../sprites/characters/enemies/mage/Mage.js';
-import DesolationKnight from '../sprites/characters/enemies/boss/DesolationKnight.js';
+import Depressum from '../sprites/characters/enemies/boss/Depressum.js';
 import PlayerArrow from '../sprites/movesets/player/PlayerArrow.js';
 import FireballSimple from '../sprites/movesets/enemies/FireballSimple.js';
 import FireballArcanic from '../sprites/movesets/enemies/FireballArcanic.js';
@@ -344,7 +344,7 @@ export default class GameScene extends Phaser.Scene {
       enemy.y -= 16;
       switch (enemy.type) {
         case 'desolation-knight':
-          enemyObject = new DesolationKnight({
+          enemyObject = new Depressum({
             scene: this,
             key: 'desolation-knight',
             x: enemy.x,
@@ -543,14 +543,24 @@ export default class GameScene extends Phaser.Scene {
       // If the player dies against a boss.
       HUDEventsManager.emit('hide-boss-stats');
 
-      this.scene.start('endScene', {
-        result: 'over',
+      this.scene.start('gameOverScene', {
         dataSaved: this.dataSaved
       });
     }, this);
 
+    this.events.on('sister-saved', _ => {
+      this.scene.start('victoryScene');
+    }, this);
+
     this.events.on('replace-tiles', (area, layer, index) => {
-      this.map.fill(index, area.topLeft.x, area.topLeft.y, area.size.w, area.size.h, false, layer);
+      this.map.fill(
+        index,
+        area.topLeft.x,
+        area.topLeft.y,
+        area.size.w,
+        area.size.h,
+        false,
+        layer);
     }, this);
   }
 

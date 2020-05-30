@@ -5,7 +5,7 @@ export default class EnemyHurtState extends State {
     const direction = new Phaser.Math.Vector2(
       enemy.x - scene.player.x,
       enemy.y - scene.player.y
-    ).normalize().scale(20);
+    ).normalize().scale(enemy.knockback);
 
     enemy.body.setVelocity(direction.x, direction.y);
 

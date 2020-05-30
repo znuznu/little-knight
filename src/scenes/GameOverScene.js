@@ -1,24 +1,16 @@
-export default class MenuScene extends Phaser.Scene {
+export default class GameOverScene extends Phaser.Scene {
   constructor() {
-    super('endScene');
+    super('gameOverScene');
   }
 
   init(data) {
-    this.result = data.result;
     this.dataSaved = data.dataSaved;
   }
 
   create() {
     this.cursors = this.input.keyboard.createCursorKeys();
-
-    let background = 'background-game-victory';
-
-    if (this.result == 'over') {
-      this.cameras.main.fadeIn(5000);
-      background = 'background-game-over';
-    }
-
-    this.add.image(0, 0, background).setOrigin(0, 0);
+    this.cameras.main.fadeIn(5000);
+    this.add.image(0, 0, 'background-game-over').setOrigin(0, 0);
 
     let pressSpace = this.add.image(this.game.config.width/2, 400, 'press-space');
     this.tweens.add({

@@ -22,6 +22,8 @@ export default class Enemy extends Character {
     // Some enemies could do more or less than 1 hp, (whole number only).
     this.meleeDamage = 1;
 
+    this.knockback = 100;
+
     // Some enemies might be invulnerable against arrow.
     this.arrowProof = false;
 

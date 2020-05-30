@@ -4,7 +4,8 @@ import GameScene from './scenes/GameScene.js';
 import BootScene from './scenes/BootScene.js';
 import HUDScene from './scenes/HUDScene.js';
 import MenuScene from './scenes/MenuScene.js';
-import EndScene from './scenes/EndScene.js';
+import GameOverScene from './scenes/GameOverScene.js';
+import VictoryScene from './scenes/VictoryScene.js';
 import InstructionsScene from './scenes/InstructionsScene.js';
 
 var config = {
@@ -28,7 +29,8 @@ var config = {
       HUDScene,
       MenuScene,
       InstructionsScene,
-      EndScene
+      GameOverScene,
+      VictoryScene
     ]
 };
 

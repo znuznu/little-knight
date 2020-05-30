@@ -1,7 +1,7 @@
 import State from '../../State.js';
 import FireballArcanic from '../../../sprites/movesets/enemies/FireballArcanic.js';
 
-export default class DesolationKnightCastFireballsState extends State {
+export default class DepressumCastFireballsState extends State {
   enter(scene, dk) {
     let x = dk.x;
     let y = dk.y;

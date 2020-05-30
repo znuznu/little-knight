@@ -1,6 +1,6 @@
 import State from '../../State.js';
 
-export default class DesolationKnightIdleState extends State {
+export default class DepressumIdleState extends State {
   enter(scene, dk) {
     if (dk.hasSword) {
       dk.throwPursuitSword();

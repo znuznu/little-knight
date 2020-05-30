@@ -1,6 +1,6 @@
 import State from '../../State.js';
 
-export default class DesolationKnightTeleportState extends State {
+export default class DepressumTeleportState extends State {
   enter(scene, dk) {
     scene.tweens.add({
       targets: dk,

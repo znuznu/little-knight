@@ -2,7 +2,7 @@ import State from '../../State.js';
 import HUDEventsManager from '../../../events/HUDEventsManager.js';
 import SmokeBoss from '../../../sprites/effects/SmokeBoss.js';
 
-export default class DesolationKnightDeadState extends State {
+export default class DepressumDeadState extends State {
   enter(scene, dk, damage) {
     dk.setVisible(false);
 
@@ -19,7 +19,7 @@ export default class DesolationKnightDeadState extends State {
     dk.destroy();
 
     scene.cameras.main.shake(1000, 0.03);
-    
+
     smoke.on('animationcomplete', _ => {
       HUDEventsManager.emit('hide-boss-stats');
       scene.events.emit('replace-tiles', dk.areaGuarded, 'spike', 79);

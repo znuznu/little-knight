@@ -1,7 +1,7 @@
 import State from '../../State.js';
 import HUDEventsManager from '../../../events/HUDEventsManager.js';
 
-export default class DesolationKnightWaitState extends State {
+export default class DepressumWaitState extends State {
   enter(scene, dk) {
     dk.view = 'left';
   }
@@ -11,7 +11,7 @@ export default class DesolationKnightWaitState extends State {
       HUDEventsManager.emit('show-boss-stats');
       HUDEventsManager.emit(
         'update-boss-name',
-        'Depressum'
+        'Depressum, relentless knight of Desolation'
       );
       HUDEventsManager.emit('update-boss-health', dk.maximumHealth, dk.health);
       dk.actionStateMachine.transition('idle');
