@@ -5,7 +5,19 @@ export default class InstructionsScene extends Phaser.Scene {
 
   create() {
     this.cursors = this.input.keyboard.createCursorKeys();
-    this.add.image(0, 0, 'background-instructions').setOrigin(0, 0);
+
+    // Default is AZERTY (queue).
+    this.controls = ['ZQSD', 'WASD'];
+
+    this.keys = this.input.keyboard.addKeys({
+        space:  'SPACE',
+        shift:  'SHIFT'
+    });
+
+    // Background.
+    this.background = this.add.image(0, 0, 'background-instructions-zqsd').setOrigin(0, 0);
+
+    // "Press SPACE ...". Could have been a bitmapText.
     let pressSpace = this.add.image(this.game.config.width / 2, 400, 'press-space');
 
     this.tweens.add({
@@ -18,14 +30,29 @@ export default class InstructionsScene extends Phaser.Scene {
     });
   }
 
+  switchMoveControls() {
+    let current = this.controls.shift();
+    this.controls.push(current);
+
+    if (this.controls[0] === 'ZQSD')
+      this.background.setTexture('background-instructions-zqsd');
+    else
+      this.background.setTexture('background-instructions-wasd');
+  }
+
   update() {
-    if (this.cursors.space.isDown) {
+    if (this.keys.space.isDown) {
       this.scene.start('gameScene', {
           level: '1',
-          floor: '1',
-          player: undefined
+          floor: '5',
+          player: undefined,
+          moveControls: this.controls[0]
         }
       );
+    }
+
+    if (Phaser.Input.Keyboard.JustDown(this.keys.shift)) {
+      this.switchMoveControls();
     }
   }
 }

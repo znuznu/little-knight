@@ -33,6 +33,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   init(data) {
+    this.moveControls = data.moveControls;
     this.createMap(data.level, data.floor);
     let player = data.player;
 
@@ -44,7 +45,7 @@ export default class GameScene extends Phaser.Scene {
       this.createPlayer(6, [], {});
     }
 
-    this.saveState(data.level, data.floor, this.player);
+    this.saveState(data.level, data.floor, this.player, this.moveControls);
 
     // Clear the HUD in case we're restarting the level after a death.
     HUDEventsManager.emit('update-weapons', this.player.getData('weapons'));
@@ -73,10 +74,10 @@ export default class GameScene extends Phaser.Scene {
 
   createKeys() {
     this.keys = this.input.keyboard.addKeys({
-        up:     'Z',
-        down:   'S',
-        left:   'Q',
-        right:  'D',
+        up:     this.moveControls[0],
+        down:   this.moveControls[2],
+        left:   this.moveControls[1],
+        right:  this.moveControls[3],
         space:  'SPACE',
         shift:  'SHIFT'
     });
@@ -571,6 +572,7 @@ export default class GameScene extends Phaser.Scene {
 
   updateEnemies() {
     this.enemyGroup.children.entries.forEach(enemy => {
+      enemy.aggroIcon.setPosition(enemy.x, enemy.y - 32);
       enemy.actionStateMachine.update();
       enemy.updateDepth();
       enemy.updateAnimation();
@@ -610,7 +612,7 @@ export default class GameScene extends Phaser.Scene {
    * the level. If he die we can simply restart the level with
    * this stats.
    */
-  saveState(level, floor, player) {
+  saveState(level, floor, player, moveControls) {
     // Trap floor.
     if (floor == 666) return;
 
@@ -625,7 +627,8 @@ export default class GameScene extends Phaser.Scene {
       player: {
         health: player.health,
         weapons: weaponsCopy
-      }
+      },
+      moveControls: moveControls
     };
   }
 

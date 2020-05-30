@@ -27,6 +27,12 @@ export default class Enemy extends Character {
     // Some enemies might be invulnerable against arrow.
     this.arrowProof = false;
 
+    // Aggro exclamation.
+    this.aggroIcon = this.scene.add.bitmapText(
+      this.x, this.y - 32, 'bitty', '!', 32
+    ).setOrigin(0.5, 0.5);
+    this.aggroIcon.setAlpha(0);
+
     // Default state machine for enemies, they simply chase
     // the player when he's at range and might be hurt/die.
     this.actionStateMachine = new StateMachine('idle', {

@@ -32,7 +32,8 @@ export default class GameOverScene extends Phaser.Scene {
           health: this.dataSaved.player.health,
           inventory: [],
           weapons: this.dataSaved.player.weapons
-        }
+        },
+        moveControls: this.dataSaved.moveControls
       });
     }
   }

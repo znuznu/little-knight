@@ -2,12 +2,20 @@ import State from '../State.js';
 
 export default class EnemyChaseState extends State {
   enter(scene, enemy) {
+    enemy.aggroIcon.setAlpha(1);
+
+    scene.time.delayedCall(1000, _ => {
+      enemy.aggroIcon.setAlpha(0);
+    });
+
     this.execute(scene, enemy);
   }
 
   execute(scene, enemy) {
     let ownTile = scene.map.worldToTileXY(enemy.body.center.x, enemy.body.center.y);
-    let targetTile = scene.map.worldToTileXY(enemy.target.body.center.x, enemy.target.body.center.y);
+    let targetTile = scene.map.worldToTileXY(
+      enemy.target.body.center.x, enemy.target.body.center.y
+    );
 
     if (enemy.distanceBetween(enemy.target) > enemy.aggroRadius) {
       enemy.actionStateMachine.transition('idle');

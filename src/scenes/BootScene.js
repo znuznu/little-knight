@@ -21,7 +21,8 @@ export default class BootScene extends Phaser.Scene {
     }, this);
 
     this.load.image('background-menu', 'assets/images/backgrounds/background-menu.png');
-    this.load.image('background-instructions', 'assets/images/backgrounds/background-instructions.png');
+    this.load.image('background-instructions-zqsd', 'assets/images/backgrounds/background-instructions-zqsd.png');
+    this.load.image('background-instructions-wasd', 'assets/images/backgrounds/background-instructions-wasd.png');
     this.load.image('background-game-victory', 'assets/images/backgrounds/background-game-victory.png');
     this.load.image('background-game-over', 'assets/images/backgrounds/background-game-over.png');
     this.load.image('press-space', 'assets/images/backgrounds/background-space.png');
