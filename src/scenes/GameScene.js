@@ -42,7 +42,7 @@ export default class GameScene extends Phaser.Scene {
     } else {
       this.scene.run('hudScene');
       this.scene.run('bossHudScene');
-      this.createPlayer(6, [], {});
+      this.createPlayer(6, ['sword'], {});
     }
 
     this.saveState(data.level, data.floor, this.player, this.moveControls);
@@ -68,7 +68,6 @@ export default class GameScene extends Phaser.Scene {
 
   update(time, delta) {
     this.updatePlayer(time, delta);
-    this.updateEnemies();
     this.updateCrosshair();
   }
 
@@ -189,7 +188,10 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createGroups() {
-    this.enemyGroup = this.add.group();
+    this.enemyGroup = this.add.group({
+      runChildUpdate: true
+    });
+
     this.doorsGroup = this.add.group({
       runChildUpdate: true
     });
@@ -312,7 +314,7 @@ export default class GameScene extends Phaser.Scene {
       this.transitionsGroup,
       this.player,
       (t, p) => {
-        this.changeLevel(t.getData('level'), t.getData('floor'), this.player);
+        this.changeLevel(t.getData('level'), t.getData('floor'), this.player, this.moveControls);
       }
     );
   }
@@ -323,7 +325,7 @@ export default class GameScene extends Phaser.Scene {
    * scene from his states machines needs to be updated and it's
    * tricky.
    */
-  changeLevel(level, floor, player) {
+  changeLevel(level, floor, player, moveControls) {
     this.scene.restart(
       {
         level: level,
@@ -332,7 +334,8 @@ export default class GameScene extends Phaser.Scene {
           health: player.health,
           inventory: player.getData('inventory'),
           weapons: player.getData('weapons')
-        }
+        },
+        moveControls: moveControls
       }
     );
   }
@@ -568,15 +571,6 @@ export default class GameScene extends Phaser.Scene {
   updatePlayer(time, delta) {
     if (!this.player.isDead())
       this.player.update(time, delta);
-  }
-
-  updateEnemies() {
-    this.enemyGroup.children.entries.forEach(enemy => {
-      enemy.aggroIcon.setPosition(enemy.x, enemy.y - 32);
-      enemy.actionStateMachine.update();
-      enemy.updateDepth();
-      enemy.updateAnimation();
-    });
   }
 
   /* Too much lines in here. */

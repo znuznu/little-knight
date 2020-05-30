@@ -67,12 +67,19 @@ export default class Enemy extends Character {
     }
   }
 
-  /* Update enemy depth to appear in front or behind the player. */
+  // Update enemy depth to appear in front or behind the player.
   updateDepth() {
     if (this.y > this.target.y) {
       this.setDepth(this.target.depth + 1);
     } else {
       this.setDepth(this.target.depth - 1);
     }
+  }
+
+  update() {
+    this.aggroIcon.setPosition(this.x, this.y - 32);
+    this.actionStateMachine.update();
+    this.updateDepth();
+    this.updateAnimation();
   }
 }

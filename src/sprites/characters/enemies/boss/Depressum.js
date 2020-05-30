@@ -16,7 +16,7 @@ export default class Depressum extends Enemy {
     this.body.setSize(36, 26);
     this.body.setOffset(15, 40);
     this.maximumHealth = 20;
-    this.health = 1;
+    this.health = 20;
     this.meleeDamage = 3;
     this.speed = 100;
     this.aggroRadius = 3200;
