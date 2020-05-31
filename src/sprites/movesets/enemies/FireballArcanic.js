@@ -20,6 +20,12 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     let angleDeg = Phaser.Math.RadToDeg(angleRad);
     this.angle = angleDeg;
 
+    if (this.angle >= 45 && this.angle <= 180 || this.angle >= -180 && this.angle <= -45) {
+      this.setFlipY(true);
+    } else {
+      this.setFlipY(false);
+    }
+
     // Avoid player getting hit by an inactive fireball.
     this.body.checkCollision.none = false;
 

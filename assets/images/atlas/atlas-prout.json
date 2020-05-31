@@ -4,8 +4,8 @@
 			"image": "atlas.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 762,
-				"h": 512
+				"w": 992,
+				"h": 386
 			},
 			"scale": 1,
 			"frames": [
@@ -241,6 +241,27 @@
 					}
 				},
 				{
+					"filename": "sword-boss-01-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 82,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 82,
+						"h": 36
+					},
+					"frame": {
+						"x": 1,
+						"y": 349,
+						"w": 82,
+						"h": 36
+					}
+				},
+				{
 					"filename": "leaf-big-run-3",
 					"rotated": false,
 					"trimmed": false,
@@ -255,35 +276,14 @@
 						"h": 66
 					},
 					"frame": {
-						"x": 67,
-						"y": 211,
+						"x": 133,
+						"y": 139,
 						"w": 64,
 						"h": 66
 					}
 				},
 				{
 					"filename": "boss-01-idle-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 64
-					},
-					"frame": {
-						"x": 133,
-						"y": 139,
-						"w": 64,
-						"h": 64
-					}
-				},
-				{
-					"filename": "boss-01-idle-1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -304,7 +304,7 @@
 					}
 				},
 				{
-					"filename": "boss-01-idle-2",
+					"filename": "boss-01-idle-1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -325,28 +325,7 @@
 					}
 				},
 				{
-					"filename": "boss-01-idle-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 64
-					},
-					"frame": {
-						"x": 1,
-						"y": 349,
-						"w": 64,
-						"h": 64
-					}
-				},
-				{
-					"filename": "door-boss-closed",
+					"filename": "boss-01-idle-2",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -361,13 +340,13 @@
 					},
 					"frame": {
 						"x": 67,
-						"y": 279,
+						"y": 211,
 						"w": 64,
 						"h": 64
 					}
 				},
 				{
-					"filename": "door-boss-open",
+					"filename": "boss-01-idle-3",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -382,13 +361,13 @@
 					},
 					"frame": {
 						"x": 133,
-						"y": 205,
+						"y": 207,
 						"w": 64,
 						"h": 64
 					}
 				},
 				{
-					"filename": "door-simple-closed",
+					"filename": "boss-01-run-0",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -409,7 +388,7 @@
 					}
 				},
 				{
-					"filename": "door-simple-open",
+					"filename": "boss-01-run-1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -430,7 +409,7 @@
 					}
 				},
 				{
-					"filename": "leaf-big-idle-0",
+					"filename": "boss-01-run-2",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -451,28 +430,7 @@
 					}
 				},
 				{
-					"filename": "leaf-big-idle-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 64
-					},
-					"frame": {
-						"x": 1,
-						"y": 415,
-						"w": 64,
-						"h": 64
-					}
-				},
-				{
-					"filename": "leaf-big-idle-2",
+					"filename": "boss-01-run-3",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -487,13 +445,13 @@
 					},
 					"frame": {
 						"x": 67,
-						"y": 345,
+						"y": 277,
 						"w": 64,
 						"h": 64
 					}
 				},
 				{
-					"filename": "leaf-big-idle-3",
+					"filename": "door-boss-closed",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -508,13 +466,13 @@
 					},
 					"frame": {
 						"x": 133,
-						"y": 271,
+						"y": 273,
 						"w": 64,
 						"h": 64
 					}
 				},
 				{
-					"filename": "orc-big-idle-0",
+					"filename": "door-boss-open",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -535,7 +493,7 @@
 					}
 				},
 				{
-					"filename": "orc-big-idle-1",
+					"filename": "door-simple-closed",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -556,7 +514,7 @@
 					}
 				},
 				{
-					"filename": "orc-big-idle-2",
+					"filename": "door-simple-open",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -577,7 +535,7 @@
 					}
 				},
 				{
-					"filename": "orc-big-idle-3",
+					"filename": "leaf-big-idle-0",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -598,49 +556,7 @@
 					}
 				},
 				{
-					"filename": "orc-big-run-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 64
-					},
-					"frame": {
-						"x": 67,
-						"y": 411,
-						"w": 64,
-						"h": 64
-					}
-				},
-				{
-					"filename": "orc-big-run-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 64
-					},
-					"frame": {
-						"x": 133,
-						"y": 337,
-						"w": 64,
-						"h": 64
-					}
-				},
-				{
-					"filename": "orc-big-run-2",
+					"filename": "leaf-big-idle-1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -661,7 +577,7 @@
 					}
 				},
 				{
-					"filename": "orc-big-run-3",
+					"filename": "leaf-big-idle-2",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -677,6 +593,195 @@
 					"frame": {
 						"x": 265,
 						"y": 199,
+						"w": 64,
+						"h": 64
+					}
+				},
+				{
+					"filename": "leaf-big-idle-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					},
+					"frame": {
+						"x": 331,
+						"y": 133,
+						"w": 64,
+						"h": 64
+					}
+				},
+				{
+					"filename": "orc-big-idle-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					},
+					"frame": {
+						"x": 397,
+						"y": 67,
+						"w": 64,
+						"h": 64
+					}
+				},
+				{
+					"filename": "orc-big-idle-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					},
+					"frame": {
+						"x": 463,
+						"y": 1,
+						"w": 64,
+						"h": 64
+					}
+				},
+				{
+					"filename": "orc-big-idle-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					},
+					"frame": {
+						"x": 265,
+						"y": 265,
+						"w": 64,
+						"h": 64
+					}
+				},
+				{
+					"filename": "orc-big-idle-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					},
+					"frame": {
+						"x": 331,
+						"y": 199,
+						"w": 64,
+						"h": 64
+					}
+				},
+				{
+					"filename": "orc-big-run-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					},
+					"frame": {
+						"x": 397,
+						"y": 133,
+						"w": 64,
+						"h": 64
+					}
+				},
+				{
+					"filename": "orc-big-run-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					},
+					"frame": {
+						"x": 463,
+						"y": 67,
+						"w": 64,
+						"h": 64
+					}
+				},
+				{
+					"filename": "orc-big-run-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					},
+					"frame": {
+						"x": 529,
+						"y": 1,
+						"w": 64,
+						"h": 64
+					}
+				},
+				{
+					"filename": "orc-big-run-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 64,
+						"h": 64
+					},
+					"frame": {
+						"x": 331,
+						"y": 265,
 						"w": 64,
 						"h": 64
 					}
@@ -696,8 +801,8 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 331,
-						"y": 133,
+						"x": 397,
+						"y": 199,
 						"w": 64,
 						"h": 64
 					}
@@ -717,8 +822,8 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 397,
-						"y": 67,
+						"x": 463,
+						"y": 133,
 						"w": 64,
 						"h": 64
 					}
@@ -738,8 +843,8 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 463,
-						"y": 1,
+						"x": 529,
+						"y": 67,
 						"w": 64,
 						"h": 64
 					}
@@ -759,8 +864,8 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 133,
-						"y": 403,
+						"x": 595,
+						"y": 1,
 						"w": 64,
 						"h": 64
 					}
@@ -780,199 +885,115 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 199,
-						"y": 333,
+						"x": 397,
+						"y": 265,
 						"w": 64,
 						"h": 64
 					}
 				},
 				{
-					"filename": "fireball-arcanic-0",
+					"filename": "sword-boss-01-1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 64,
-						"h": 32
+						"w": 82,
+						"h": 36
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 64,
-						"h": 32
+						"w": 82,
+						"h": 36
 					},
 					"frame": {
-						"x": 265,
-						"y": 265,
-						"w": 64,
-						"h": 32
-					}
-				},
-				{
-					"filename": "fireball-arcanic-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 32
-					},
-					"frame": {
-						"x": 331,
-						"y": 199,
-						"w": 64,
-						"h": 32
-					}
-				},
-				{
-					"filename": "fireball-arcanic-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 32
-					},
-					"frame": {
-						"x": 397,
-						"y": 133,
-						"w": 64,
-						"h": 32
-					}
-				},
-				{
-					"filename": "fireball-arcanic-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 32
-					},
-					"frame": {
-						"x": 463,
-						"y": 67,
-						"w": 64,
-						"h": 32
-					}
-				},
-				{
-					"filename": "fireball-simple-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 64,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 64,
-						"h": 31
-					},
-					"frame": {
-						"x": 529,
+						"x": 661,
 						"y": 1,
-						"w": 64,
-						"h": 31
+						"w": 82,
+						"h": 36
 					}
 				},
 				{
-					"filename": "fireball-simple-1",
+					"filename": "sword-boss-01-2",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 64,
-						"h": 31
+						"w": 82,
+						"h": 36
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 64,
-						"h": 31
+						"w": 82,
+						"h": 36
 					},
 					"frame": {
-						"x": 199,
-						"y": 399,
-						"w": 64,
-						"h": 31
+						"x": 745,
+						"y": 1,
+						"w": 82,
+						"h": 36
 					}
 				},
 				{
-					"filename": "fireball-simple-2",
+					"filename": "sword-boss-01-3",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 64,
-						"h": 31
+						"w": 82,
+						"h": 36
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 64,
-						"h": 31
+						"w": 82,
+						"h": 36
 					},
 					"frame": {
-						"x": 265,
-						"y": 299,
-						"w": 64,
-						"h": 31
+						"x": 829,
+						"y": 1,
+						"w": 82,
+						"h": 36
 					}
 				},
 				{
-					"filename": "fireball-simple-3",
+					"filename": "demon-split-idle-0",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 64,
-						"h": 31
+						"w": 32,
+						"h": 42
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 64,
-						"h": 31
+						"w": 32,
+						"h": 42
 					},
 					"frame": {
-						"x": 331,
-						"y": 233,
-						"w": 64,
-						"h": 31
+						"x": 85,
+						"y": 343,
+						"w": 32,
+						"h": 42
 					}
 				},
 				{
-					"filename": "sword-boss-01-simple",
+					"filename": "demon-split-idle-1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 60,
-						"h": 24
+						"w": 32,
+						"h": 42
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 60,
-						"h": 24
+						"w": 32,
+						"h": 42
 					},
 					"frame": {
-						"x": 1,
-						"y": 481,
-						"w": 60,
-						"h": 24
+						"x": 119,
+						"y": 343,
+						"w": 32,
+						"h": 42
 					}
 				},
 				{
@@ -990,8 +1011,8 @@
 						"h": 46
 					},
 					"frame": {
-						"x": 397,
-						"y": 167,
+						"x": 153,
+						"y": 339,
 						"w": 32,
 						"h": 46
 					}
@@ -1011,10 +1032,31 @@
 						"h": 46
 					},
 					"frame": {
-						"x": 463,
-						"y": 101,
+						"x": 187,
+						"y": 339,
 						"w": 32,
 						"h": 46
+					}
+				},
+				{
+					"filename": "sword-boss-01-simple",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 60,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 60,
+						"h": 24
+					},
+					"frame": {
+						"x": 463,
+						"y": 199,
+						"w": 60,
+						"h": 24
 					}
 				},
 				{
@@ -1033,7 +1075,7 @@
 					},
 					"frame": {
 						"x": 529,
-						"y": 34,
+						"y": 133,
 						"w": 32,
 						"h": 46
 					}
@@ -1053,8 +1095,8 @@
 						"h": 46
 					},
 					"frame": {
-						"x": 265,
-						"y": 332,
+						"x": 595,
+						"y": 67,
 						"w": 32,
 						"h": 46
 					}
@@ -1074,8 +1116,29 @@
 						"h": 44
 					},
 					"frame": {
-						"x": 331,
-						"y": 266,
+						"x": 463,
+						"y": 225,
+						"w": 34,
+						"h": 44
+					}
+				},
+				{
+					"filename": "paladin-agony-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 34,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 34,
+						"h": 44
+					},
+					"frame": {
+						"x": 463,
+						"y": 271,
 						"w": 34,
 						"h": 44
 					}
@@ -1095,8 +1158,8 @@
 						"h": 44
 					},
 					"frame": {
-						"x": 397,
-						"y": 215,
+						"x": 563,
+						"y": 133,
 						"w": 32,
 						"h": 44
 					}
@@ -1116,134 +1179,8 @@
 						"h": 44
 					},
 					"frame": {
-						"x": 265,
-						"y": 380,
-						"w": 32,
-						"h": 44
-					}
-				},
-				{
-					"filename": "ice-lizard-idle-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 44
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 44
-					},
-					"frame": {
-						"x": 431,
-						"y": 167,
-						"w": 32,
-						"h": 44
-					}
-				},
-				{
-					"filename": "ice-lizard-idle-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 44
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 44
-					},
-					"frame": {
-						"x": 431,
-						"y": 213,
-						"w": 32,
-						"h": 44
-					}
-				},
-				{
-					"filename": "ice-lizard-run-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 44
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 44
-					},
-					"frame": {
-						"x": 497,
-						"y": 101,
-						"w": 32,
-						"h": 44
-					}
-				},
-				{
-					"filename": "ice-lizard-run-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 44
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 44
-					},
-					"frame": {
-						"x": 563,
-						"y": 34,
-						"w": 32,
-						"h": 44
-					}
-				},
-				{
-					"filename": "ice-lizard-run-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 44
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 44
-					},
-					"frame": {
-						"x": 299,
-						"y": 332,
-						"w": 32,
-						"h": 44
-					}
-				},
-				{
-					"filename": "ice-lizard-run-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 44
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 44
-					},
-					"frame": {
-						"x": 299,
-						"y": 378,
+						"x": 629,
+						"y": 67,
 						"w": 32,
 						"h": 44
 					}
@@ -1263,14 +1200,140 @@
 						"h": 37
 					},
 					"frame": {
-						"x": 199,
-						"y": 432,
+						"x": 913,
+						"y": 1,
 						"w": 38,
 						"h": 37
 					}
 				},
 				{
-					"filename": "demon-split-idle-0",
+					"filename": "ice-mask-idle-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 38,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 38,
+						"h": 37
+					},
+					"frame": {
+						"x": 953,
+						"y": 1,
+						"w": 38,
+						"h": 37
+					}
+				},
+				{
+					"filename": "paladin-agony-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 34,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 34,
+						"h": 44
+					},
+					"frame": {
+						"x": 221,
+						"y": 333,
+						"w": 34,
+						"h": 44
+					}
+				},
+				{
+					"filename": "ice-lizard-idle-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 44
+					},
+					"frame": {
+						"x": 499,
+						"y": 225,
+						"w": 32,
+						"h": 44
+					}
+				},
+				{
+					"filename": "ice-lizard-idle-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 44
+					},
+					"frame": {
+						"x": 499,
+						"y": 271,
+						"w": 32,
+						"h": 44
+					}
+				},
+				{
+					"filename": "ice-lizard-run-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 44
+					},
+					"frame": {
+						"x": 597,
+						"y": 115,
+						"w": 32,
+						"h": 44
+					}
+				},
+				{
+					"filename": "ice-lizard-run-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 44
+					},
+					"frame": {
+						"x": 631,
+						"y": 113,
+						"w": 32,
+						"h": 44
+					}
+				},
+				{
+					"filename": "demon-split-idle-2",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -1284,10 +1347,73 @@
 						"h": 42
 					},
 					"frame": {
-						"x": 133,
-						"y": 469,
+						"x": 529,
+						"y": 181,
 						"w": 32,
 						"h": 42
+					}
+				},
+				{
+					"filename": "ice-lizard-run-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 44
+					},
+					"frame": {
+						"x": 563,
+						"y": 179,
+						"w": 32,
+						"h": 44
+					}
+				},
+				{
+					"filename": "paladin-agony-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 34,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 34,
+						"h": 44
+					},
+					"frame": {
+						"x": 533,
+						"y": 225,
+						"w": 34,
+						"h": 44
+					}
+				},
+				{
+					"filename": "ice-lizard-run-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 44
+					},
+					"frame": {
+						"x": 597,
+						"y": 161,
+						"w": 32,
+						"h": 44
 					}
 				},
 				{
@@ -1305,31 +1431,10 @@
 						"h": 44
 					},
 					"frame": {
-						"x": 367,
-						"y": 266,
+						"x": 631,
+						"y": 159,
 						"w": 32,
 						"h": 44
-					}
-				},
-				{
-					"filename": "mage-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 34
-					},
-					"frame": {
-						"x": 67,
-						"y": 477,
-						"w": 32,
-						"h": 34
 					}
 				},
 				{
@@ -1347,8 +1452,8 @@
 						"h": 44
 					},
 					"frame": {
-						"x": 401,
-						"y": 261,
+						"x": 533,
+						"y": 271,
 						"w": 32,
 						"h": 44
 					}
@@ -1368,31 +1473,10 @@
 						"h": 44
 					},
 					"frame": {
-						"x": 435,
-						"y": 259,
+						"x": 569,
+						"y": 225,
 						"w": 32,
 						"h": 44
-					}
-				},
-				{
-					"filename": "demon-split-idle-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 42
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 42
-					},
-					"frame": {
-						"x": 239,
-						"y": 432,
-						"w": 32,
-						"h": 42
 					}
 				},
 				{
@@ -1410,451 +1494,94 @@
 						"h": 44
 					},
 					"frame": {
-						"x": 273,
-						"y": 426,
+						"x": 567,
+						"y": 271,
 						"w": 32,
 						"h": 44
 					}
 				},
 				{
-					"filename": "paladin-agony-1",
+					"filename": "fireball-arcanic-0",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 34,
-						"h": 44
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 34,
-						"h": 44
-					},
-					"frame": {
-						"x": 307,
-						"y": 424,
-						"w": 34,
-						"h": 44
-					}
-				},
-				{
-					"filename": "little-knight-run-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 26,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 26,
-						"h": 31
-					},
-					"frame": {
-						"x": 595,
-						"y": 1,
-						"w": 26,
-						"h": 31
-					}
-				},
-				{
-					"filename": "ice-mask-idle-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 38,
-						"h": 37
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 38,
-						"h": 37
-					},
-					"frame": {
-						"x": 623,
-						"y": 1,
-						"w": 38,
-						"h": 37
-					}
-				},
-				{
-					"filename": "ice-mask-idle-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 38,
-						"h": 37
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 38,
-						"h": 37
-					},
-					"frame": {
-						"x": 663,
-						"y": 1,
-						"w": 38,
-						"h": 37
-					}
-				},
-				{
-					"filename": "ice-mask-idle-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 38,
-						"h": 37
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 38,
-						"h": 37
-					},
-					"frame": {
-						"x": 703,
-						"y": 1,
-						"w": 38,
-						"h": 37
-					}
-				},
-				{
-					"filename": "little-knight-idle-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 31
-					},
-					"frame": {
-						"x": 597,
-						"y": 34,
-						"w": 24,
-						"h": 31
-					}
-				},
-				{
-					"filename": "paladin-agony-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 34,
-						"h": 44
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 34,
-						"h": 44
-					},
-					"frame": {
-						"x": 623,
-						"y": 40,
-						"w": 34,
-						"h": 44
-					}
-				},
-				{
-					"filename": "paladin-agony-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 34,
-						"h": 44
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 34,
-						"h": 44
-					},
-					"frame": {
-						"x": 659,
-						"y": 40,
-						"w": 34,
-						"h": 44
-					}
-				},
-				{
-					"filename": "demon-split-idle-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 42
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 42
-					},
-					"frame": {
-						"x": 695,
-						"y": 40,
-						"w": 32,
-						"h": 42
-					}
-				},
-				{
-					"filename": "demon-split-idle-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 42
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 42
-					},
-					"frame": {
-						"x": 729,
-						"y": 40,
-						"w": 32,
-						"h": 42
-					}
-				},
-				{
-					"filename": "little-knight-run-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 26,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 26,
-						"h": 31
-					},
-					"frame": {
-						"x": 167,
-						"y": 469,
-						"w": 26,
-						"h": 31
-					}
-				},
-				{
-					"filename": "arrow-small",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
+						"w": 40,
 						"h": 32
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 32,
+						"w": 40,
 						"h": 32
 					},
 					"frame": {
-						"x": 195,
-						"y": 471,
-						"w": 32,
+						"x": 463,
+						"y": 317,
+						"w": 40,
 						"h": 32
 					}
 				},
 				{
-					"filename": "little-knight-run-2",
+					"filename": "fireball-arcanic-1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 26,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 26,
-						"h": 31
-					},
-					"frame": {
-						"x": 101,
-						"y": 477,
-						"w": 26,
-						"h": 31
-					}
-				},
-				{
-					"filename": "little-knight-idle-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 31
-					},
-					"frame": {
-						"x": 597,
-						"y": 67,
-						"w": 24,
-						"h": 31
-					}
-				},
-				{
-					"filename": "arrow",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
+						"w": 40,
 						"h": 32
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 32,
+						"w": 40,
 						"h": 32
 					},
 					"frame": {
-						"x": 563,
-						"y": 80,
-						"w": 32,
+						"x": 505,
+						"y": 317,
+						"w": 40,
 						"h": 32
 					}
 				},
 				{
-					"filename": "bomb-0",
+					"filename": "fireball-arcanic-2",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 32,
+						"w": 40,
 						"h": 32
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 32,
+						"w": 40,
 						"h": 32
 					},
 					"frame": {
-						"x": 229,
-						"y": 476,
-						"w": 32,
+						"x": 547,
+						"y": 317,
+						"w": 40,
 						"h": 32
 					}
 				},
 				{
-					"filename": "demon-bounce-run-0",
+					"filename": "mage-0",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
 						"w": 32,
-						"h": 36
+						"h": 34
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
 						"w": 32,
-						"h": 36
+						"h": 34
 					},
 					"frame": {
-						"x": 465,
-						"y": 149,
+						"x": 257,
+						"y": 351,
 						"w": 32,
-						"h": 36
-					}
-				},
-				{
-					"filename": "demon-bounce-run-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 36
-					},
-					"frame": {
-						"x": 465,
-						"y": 187,
-						"w": 32,
-						"h": 36
-					}
-				},
-				{
-					"filename": "bomb-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 465,
-						"y": 225,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "demon-bounce-run-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 36
-					},
-					"frame": {
-						"x": 499,
-						"y": 147,
-						"w": 32,
-						"h": 36
-					}
-				},
-				{
-					"filename": "demon-bounce-run-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 36
-					},
-					"frame": {
-						"x": 499,
-						"y": 185,
-						"w": 32,
-						"h": 36
+						"h": 34
 					}
 				},
 				{
@@ -1872,115 +1599,10 @@
 						"h": 34
 					},
 					"frame": {
-						"x": 499,
-						"y": 223,
+						"x": 291,
+						"y": 351,
 						"w": 32,
 						"h": 34
-					}
-				},
-				{
-					"filename": "orc-mask-run-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 36
-					},
-					"frame": {
-						"x": 469,
-						"y": 259,
-						"w": 32,
-						"h": 36
-					}
-				},
-				{
-					"filename": "orc-mask-run-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 36
-					},
-					"frame": {
-						"x": 503,
-						"y": 259,
-						"w": 32,
-						"h": 36
-					}
-				},
-				{
-					"filename": "little-knight-idle-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 31
-					},
-					"frame": {
-						"x": 537,
-						"y": 82,
-						"w": 24,
-						"h": 31
-					}
-				},
-				{
-					"filename": "orc-mask-run-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 36
-					},
-					"frame": {
-						"x": 333,
-						"y": 312,
-						"w": 32,
-						"h": 36
-					}
-				},
-				{
-					"filename": "orc-mask-run-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 36
-					},
-					"frame": {
-						"x": 333,
-						"y": 350,
-						"w": 32,
-						"h": 36
 					}
 				},
 				{
@@ -1998,94 +1620,10 @@
 						"h": 34
 					},
 					"frame": {
-						"x": 333,
-						"y": 388,
+						"x": 325,
+						"y": 351,
 						"w": 32,
 						"h": 34
-					}
-				},
-				{
-					"filename": "orc-simple-run-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 36
-					},
-					"frame": {
-						"x": 367,
-						"y": 312,
-						"w": 32,
-						"h": 36
-					}
-				},
-				{
-					"filename": "orc-simple-run-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 36
-					},
-					"frame": {
-						"x": 401,
-						"y": 307,
-						"w": 32,
-						"h": 36
-					}
-				},
-				{
-					"filename": "orc-simple-run-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 36
-					},
-					"frame": {
-						"x": 435,
-						"y": 305,
-						"w": 32,
-						"h": 36
-					}
-				},
-				{
-					"filename": "orc-simple-run-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 36
-					},
-					"frame": {
-						"x": 469,
-						"y": 297,
-						"w": 32,
-						"h": 36
 					}
 				},
 				{
@@ -2103,8 +1641,8 @@
 						"h": 34
 					},
 					"frame": {
-						"x": 367,
-						"y": 350,
+						"x": 359,
+						"y": 351,
 						"w": 32,
 						"h": 34
 					}
@@ -2124,8 +1662,8 @@
 						"h": 34
 					},
 					"frame": {
-						"x": 401,
-						"y": 345,
+						"x": 393,
+						"y": 351,
 						"w": 32,
 						"h": 34
 					}
@@ -2145,8 +1683,8 @@
 						"h": 34
 					},
 					"frame": {
-						"x": 435,
-						"y": 343,
+						"x": 427,
+						"y": 351,
 						"w": 32,
 						"h": 34
 					}
@@ -2166,8 +1704,8 @@
 						"h": 34
 					},
 					"frame": {
-						"x": 469,
-						"y": 335,
+						"x": 461,
+						"y": 351,
 						"w": 32,
 						"h": 34
 					}
@@ -2187,8 +1725,8 @@
 						"h": 34
 					},
 					"frame": {
-						"x": 503,
-						"y": 297,
+						"x": 495,
+						"y": 351,
 						"w": 32,
 						"h": 34
 					}
@@ -2208,8 +1746,8 @@
 						"h": 34
 					},
 					"frame": {
-						"x": 367,
-						"y": 386,
+						"x": 529,
+						"y": 351,
 						"w": 32,
 						"h": 34
 					}
@@ -2229,10 +1767,31 @@
 						"h": 34
 					},
 					"frame": {
-						"x": 401,
-						"y": 381,
+						"x": 563,
+						"y": 351,
 						"w": 32,
 						"h": 34
+					}
+				},
+				{
+					"filename": "arrow-break-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 589,
+						"y": 317,
+						"w": 32,
+						"h": 32
 					}
 				},
 				{
@@ -2250,10 +1809,556 @@
 						"h": 34
 					},
 					"frame": {
-						"x": 435,
-						"y": 379,
+						"x": 597,
+						"y": 351,
 						"w": 32,
 						"h": 34
+					}
+				},
+				{
+					"filename": "demon-split-idle-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 42
+					},
+					"frame": {
+						"x": 603,
+						"y": 207,
+						"w": 32,
+						"h": 42
+					}
+				},
+				{
+					"filename": "ice-mask-idle-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 38,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 38,
+						"h": 37
+					},
+					"frame": {
+						"x": 637,
+						"y": 205,
+						"w": 38,
+						"h": 37
+					}
+				},
+				{
+					"filename": "arrow-break-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 603,
+						"y": 251,
+						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "ice-mask-idle-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 38,
+						"h": 37
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 38,
+						"h": 37
+					},
+					"frame": {
+						"x": 637,
+						"y": 244,
+						"w": 38,
+						"h": 37
+					}
+				},
+				{
+					"filename": "potion-red-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 24
+					},
+					"frame": {
+						"x": 661,
+						"y": 39,
+						"w": 24,
+						"h": 24
+					}
+				},
+				{
+					"filename": "fireball-arcanic-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 32
+					},
+					"frame": {
+						"x": 687,
+						"y": 39,
+						"w": 40,
+						"h": 32
+					}
+				},
+				{
+					"filename": "fireball-simple-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 32
+					},
+					"frame": {
+						"x": 729,
+						"y": 39,
+						"w": 40,
+						"h": 32
+					}
+				},
+				{
+					"filename": "fireball-simple-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 32
+					},
+					"frame": {
+						"x": 771,
+						"y": 39,
+						"w": 40,
+						"h": 32
+					}
+				},
+				{
+					"filename": "fireball-simple-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 32
+					},
+					"frame": {
+						"x": 813,
+						"y": 39,
+						"w": 40,
+						"h": 32
+					}
+				},
+				{
+					"filename": "fireball-simple-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 32
+					},
+					"frame": {
+						"x": 855,
+						"y": 39,
+						"w": 40,
+						"h": 32
+					}
+				},
+				{
+					"filename": "arrow-break-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 897,
+						"y": 40,
+						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "arrow-small",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 931,
+						"y": 40,
+						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "little-knight-run-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 26,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 26,
+						"h": 32
+					},
+					"frame": {
+						"x": 965,
+						"y": 40,
+						"w": 26,
+						"h": 32
+					}
+				},
+				{
+					"filename": "potion-red-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 24
+					},
+					"frame": {
+						"x": 601,
+						"y": 285,
+						"w": 24,
+						"h": 24
+					}
+				},
+				{
+					"filename": "demon-bounce-run-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 36
+					},
+					"frame": {
+						"x": 663,
+						"y": 73,
+						"w": 32,
+						"h": 36
+					}
+				},
+				{
+					"filename": "demon-bounce-run-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 36
+					},
+					"frame": {
+						"x": 697,
+						"y": 73,
+						"w": 32,
+						"h": 36
+					}
+				},
+				{
+					"filename": "demon-bounce-run-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 36
+					},
+					"frame": {
+						"x": 731,
+						"y": 73,
+						"w": 32,
+						"h": 36
+					}
+				},
+				{
+					"filename": "demon-bounce-run-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 36
+					},
+					"frame": {
+						"x": 765,
+						"y": 73,
+						"w": 32,
+						"h": 36
+					}
+				},
+				{
+					"filename": "orc-mask-run-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 36
+					},
+					"frame": {
+						"x": 799,
+						"y": 73,
+						"w": 32,
+						"h": 36
+					}
+				},
+				{
+					"filename": "orc-mask-run-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 36
+					},
+					"frame": {
+						"x": 833,
+						"y": 73,
+						"w": 32,
+						"h": 36
+					}
+				},
+				{
+					"filename": "orc-mask-run-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 36
+					},
+					"frame": {
+						"x": 665,
+						"y": 111,
+						"w": 32,
+						"h": 36
+					}
+				},
+				{
+					"filename": "orc-mask-run-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 36
+					},
+					"frame": {
+						"x": 665,
+						"y": 149,
+						"w": 32,
+						"h": 36
+					}
+				},
+				{
+					"filename": "orc-simple-run-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 36
+					},
+					"frame": {
+						"x": 699,
+						"y": 111,
+						"w": 32,
+						"h": 36
+					}
+				},
+				{
+					"filename": "orc-simple-run-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 36
+					},
+					"frame": {
+						"x": 699,
+						"y": 149,
+						"w": 32,
+						"h": 36
+					}
+				},
+				{
+					"filename": "orc-simple-run-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 36
+					},
+					"frame": {
+						"x": 733,
+						"y": 111,
+						"w": 32,
+						"h": 36
+					}
+				},
+				{
+					"filename": "orc-simple-run-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 36
+					},
+					"frame": {
+						"x": 733,
+						"y": 149,
+						"w": 32,
+						"h": 36
 					}
 				},
 				{
@@ -2271,178 +2376,10 @@
 						"h": 34
 					},
 					"frame": {
-						"x": 469,
-						"y": 371,
+						"x": 767,
+						"y": 111,
 						"w": 32,
 						"h": 34
-					}
-				},
-				{
-					"filename": "bomb-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 503,
-						"y": 333,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "bomb-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 503,
-						"y": 367,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "bomb-4",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 343,
-						"y": 424,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "bomb-5",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 377,
-						"y": 422,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "bomb-6",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 411,
-						"y": 417,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "bomb-7",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 445,
-						"y": 415,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "bomb-8",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 479,
-						"y": 407,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "bomb-9",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 513,
-						"y": 401,
-						"w": 32,
-						"h": 32
 					}
 				},
 				{
@@ -2460,8 +2397,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 623,
-						"y": 86,
+						"x": 767,
+						"y": 147,
 						"w": 32,
 						"h": 32
 					}
@@ -2481,31 +2418,10 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 657,
-						"y": 86,
+						"x": 801,
+						"y": 111,
 						"w": 32,
 						"h": 32
-					}
-				},
-				{
-					"filename": "little-knight-idle-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 31
-					},
-					"frame": {
-						"x": 597,
-						"y": 100,
-						"w": 24,
-						"h": 31
 					}
 				},
 				{
@@ -2523,31 +2439,10 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 563,
-						"y": 114,
+						"x": 801,
+						"y": 145,
 						"w": 32,
 						"h": 32
-					}
-				},
-				{
-					"filename": "little-knight-idle-4",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 31
-					},
-					"frame": {
-						"x": 537,
-						"y": 115,
-						"w": 24,
-						"h": 31
 					}
 				},
 				{
@@ -2565,8 +2460,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 533,
-						"y": 148,
+						"x": 835,
+						"y": 111,
 						"w": 32,
 						"h": 32
 					}
@@ -2586,30 +2481,30 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 533,
-						"y": 182,
+						"x": 835,
+						"y": 145,
 						"w": 32,
 						"h": 32
 					}
 				},
 				{
-					"filename": "crosshair-bomb",
+					"filename": "little-knight-run-1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 32,
+						"w": 26,
 						"h": 32
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 32,
+						"w": 26,
 						"h": 32
 					},
 					"frame": {
-						"x": 533,
-						"y": 216,
-						"w": 32,
+						"x": 867,
+						"y": 73,
+						"w": 26,
 						"h": 32
 					}
 				},
@@ -2628,8 +2523,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 567,
-						"y": 148,
+						"x": 895,
+						"y": 74,
 						"w": 32,
 						"h": 32
 					}
@@ -2649,9 +2544,51 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 567,
-						"y": 182,
+						"x": 929,
+						"y": 74,
 						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "little-knight-run-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 26,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 26,
+						"h": 32
+					},
+					"frame": {
+						"x": 963,
+						"y": 74,
+						"w": 26,
+						"h": 32
+					}
+				},
+				{
+					"filename": "little-knight-idle-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 32
+					},
+					"frame": {
+						"x": 869,
+						"y": 107,
+						"w": 24,
 						"h": 32
 					}
 				},
@@ -2670,8 +2607,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 567,
-						"y": 216,
+						"x": 895,
+						"y": 108,
 						"w": 32,
 						"h": 32
 					}
@@ -2691,9 +2628,51 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 537,
-						"y": 250,
+						"x": 929,
+						"y": 108,
 						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "little-knight-run-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 26,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 26,
+						"h": 32
+					},
+					"frame": {
+						"x": 963,
+						"y": 108,
+						"w": 26,
+						"h": 32
+					}
+				},
+				{
+					"filename": "little-knight-idle-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 32
+					},
+					"frame": {
+						"x": 869,
+						"y": 141,
+						"w": 24,
 						"h": 32
 					}
 				},
@@ -2712,8 +2691,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 537,
-						"y": 284,
+						"x": 895,
+						"y": 142,
 						"w": 32,
 						"h": 32
 					}
@@ -2733,9 +2712,30 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 537,
-						"y": 318,
+						"x": 929,
+						"y": 142,
 						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "little-knight-run-4",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 26,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 26,
+						"h": 32
+					},
+					"frame": {
+						"x": 963,
+						"y": 142,
+						"w": 26,
 						"h": 32
 					}
 				},
@@ -2754,8 +2754,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 537,
-						"y": 352,
+						"x": 677,
+						"y": 187,
 						"w": 32,
 						"h": 32
 					}
@@ -2775,8 +2775,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 571,
-						"y": 250,
+						"x": 677,
+						"y": 221,
 						"w": 32,
 						"h": 32
 					}
@@ -2796,8 +2796,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 571,
-						"y": 284,
+						"x": 711,
+						"y": 187,
 						"w": 32,
 						"h": 32
 					}
@@ -2817,8 +2817,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 571,
-						"y": 318,
+						"x": 711,
+						"y": 221,
 						"w": 32,
 						"h": 32
 					}
@@ -2838,8 +2838,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 571,
-						"y": 352,
+						"x": 677,
+						"y": 255,
 						"w": 32,
 						"h": 32
 					}
@@ -2859,8 +2859,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 547,
-						"y": 386,
+						"x": 711,
+						"y": 255,
 						"w": 32,
 						"h": 32
 					}
@@ -2880,8 +2880,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 581,
-						"y": 386,
+						"x": 745,
+						"y": 187,
 						"w": 32,
 						"h": 32
 					}
@@ -2901,8 +2901,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 547,
-						"y": 420,
+						"x": 745,
+						"y": 221,
 						"w": 32,
 						"h": 32
 					}
@@ -2922,8 +2922,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 581,
-						"y": 420,
+						"x": 745,
+						"y": 255,
 						"w": 32,
 						"h": 32
 					}
@@ -2943,8 +2943,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 513,
-						"y": 435,
+						"x": 779,
+						"y": 181,
 						"w": 32,
 						"h": 32
 					}
@@ -2964,29 +2964,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 479,
-						"y": 441,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "ice-sad-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 445,
-						"y": 449,
+						"x": 779,
+						"y": 215,
 						"w": 32,
 						"h": 32
 					}
@@ -3006,8 +2985,29 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 411,
-						"y": 451,
+						"x": 779,
+						"y": 215,
+						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "ice-sad-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 779,
+						"y": 249,
 						"w": 32,
 						"h": 32
 					}
@@ -3027,8 +3027,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 377,
-						"y": 456,
+						"x": 813,
+						"y": 179,
 						"w": 32,
 						"h": 32
 					}
@@ -3048,8 +3048,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 343,
-						"y": 458,
+						"x": 813,
+						"y": 213,
 						"w": 32,
 						"h": 32
 					}
@@ -3069,8 +3069,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 547,
-						"y": 454,
+						"x": 813,
+						"y": 247,
 						"w": 32,
 						"h": 32
 					}
@@ -3090,8 +3090,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 581,
-						"y": 454,
+						"x": 847,
+						"y": 179,
 						"w": 32,
 						"h": 32
 					}
@@ -3111,8 +3111,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 513,
-						"y": 469,
+						"x": 847,
+						"y": 213,
 						"w": 32,
 						"h": 32
 					}
@@ -3132,29 +3132,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 479,
-						"y": 475,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "leaf-sad-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 623,
-						"y": 120,
+						"x": 847,
+						"y": 247,
 						"w": 32,
 						"h": 32
 					}
@@ -3174,8 +3153,29 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 657,
-						"y": 120,
+						"x": 847,
+						"y": 247,
+						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "leaf-sad-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 881,
+						"y": 176,
 						"w": 32,
 						"h": 32
 					}
@@ -3195,8 +3195,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 601,
-						"y": 154,
+						"x": 881,
+						"y": 210,
 						"w": 32,
 						"h": 32
 					}
@@ -3216,8 +3216,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 601,
-						"y": 188,
+						"x": 915,
+						"y": 176,
 						"w": 32,
 						"h": 32
 					}
@@ -3237,8 +3237,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 635,
-						"y": 154,
+						"x": 881,
+						"y": 244,
 						"w": 32,
 						"h": 32
 					}
@@ -3258,8 +3258,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 635,
-						"y": 188,
+						"x": 915,
+						"y": 210,
 						"w": 32,
 						"h": 32
 					}
@@ -3279,8 +3279,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 669,
-						"y": 154,
+						"x": 949,
+						"y": 176,
 						"w": 32,
 						"h": 32
 					}
@@ -3300,31 +3300,10 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 669,
-						"y": 188,
+						"x": 915,
+						"y": 244,
 						"w": 32,
 						"h": 32
-					}
-				},
-				{
-					"filename": "potion-red-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 24
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 24
-					},
-					"frame": {
-						"x": 601,
-						"y": 222,
-						"w": 24,
-						"h": 24
 					}
 				},
 				{
@@ -3342,8 +3321,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 627,
-						"y": 222,
+						"x": 949,
+						"y": 210,
 						"w": 32,
 						"h": 32
 					}
@@ -3363,10 +3342,31 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 661,
-						"y": 222,
+						"x": 949,
+						"y": 244,
 						"w": 32,
 						"h": 32
+					}
+				},
+				{
+					"filename": "crosshair-bow",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 16
+					},
+					"frame": {
+						"x": 257,
+						"y": 333,
+						"w": 16,
+						"h": 16
 					}
 				},
 				{
@@ -3384,8 +3384,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 605,
-						"y": 256,
+						"x": 779,
+						"y": 283,
 						"w": 32,
 						"h": 32
 					}
@@ -3405,8 +3405,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 605,
-						"y": 290,
+						"x": 813,
+						"y": 281,
 						"w": 32,
 						"h": 32
 					}
@@ -3426,8 +3426,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 639,
-						"y": 256,
+						"x": 847,
+						"y": 281,
 						"w": 32,
 						"h": 32
 					}
@@ -3447,92 +3447,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 605,
-						"y": 324,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "potion-red-small-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 639,
-						"y": 290,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "potion-red-small-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 639,
-						"y": 324,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "potion-red-small-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 673,
-						"y": 256,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "potion-red-small-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 673,
-						"y": 290,
+						"x": 881,
+						"y": 278,
 						"w": 32,
 						"h": 32
 					}
@@ -3552,8 +3468,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 673,
-						"y": 324,
+						"x": 915,
+						"y": 278,
 						"w": 32,
 						"h": 32
 					}
@@ -3573,9 +3489,93 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 695,
-						"y": 222,
+						"x": 949,
+						"y": 278,
 						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "little-knight-idle-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 32
+					},
+					"frame": {
+						"x": 623,
+						"y": 317,
+						"w": 24,
+						"h": 32
+					}
+				},
+				{
+					"filename": "little-knight-idle-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 32
+					},
+					"frame": {
+						"x": 623,
+						"y": 317,
+						"w": 24,
+						"h": 32
+					}
+				},
+				{
+					"filename": "little-knight-idle-4",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 32
+					},
+					"frame": {
+						"x": 631,
+						"y": 351,
+						"w": 24,
+						"h": 32
+					}
+				},
+				{
+					"filename": "little-knight-idle-5",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 32
+					},
+					"frame": {
+						"x": 631,
+						"y": 351,
+						"w": 24,
 						"h": 32
 					}
 				},
@@ -3594,9 +3594,30 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 729,
-						"y": 84,
+						"x": 637,
+						"y": 283,
 						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "little-knight-run-5",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 26,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 26,
+						"h": 32
+					},
+					"frame": {
+						"x": 649,
+						"y": 317,
+						"w": 26,
 						"h": 32
 					}
 				},
@@ -3615,8 +3636,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 695,
-						"y": 84,
+						"x": 657,
+						"y": 351,
 						"w": 32,
 						"h": 32
 					}
@@ -3636,8 +3657,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 729,
-						"y": 118,
+						"x": 677,
+						"y": 317,
 						"w": 32,
 						"h": 32
 					}
@@ -3657,8 +3678,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 729,
-						"y": 152,
+						"x": 691,
+						"y": 351,
 						"w": 32,
 						"h": 32
 					}
@@ -3678,8 +3699,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 729,
-						"y": 186,
+						"x": 711,
+						"y": 317,
 						"w": 32,
 						"h": 32
 					}
@@ -3699,8 +3720,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 729,
-						"y": 220,
+						"x": 745,
+						"y": 289,
 						"w": 32,
 						"h": 32
 					}
@@ -3720,8 +3741,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 729,
-						"y": 254,
+						"x": 745,
+						"y": 323,
 						"w": 32,
 						"h": 32
 					}
@@ -3741,73 +3762,10 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 691,
-						"y": 118,
+						"x": 779,
+						"y": 317,
 						"w": 32,
 						"h": 32
-					}
-				},
-				{
-					"filename": "little-knight-idle-5",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 31
-					},
-					"frame": {
-						"x": 703,
-						"y": 152,
-						"w": 24,
-						"h": 31
-					}
-				},
-				{
-					"filename": "potion-red-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 24
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 24
-					},
-					"frame": {
-						"x": 703,
-						"y": 185,
-						"w": 24,
-						"h": 24
-					}
-				},
-				{
-					"filename": "potion-red-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 24
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 24
-					},
-					"frame": {
-						"x": 605,
-						"y": 358,
-						"w": 24,
-						"h": 24
 					}
 				},
 				{
@@ -3825,8 +3783,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 631,
-						"y": 358,
+						"x": 813,
+						"y": 315,
 						"w": 32,
 						"h": 32
 					}
@@ -3846,8 +3804,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 665,
-						"y": 358,
+						"x": 847,
+						"y": 315,
 						"w": 32,
 						"h": 32
 					}
@@ -3867,8 +3825,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 615,
-						"y": 392,
+						"x": 881,
+						"y": 312,
 						"w": 32,
 						"h": 32
 					}
@@ -3888,8 +3846,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 615,
-						"y": 426,
+						"x": 915,
+						"y": 312,
 						"w": 32,
 						"h": 32
 					}
@@ -3909,10 +3867,52 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 649,
-						"y": 392,
+						"x": 949,
+						"y": 312,
 						"w": 32,
 						"h": 32
+					}
+				},
+				{
+					"filename": "potion-red-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 24
+					},
+					"frame": {
+						"x": 671,
+						"y": 289,
+						"w": 24,
+						"h": 24
+					}
+				},
+				{
+					"filename": "potion-red-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 24
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 24
+					},
+					"frame": {
+						"x": 697,
+						"y": 289,
+						"w": 24,
+						"h": 24
 					}
 				},
 				{
@@ -3930,134 +3930,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 649,
-						"y": 426,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "torch-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 615,
-						"y": 460,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "torch-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 649,
-						"y": 460,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "torch-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 683,
-						"y": 392,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "torch-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 683,
-						"y": 426,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "torch-4",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 683,
-						"y": 460,
-						"w": 32,
-						"h": 32
-					}
-				},
-				{
-					"filename": "torch-5",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 32,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 32,
-						"h": 32
-					},
-					"frame": {
-						"x": 699,
-						"y": 358,
+						"x": 779,
+						"y": 351,
 						"w": 32,
 						"h": 32
 					}
@@ -4077,8 +3951,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 717,
-						"y": 392,
+						"x": 813,
+						"y": 349,
 						"w": 32,
 						"h": 32
 					}
@@ -4098,8 +3972,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 717,
-						"y": 426,
+						"x": 847,
+						"y": 349,
 						"w": 32,
 						"h": 32
 					}
@@ -4119,8 +3993,8 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 717,
-						"y": 460,
+						"x": 881,
+						"y": 346,
 						"w": 32,
 						"h": 32
 					}
@@ -4140,94 +4014,10 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 707,
-						"y": 288,
+						"x": 915,
+						"y": 346,
 						"w": 32,
 						"h": 32
-					}
-				},
-				{
-					"filename": "little-knight-run-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 26,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 26,
-						"h": 31
-					},
-					"frame": {
-						"x": 707,
-						"y": 322,
-						"w": 26,
-						"h": 31
-					}
-				},
-				{
-					"filename": "little-knight-run-4",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 26,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 26,
-						"h": 31
-					},
-					"frame": {
-						"x": 735,
-						"y": 322,
-						"w": 26,
-						"h": 31
-					}
-				},
-				{
-					"filename": "little-knight-run-5",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 26,
-						"h": 31
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 26,
-						"h": 31
-					},
-					"frame": {
-						"x": 733,
-						"y": 355,
-						"w": 26,
-						"h": 31
-					}
-				},
-				{
-					"filename": "crosshair-bow",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 16
-					},
-					"frame": {
-						"x": 743,
-						"y": 1,
-						"w": 16,
-						"h": 16
 					}
 				},
 				{
@@ -4245,31 +4035,10 @@
 						"h": 16
 					},
 					"frame": {
-						"x": 707,
-						"y": 256,
+						"x": 725,
+						"y": 351,
 						"w": 16,
 						"h": 16
-					}
-				},
-				{
-					"filename": "potion-red-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 24
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 24
-					},
-					"frame": {
-						"x": 263,
-						"y": 476,
-						"w": 24,
-						"h": 24
 					}
 				}
 			]
@@ -4278,6 +4047,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:5486fc96cc4c43db8e7f03a0686276e5:99645efdfbd177ac414b36fd87465e8d:cbce6b53f0f49e0bf15173c25c41f876$"
+		"smartupdate": "$TexturePacker:SmartUpdate:f7b5022f21063474745c04a352d45d2b:7217451c19cc045e1b9856c0331c74c2:cbce6b53f0f49e0bf15173c25c41f876$"
 	}
 }
