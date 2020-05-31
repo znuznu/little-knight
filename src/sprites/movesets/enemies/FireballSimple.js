@@ -35,7 +35,7 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     this.play('fireball-simple', true);
     this.scene.physics.moveToObject(this, this.scene.player, this.speed);
   }
-
+  
   playerCollide(player) {
     player.hurt(this.damage);
     this.explode();

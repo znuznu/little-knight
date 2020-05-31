@@ -44,6 +44,7 @@ export default class HUDScene extends Phaser.Scene {
   createWeapons() {
     this.add.sprite(32, 64 + 10, 'atlas', 'items-container');
     this.add.sprite(32, 96 + 20, 'atlas', 'items-container');
+    this.add.sprite(32, 128 + 30, 'atlas', 'items-container');
 
     this.weapons = this.add.group();
     this.weapons.createMultiple({
@@ -54,7 +55,7 @@ export default class HUDScene extends Phaser.Scene {
         y: 74,
         stepY: 42
       },
-      quantity: 2
+      quantity: 3
     });
   }
 
@@ -87,8 +88,10 @@ export default class HUDScene extends Phaser.Scene {
 
   createBossName() {
     this.bossName = this.add.bitmapText(
-      128, 384, 'bitty', 'Default', 32
+      128, 380, 'bitty', 'Default', 32
     ).setOrigin(0, 0);
+
+    this.bossName.setTint(0xfdf7ed);
   }
 
   createBossHealth() {
@@ -99,31 +102,37 @@ export default class HUDScene extends Phaser.Scene {
     this.borderTop = this.add.rectangle(
       this.maximumHealthBar.x,
       this.maximumHealthBar.y - 2,
-      this.maximumHealthBar.width, 2, 0xffffff
+      this.maximumHealthBar.width, 2, 0xfdf7ed
     ).setOrigin(0, 0);
 
     this.borderDown = this.add.rectangle(
       this.maximumHealthBar.x,
       this.maximumHealthBar.y + this.maximumHealthBar.height,
-      this.maximumHealthBar.width, 2, 0xffffff
+      this.maximumHealthBar.width, 2, 0xfdf7ed
     ).setOrigin(0, 0);
 
     this.borderRight = this.add.rectangle(
       this.maximumHealthBar.x - 2 ,
       this.maximumHealthBar.y,
-      2, this.maximumHealthBar.height, 0xffffff
+      2, this.maximumHealthBar.height, 0xfdf7ed
     ).setOrigin(0, 0);
 
     this.borderLeft = this.add.rectangle(
       this.maximumHealthBar.x + this.maximumHealthBar.width,
       this.maximumHealthBar.y,
-      2, this.maximumHealthBar.height, 0xffffff
+      2, this.maximumHealthBar.height, 0xfdf7ed
     ).setOrigin(0, 0);
 
-    this.currentHealthBar = this.add.rectangle(
+    this.currentHealthBarTop = this.add.rectangle(
       this.maximumHealthBar.x + 2,
       this.maximumHealthBar.y + 2,
-      0, this.maximumHealthBar.height - 4, 0xa40000
+      0, 21, 0xb30000
+    ).setOrigin(0, 0);
+
+    this.currentHealthBarDown = this.add.rectangle(
+      this.maximumHealthBar.x + 2,
+      this.currentHealthBarTop.y + 21,
+      0, 7, 0x800000
     ).setOrigin(0, 0);
   }
 
@@ -135,6 +144,9 @@ export default class HUDScene extends Phaser.Scene {
           break;
         case 'sword':
           weapon.setFrame('sword');
+          break;
+        case 'bomb':
+          weapon.setFrame('bomb-0');
           break;
         default:
           weapon.setFrame('items-container');
@@ -194,15 +206,21 @@ export default class HUDScene extends Phaser.Scene {
     if (widthPercentage == 0)
       widthPercentage = 4;
 
-    this.currentHealthBar.setSize(
+    this.currentHealthBarTop.setSize(
       widthPercentage - 4,
-      this.maximumHealthBar.height - 4
+      21
+    );
+
+    this.currentHealthBarDown.setSize(
+      widthPercentage - 4,
+      7
     );
   }
 
   showBossStats() {
     this.maximumHealthBar.setVisible(true);
-    this.currentHealthBar.setVisible(true);
+    this.currentHealthBarTop.setVisible(true);
+    this.currentHealthBarDown.setVisible(true);
     this.borderTop.setVisible(true);
     this.borderDown.setVisible(true);
     this.borderRight.setVisible(true);
@@ -212,7 +230,8 @@ export default class HUDScene extends Phaser.Scene {
 
   hideBossStats() {
     this.maximumHealthBar.setVisible(false);
-    this.currentHealthBar.setVisible(false);
+    this.currentHealthBarTop.setVisible(false);
+    this.currentHealthBarDown.setVisible(false);
     this.borderTop.setVisible(false);
     this.borderDown.setVisible(false);
     this.borderRight.setVisible(false);

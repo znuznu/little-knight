@@ -20,6 +20,9 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     let angleDeg = Phaser.Math.RadToDeg(angleRad);
     this.angle = angleDeg;
 
+    this.rotate();
+
+    // Flip the fireball because of the evil face on it.
     if (this.angle >= 45 && this.angle <= 180 || this.angle >= -180 && this.angle <= -45) {
       this.setFlipY(true);
     } else {
@@ -37,6 +40,22 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     // Random but at least 80.
     let speed = ~~(Math.random() * ~~(100)) + 80;
     this.scene.physics.moveTo(this, x, y, speed);
+  }
+
+  // Rotate toward the angle from this fireball.
+  // To adjust.
+  rotate() {
+    // Adjust the hitbox.
+    let leftLimit = 135, rightLimit = 45;
+    let top = this.angle > rightLimit && this.angle < leftLimit;
+    let down = this.angle < -rightLimit && this.angle > -leftLimit;
+
+    if (top || down) {
+      this.body.setSize(32, 64);
+      this.body.setOffset(16, 0);
+    } else {
+      this.body.setSize(64, 32);
+    }
   }
 
   playerCollide(player) {

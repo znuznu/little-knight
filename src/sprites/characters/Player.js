@@ -8,6 +8,7 @@ import PlayerHurtState from '../../states/player/PlayerHurtState.js';
 import PlayerSlashState from '../../states/player/PlayerSlashState.js';
 import PlayerShootState from '../../states/player/PlayerShootState.js';
 import PlayerDeadState from '../../states/player/PlayerDeadState.js';
+import PlayerThrowBombState from '../../states/player/PlayerThrowBombState.js';
 import HUDEventsManager from '../../events/HUDEventsManager.js';
 
 export default class Player extends Character {
@@ -46,7 +47,8 @@ export default class Player extends Character {
       'run': 'player-run',
       'dash': 'player-dash',
       'slash': undefined,
-      'shoot': undefined
+      'shoot': undefined,
+      'bomb': 'player-idle'
     };
 
     this.actionStateMachine = new StateMachine('idle', {
@@ -54,7 +56,8 @@ export default class Player extends Character {
       run: new PlayerRunState(),
       dash: new PlayerDashState(),
       slash: new PlayerSlashState(),
-      shoot: new PlayerShootState()
+      shoot: new PlayerShootState(),
+      bomb: new PlayerThrowBombState()
     }, [this.scene, this]);
 
     this.healthStateMachine = new StateMachine('normal', {
@@ -79,11 +82,19 @@ export default class Player extends Character {
 
     this.getData('weapons').push(current);
 
-    // The crosshair is based on the weapon.
-    if (this.getCurrentWeapon() == 'bow') {
-      this.scene.crosshair.setFrame('crosshair-bow');
-    } else {
-      this.scene.crosshair.setFrame('crosshair-simple');
+    switch (this.getCurrentWeapon()) {
+      case 'bow':
+        this.scene.crosshair.setFrame('crosshair-bow');
+        break;
+      case 'sword':
+        this.scene.crosshair.setFrame('crosshair-simple');
+        break;
+      case 'bomb':
+        this.scene.crosshair.setFrame('crosshair-bomb');
+        break;
+      default:
+        this.scene.crosshair.setFrame('crosshair-simple');
+        break;
     }
 
     HUDEventsManager.emit('update-weapons', this.getData('weapons'));
@@ -97,6 +108,7 @@ export default class Player extends Character {
     switch (item) {
       case 'bow':
       case 'sword':
+      case 'bomb':
         this.scene.player.getData('weapons').push(item);
         this.scene.player.nextWeapon();
         break;

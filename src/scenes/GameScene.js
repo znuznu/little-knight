@@ -20,11 +20,13 @@ import OrcTattoo from '../sprites/characters/enemies/orc/OrcTattoo.js';
 import Mage from '../sprites/characters/enemies/mage/Mage.js';
 import Depressum from '../sprites/characters/enemies/boss/Depressum.js';
 import PlayerArrow from '../sprites/movesets/player/PlayerArrow.js';
+import PlayerBomb from '../sprites/movesets/player/PlayerBomb.js';
 import FireballSimple from '../sprites/movesets/enemies/FireballSimple.js';
 import FireballArcanic from '../sprites/movesets/enemies/FireballArcanic.js';
 import PursuitSword from '../sprites/movesets/enemies/PursuitSword.js';
 import Chest from '../sprites/misc/Chest.js';
 import Door from '../sprites/misc/Door.js';
+import Explosion from '../sprites/effects/Explosion.js';
 import HUDEventsManager from '../events/HUDEventsManager.js';
 
 export default class GameScene extends Phaser.Scene {
@@ -42,7 +44,7 @@ export default class GameScene extends Phaser.Scene {
     } else {
       this.scene.run('hudScene');
       this.scene.run('bossHudScene');
-      this.createPlayer(6, [], {});
+      this.createPlayer(6, ['sword'], {});
     }
 
     this.saveState(data.level, data.floor, this.player, this.moveControls);
@@ -128,7 +130,6 @@ export default class GameScene extends Phaser.Scene {
     // Ugly, should be inside the Player[Idle/Run]State
     // but dunno how to test only one time.
     this.input.on('pointerdown', pointer => {
-
       let state = this.player.actionStateMachine.state;
       if (!this.player.isDead() && (state === 'idle' || state === 'run')) {
         switch (this.player.getCurrentWeapon()) {
@@ -137,6 +138,9 @@ export default class GameScene extends Phaser.Scene {
             break;
           case 'bow':
             this.player.actionStateMachine.transition('shoot');
+            break;
+          case 'bomb':
+            this.player.actionStateMachine.transition('bomb');
             break;
           default:
             break;
@@ -150,6 +154,8 @@ export default class GameScene extends Phaser.Scene {
 
     if (this.player.getCurrentWeapon() == 'bow') {
       crosshairFrame = 'crosshair-bow';
+    } else if (this.player.getCurrentWeapon() == 'bomb') {
+      crosshairFrame = 'crosshair-bomb';
     }
 
     this.crosshair = this.physics.add.sprite(
@@ -223,6 +229,16 @@ export default class GameScene extends Phaser.Scene {
     this.pursuitSwordGroup = this.add.group({
       classType: PursuitSword,
       runChildUpdate: true
+    });
+
+    this.playerBombsGroup = this.add.group({
+      classType: PlayerBomb,
+      maxSize: 3
+    });
+
+    this.explosionsGroups = this.add.group({
+      classType: Explosion,
+      maxSize: 18
     });
 
     // Player dash shadows.
@@ -318,13 +334,26 @@ export default class GameScene extends Phaser.Scene {
         this.changeLevel(t.getData('level'), t.getData('floor'), this.player, this.moveControls);
       }
     );
+
+    // Explosions.
+    this.physics.add.overlap(
+      this.explosionsGroups,
+      this.player,
+      (e, p) => { p.hurt(e.damage); }
+    );
+
+    this.physics.add.overlap(
+      this.explosionsGroups,
+      this.enemyGroup,
+      (e, eg) => { eg.bombDamageTaken(e.damage); }
+    );
   }
 
   /*
    * Change level and pass player's arguments to the next scene.
    * I'm not passing the player itself because in this case his
-   * scene from his states machines needs to be updated and it's
-   * tricky.
+   * scene from his states machines needs to be updated and it
+   * gets tricky.
    */
   changeLevel(level, floor, player, moveControls) {
     this.scene.restart(
@@ -348,10 +377,10 @@ export default class GameScene extends Phaser.Scene {
       enemy.x += 16;
       enemy.y -= 16;
       switch (enemy.type) {
-        case 'desolation-knight':
+        case 'depressum':
           enemyObject = new Depressum({
             scene: this,
-            key: 'desolation-knight',
+            key: 'depressum',
             x: enemy.x,
             y: enemy.y
           });
@@ -545,7 +574,7 @@ export default class GameScene extends Phaser.Scene {
 
   createEvents() {
     this.events.on('player-death', _ => {
-      // If the player dies against a boss.
+      // If the player died against a boss.
       HUDEventsManager.emit('hide-boss-stats');
 
       this.scene.start('gameOverScene', {

@@ -9,6 +9,7 @@ export default class Chest extends Phaser.GameObjects.Sprite {
     this.itemsToFrame = {
       'bow': 'bow',
       'sword': 'sword',
+      'bomb': 'bomb-0',
       'key-simple': 'key-simple',
       'key-boss': 'key-boss',
       'potion-heal': 'potion-red-0'

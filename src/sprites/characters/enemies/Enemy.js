@@ -53,6 +53,11 @@ export default class Enemy extends Character {
     this.hurt(damage);
   }
 
+  // Damage caused by a bomb.
+  bombDamageTaken(damage) {
+    this.hurt(damage);
+  }
+
   // Attack taken from an enemy with an arrow of the player.
   arrowAttackTaken(damage) {
     if (!this.arrowProof)

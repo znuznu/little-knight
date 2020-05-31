@@ -161,18 +161,33 @@ export default class BootScene extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: 'arrow-break',
+      key: 'bomb',
       frames: this.anims.generateFrameNames(
         'atlas', {
-          prefix: 'arrow-break-',
+          prefix: 'bomb-',
           suffix: '',
           start: 0,
-          end: 1,
+          end: 8,
           zeroPad: 0
         }
       ),
-      repeat: 0,
-      duration: 150
+      duration: 4000,
+      repeat: 0
+    });
+
+    this.anims.create({
+      key: 'explosion',
+      frames: this.anims.generateFrameNames(
+        'atlas', {
+          prefix: 'smoke-big-',
+          suffix: '',
+          start: 0,
+          end: 4,
+          zeroPad: 0
+        }
+      ),
+      duration: 1000,
+      repeat: 0
     });
 
     this.anims.create({
