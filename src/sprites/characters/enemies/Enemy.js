@@ -19,7 +19,7 @@ export default class Enemy extends Character {
     this.aggroRadius = 160;
 
     // Default enemy collision damage with the player.
-    // Some enemies could do more or less than 1 hp, (whole number only).
+    // Some enemies could do more than 1 hp, (whole number only).
     this.meleeDamage = 1;
 
     this.knockback = 100;

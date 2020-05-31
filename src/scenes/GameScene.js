@@ -44,7 +44,7 @@ export default class GameScene extends Phaser.Scene {
     } else {
       this.scene.run('hudScene');
       this.scene.run('bossHudScene');
-      this.createPlayer(6, ['sword'], {});
+      this.createPlayer(6, [], {});
     }
 
     this.saveState(data.level, data.floor, this.player, this.moveControls);
@@ -233,7 +233,8 @@ export default class GameScene extends Phaser.Scene {
 
     this.playerBombsGroup = this.add.group({
       classType: PlayerBomb,
-      maxSize: 3
+      maxSize: 3,
+      runChildUpdate: true
     });
 
     this.explosionsGroups = this.add.group({
@@ -334,6 +335,9 @@ export default class GameScene extends Phaser.Scene {
         this.changeLevel(t.getData('level'), t.getData('floor'), this.player, this.moveControls);
       }
     );
+
+    this.physics.add.collider(this.playerBombsGroup, this.blocks);
+    this.physics.add.collider(this.playerBombsGroup, this.spikes);
 
     // Explosions.
     this.physics.add.overlap(

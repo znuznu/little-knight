@@ -3,11 +3,15 @@ export default class PlayerBomb extends Phaser.GameObjects.Sprite {
     super(scene, 0, 0, 'atlas', 'bomb-0');
     this.scene.physics.world.enable(this);
     this.scene.add.existing(this);
-    this.setDepth(3);
+    this.setDepth(5);
     this.damage = 4;
+    this.body.setVelocity(0);
+    this.body.useDamping = true;
+    this.body.setDrag(0.98);
   }
 
-  throw(x, y) {
+  throw(x, y, velocity) {
+    this.body.setVelocity(velocity.x, velocity.y);
     this.setPosition(x, y);
     this.setVisible(true);
     this.setActive(true);
@@ -30,7 +34,6 @@ export default class PlayerBomb extends Phaser.GameObjects.Sprite {
     this.setActive(false);
   }
 
-  update() {
-    
+  update(time, delta) {
   }
 }

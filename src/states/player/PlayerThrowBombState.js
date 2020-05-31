@@ -10,7 +10,7 @@ export default class PlayerThrowBombState extends State {
   enter(scene, player) {
     let bomb = scene.playerBombsGroup.get();
     if (bomb) {
-      bomb.throw(player.x, player.y);
+      bomb.throw(player.body.center.x, player.body.center.y, player.body.velocity);
     } else {
       player.actionStateMachine.transition('idle');
     }
