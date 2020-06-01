@@ -42,9 +42,10 @@ export default class InstructionsScene extends Phaser.Scene {
 
   update() {
     if (this.keys.space.isDown) {
+      this.sound.playAudioSprite('sounds', 'confirm_2');
       this.scene.start('gameScene', {
-          level: '1',
-          floor: '1',
+          level: '0',
+          floor: '0',
           player: undefined,
           moveControls: this.controls[0]
         }
@@ -52,6 +53,7 @@ export default class InstructionsScene extends Phaser.Scene {
     }
 
     if (Phaser.Input.Keyboard.JustDown(this.keys.shift)) {
+      this.sound.playAudioSprite('sounds', 'switch');
       this.switchMoveControls();
     }
   }

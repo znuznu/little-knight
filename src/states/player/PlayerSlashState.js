@@ -74,6 +74,9 @@ export default class PlayerSlashState extends State {
 
     this.slash.rotation = directionToAngle[direction];
 
+    let randIndex = ~~(Math.random() * ~~(3)) + 1;
+    scene.sound.playAudioSprite('sounds', 'swing_' + randIndex);
+
     scene.time.delayedCall(300, _ => {
       player.actionStateMachine.transition('idle');
     });

@@ -66,6 +66,7 @@ export default class GameScene extends Phaser.Scene {
     this.createGroups();
     this.createObjects();
     this.createEvents();
+    this.createSound();
   }
 
   update(time, delta) {
@@ -600,6 +601,10 @@ export default class GameScene extends Phaser.Scene {
         false,
         layer);
     }, this);
+  }
+
+  createSound() {
+    this.sound.volume = 0.1;
   }
 
   updatePlayer(time, delta) {

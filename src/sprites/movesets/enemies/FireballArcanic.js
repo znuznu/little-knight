@@ -6,6 +6,11 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     this.damage = 2;
     this.setDepth(3);
 
+    this.audioSprites = [
+      'fireball_1',
+      'fireball_2'
+    ];
+
     this.scene.physics.add.overlap(
       this,
       this.scene.player,
@@ -36,6 +41,13 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     this.setActive(true);
     this.setVisible(true);
     this.play('fireball-arcanic', true);
+
+    this.scene.sound.playAudioSprite(
+      'sounds',
+      this.audioSprites[~~(Math.random() * ~~(this.audioSprites.length))]
+    );
+
+    this.scene.sound.playAudioSprite('sounds', 'ghost', {volume: 0.1});
 
     // Random but at least 80.
     let speed = ~~(Math.random() * ~~(100)) + 80;

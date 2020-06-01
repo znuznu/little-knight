@@ -30,6 +30,7 @@ export default class Door extends Phaser.GameObjects.Sprite {
     let keyType = 'key-' + this.type;
 
     if (this.scene.player.getData('inventory')[keyType] > 0) {
+      this.scene.sound.playAudioSprite('sounds', 'door_open_1');
       this.scene.player.getData('inventory')[keyType] -= 1;
       this.isOpen = true;
       this.setFrame('door-' + this.type + '-open');

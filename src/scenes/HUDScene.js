@@ -15,6 +15,7 @@ export default class HUDScene extends Phaser.Scene {
     this.createBossName();
     this.createBossHealth();
     this.hideBossStats();
+    this.createMinimap();
   }
 
   createEventsListener() {
@@ -237,5 +238,24 @@ export default class HUDScene extends Phaser.Scene {
     this.borderRight.setVisible(false);
     this.borderLeft.setVisible(false);
     this.bossName.setVisible(false);
+  }
+
+  createMinimap() {
+  //  this.textures.addCanvas('circle', circle);
+    /*
+    this.minimap = this.add.rectangle(
+      800 - 128 - 12, 480 - 128 - 12,
+      128, 128, 0x000000
+    ).setOrigin(0, 0); */
+
+    this.texture = this.textures.createCanvas('gradient', 16, 256);
+
+    //  We can access the underlying Canvas context like this:
+    var grd = this.texture.context.createLinearGradient(100, 100 ,100 , 256);
+    grd.addColorStop(0, '#8ED6FF');
+    grd.addColorStop(1, '#004CB3');
+
+    this.texture.context.fillStyle = grd;
+    this.texture.context.fillRect(0, 0, 16, 256);
   }
 }

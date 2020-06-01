@@ -3,6 +3,8 @@ import State from '../State.js';
 export default class PlayerRunState extends State {
   enter(scene, player) {
     this.execute(scene, player);
+    /*let randIndex = ~~(Math.random() * ~~(8)) + 1;
+    scene.sound.playAudioSprite('sounds', 'stepstone_' + randIndex);*/
   }
 
   execute(scene, player) {

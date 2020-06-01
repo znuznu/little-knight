@@ -29,12 +29,20 @@ export default class BootScene extends Phaser.Scene {
     this.load.image('tileset', 'assets/images/tilesets/tileset-extruded.png');
 
     this.load.tilemapTiledJSON('map', 'assets/tilemaps/map.json');
+    this.load.tilemapTiledJSON('level-0-floor-0', 'assets/tilemaps/level-0-floor-0.json');
     this.load.tilemapTiledJSON('level-1-floor-1', 'assets/tilemaps/level-1-floor-1.json');
     this.load.tilemapTiledJSON('level-1-floor-2', 'assets/tilemaps/level-1-floor-2.json');
     this.load.tilemapTiledJSON('level-1-floor-3', 'assets/tilemaps/level-1-floor-3.json');
     this.load.tilemapTiledJSON('level-1-floor-4', 'assets/tilemaps/level-1-floor-4.json');
     this.load.tilemapTiledJSON('level-1-floor-5', 'assets/tilemaps/level-1-floor-5.json');
     this.load.tilemapTiledJSON('level-1-floor-666', 'assets/tilemaps/level-1-floor-666.json');
+
+    this.load.audioSprite('sounds', 'assets/audio/sounds/sounds.json', [
+      'assets/audio/sounds/sounds.mp3',
+      'assets/audio/sounds/sounds.ogg'
+      ], {
+        instances: 4
+    });
 
     this.load.atlas(
       'atlas',

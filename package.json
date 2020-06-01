@@ -32,6 +32,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "ffmpeg": "0.0.4",
     "phaser": "^3.23.0",
     "phaser-animated-tiles": "^2.0.2"
   }

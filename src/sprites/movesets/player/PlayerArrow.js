@@ -18,6 +18,9 @@ export default class PlayerArrow extends Phaser.GameObjects.Sprite {
     this.x = this.scene.player.body.x;
     this.y = this.scene.player.body.y;
 
+    //let randIndex = ~~(Math.random() * ~~(2)) + 1;
+    this.scene.sound.playAudioSprite('sounds', 'arrow_1');
+
     let crosshair = this.scene.crosshair;
     let angleRad = Phaser.Math.Angle.Between(
       this.x,

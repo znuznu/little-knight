@@ -1,0 +1,120 @@
+{
+  "resources": [
+    "sounds.ogg",
+    "sounds.m4a",
+    "sounds.mp3",
+    "sounds.ac3"
+  ],
+  "spritemap": {
+    "arrow_1": {
+      "start": 0,
+      "end": 0.37498866213151927,
+      "loop": false
+    },
+    "arrow_2": {
+      "start": 2,
+      "end": 2.3708163265306124,
+      "loop": false
+    },
+    "swing_1": {
+      "start": 4,
+      "end": 4.229160997732427,
+      "loop": false
+    },
+    "swing_2": {
+      "start": 6,
+      "end": 6.145827664399093,
+      "loop": false
+    },
+    "swing_3": {
+      "start": 8,
+      "end": 8.138027210884355,
+      "loop": false
+    },
+    "chest_default": {
+      "start": 10,
+      "end": 13.430748299319728,
+      "loop": false
+    },
+    "chest_weapon": {
+      "start": 15,
+      "end": 20.143219954648526,
+      "loop": false
+    },
+    "confirm_1": {
+      "start": 22,
+      "end": 28,
+      "loop": false
+    },
+    "confirm_2": {
+      "start": 29,
+      "end": 35,
+      "loop": false
+    },
+    "switch": {
+      "start": 36,
+      "end": 42,
+      "loop": false
+    },
+    "fireball_1": {
+      "start": 43,
+      "end": 44.98687074829932,
+      "loop": false
+    },
+    "fireball_2": {
+      "start": 46,
+      "end": 48.1091156462585,
+      "loop": false
+    },
+    "ghost": {
+      "start": 50,
+      "end": 53.25,
+      "loop": false
+    },
+    "stepstone_1": {
+      "start": 55,
+      "end": 55.41795918367347,
+      "loop": false
+    },
+    "stepstone_2": {
+      "start": 57,
+      "end": 57.41795918367347,
+      "loop": false
+    },
+    "stepstone_3": {
+      "start": 59,
+      "end": 59.37501133786848,
+      "loop": false
+    },
+    "stepstone_4": {
+      "start": 61,
+      "end": 61.37501133786848,
+      "loop": false
+    },
+    "stepstone_5": {
+      "start": 63,
+      "end": 63.37501133786848,
+      "loop": false
+    },
+    "stepstone_6": {
+      "start": 65,
+      "end": 65.37501133786849,
+      "loop": false
+    },
+    "stepstone_7": {
+      "start": 67,
+      "end": 67.37501133786849,
+      "loop": false
+    },
+    "stepstone_8": {
+      "start": 69,
+      "end": 69.37501133786849,
+      "loop": false
+    },
+    "door_open_1": {
+      "start": 71,
+      "end": 72,
+      "loop": false
+    }
+  }
+}

@@ -23,6 +23,7 @@ export default class MenuScene extends Phaser.Scene {
 
   update() {
     if (this.cursors.space.isDown) {
+      this.sound.playAudioSprite('sounds', 'confirm_1');
       this.scene.start('instructionsScene');
     }
   }

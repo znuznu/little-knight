@@ -36,6 +36,17 @@ export default class Chest extends Phaser.GameObjects.Sprite {
     this.play('chest');
 
     this.on('animationcomplete', _ => {
+      switch (this.treasure) {
+        case 'sword':
+        case 'bow':
+        case 'bomb':
+          this.scene.sound.playAudioSprite('sounds', 'chest_weapon');
+          break;
+        default:
+          this.scene.sound.playAudioSprite('sounds', 'chest_default');
+          break;
+      }
+
       let item = this.scene.physics.add.sprite(
         this.x,
         this.y - 16,
