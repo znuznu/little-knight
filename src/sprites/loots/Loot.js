@@ -1,5 +1,9 @@
-/* Items dropped by enemies at their death that can
- * be grab by the player. Disappear after 10 seconds.
+/*
+ * Abstract class.
+ *
+ * Items dropped by enemies at their death that can
+ * be grabbed by the player. Disappear after a 10 seconds
+ * by default.
  */
 
 export default class Loot extends Phaser.GameObjects.Sprite {
@@ -8,6 +12,12 @@ export default class Loot extends Phaser.GameObjects.Sprite {
     this.scene.physics.world.enable(this);
     this.scene.add.existing(this);
     this.setDepth(2);
+    this.name = 'default';
+  }
+
+  use() {
+    this.scene.player.grab(this.name);
+    this.hide();
   }
 
   appear(x, y) {
@@ -15,7 +25,10 @@ export default class Loot extends Phaser.GameObjects.Sprite {
     this.setPosition(x, y);
     this.setVisible(true);
     this.setActive(true);
-    
+
+    this.scene.time.delayedCall(5000, _ => {
+      this.hide();
+    });
   }
 
   hide() {

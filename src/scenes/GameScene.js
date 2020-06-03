@@ -27,6 +27,8 @@ import PursuitSword from '../sprites/movesets/enemies/PursuitSword.js';
 import Chest from '../sprites/misc/Chest.js';
 import Door from '../sprites/misc/Door.js';
 import Explosion from '../sprites/effects/Explosion.js';
+import Loot from '../sprites/loots/Loot.js';
+import PotionHealSmall from '../sprites/loots/PotionHealSmall.js';
 import HUDEventsManager from '../events/HUDEventsManager.js';
 
 export default class GameScene extends Phaser.Scene {
@@ -110,6 +112,18 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createPlayer(health, inventory, weapons) {
+    this.time.addEvent({
+      delay: 300,
+      repeat: -1,
+      callbackScope: this,
+      callback: _ => {
+        if (this.player.actionStateMachine.state === 'run') {
+          let randIndex = ~~(Math.random() * 8) + 1;
+          this.sound.playAudioSprite('sounds', 'stepstone_' + randIndex);
+        }
+      }
+    });
+
     let spawnObject = this.map.getObjectLayer('player').objects[0];
 
     this.player = new Player({
@@ -243,6 +257,11 @@ export default class GameScene extends Phaser.Scene {
       maxSize: 18
     });
 
+    this.potionHealSmallGroup = this.add.group({
+      classType: PotionHealSmall,
+      maxSize: 10
+    });
+
     // Player dash shadows.
     this.dashShadowsGroup.createMultiple({
       key: 'atlas',
@@ -351,6 +370,13 @@ export default class GameScene extends Phaser.Scene {
       this.explosionsGroups,
       this.enemyGroup,
       (e, eg) => { eg.bombDamageTaken(e.damage); }
+    );
+
+    // Loots.
+    this.physics.add.overlap(
+      this.potionHealSmallGroup,
+      this.player,
+      (ps, p) => { ps.use(); }
     );
   }
 

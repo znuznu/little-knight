@@ -27,6 +27,11 @@ export default class Enemy extends Character {
     // Some enemies might be invulnerable against arrow.
     this.arrowProof = false;
 
+    // Loots from this enemy with the rate (%).
+    this.loots = [
+      {name: 'potion-red-small', rate: 50}
+    ];
+
     // Aggro exclamation.
     this.aggroIcon = this.scene.add.bitmapText(
       this.x, this.y - 32, 'bitty', '!', 32
@@ -70,6 +75,26 @@ export default class Enemy extends Character {
       this.health -= damageTaken;
       this.actionStateMachine.transition('hurt');
     }
+  }
+
+  // Called everytime an enemy dies.
+  loot() {
+    this.loots.forEach(item => {
+      let rng = ~~(Math.random() * ~~(100)) + 1;
+      console.log(rng);
+      if (rng <= item.rate) {
+        let i;
+        switch (item.name) {
+          case 'potion-red-small':
+            i = this.scene.potionHealSmallGroup.get();
+            break;
+        }
+
+        if (i) {
+          i.appear(this.x, this.y);
+        }
+      }
+    });
   }
 
   // Update enemy depth to appear in front or behind the player.

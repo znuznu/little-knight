@@ -787,5 +787,21 @@ export default class BootScene extends Phaser.Scene {
       frameRate: 7,
       repeat: -1
     });
+
+    // Loots.
+    this.anims.create({
+      key: 'potion-heal-small',
+      frames: this.anims.generateFrameNames(
+        'atlas', {
+          prefix: 'potion-red-small-',
+          suffix: '',
+          start: 0,
+          end: 3,
+          zeroPad: 0
+        }
+      ),
+      frameRate: 7,
+      repeat: -1
+    });
   }
 }

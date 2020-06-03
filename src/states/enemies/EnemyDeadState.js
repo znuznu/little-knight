@@ -23,6 +23,7 @@ export default class EnemyDeadState extends State {
         });
         break;
     }
+    enemy.loot();
     enemy.destroy();
   }
 }

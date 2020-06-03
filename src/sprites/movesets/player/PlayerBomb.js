@@ -8,6 +8,8 @@ export default class PlayerBomb extends Phaser.GameObjects.Sprite {
     this.body.setVelocity(0);
     this.body.useDamping = true;
     this.body.setDrag(0.98);
+    this.body.setSize(16, 12);
+    this.body.setOffset(9, 16);
   }
 
   throw(x, y, velocity) {

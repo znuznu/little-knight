@@ -2,6 +2,8 @@ import State from '../../State.js';
 
 export default class DepressumTeleportState extends State {
   enter(scene, dk) {
+    scene.sound.playAudioSprite('sounds', 'teleport_1');
+
     scene.tweens.add({
       targets: dk,
       alpha: 0,

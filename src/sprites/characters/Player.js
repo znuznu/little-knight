@@ -117,6 +117,7 @@ export default class Player extends Character {
         this.storeInInventory(item);
         break;
       case 'potion-heal':
+      case 'potion-heal-small':
         this.drink(item);
         break;
     }
@@ -131,23 +132,38 @@ export default class Player extends Character {
 
     switch (item) {
       case 'key-simple':
-        HUDEventsManager.emit('update-keys', this.getData('inventory')['key-simple']);
+        HUDEventsManager.emit(
+          'update-keys',
+          this.getData('inventory')['key-simple']
+        );
         break;
       case 'key-boss':
-        HUDEventsManager.emit('update-key-boss', this.getData('inventory')['key-boss']);
+        HUDEventsManager.emit(
+          'update-key-boss',
+          this.getData('inventory')['key-boss']
+        );
         break;
     }
   }
 
   drink(item) {
+    this.scene.sound.playAudioSprite('sounds', 'potion');
+
     switch (item) {
       case 'potion-heal':
-        this.health += 2;
-        if (this.health > this.maximumHealth)
-          this.health = this.maximumHealth;
-        HUDEventsManager.emit('update-health', this.health);
+        this.heal(2);
+        break;
+      case 'potion-heal-small':
+        this.heal(1);
         break;
     }
+  }
+
+  heal(points) {
+    this.health += points;
+    if (this.health > this.maximumHealth)
+      this.health = this.maximumHealth;
+    HUDEventsManager.emit('update-health', this.health);
   }
 
   updateView() {

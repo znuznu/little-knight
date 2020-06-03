@@ -7,6 +7,8 @@ import State from '../State.js';
 
 export default class PlayerDashState extends State {
   enter(scene, player) {
+    scene.sound.playAudioSprite('sounds', 'dash_2');
+
     let t = setInterval(_ => {
       let dashShadow = scene.dashShadowsGroup.get();
       if (dashShadow) {

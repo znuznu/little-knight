@@ -9,6 +9,7 @@ export default class Explosion extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.setDepth(6);
     this.damage = 4;
+    this.body.setSize(50, 50);
   }
 
   use(x, y) {
@@ -16,6 +17,8 @@ export default class Explosion extends Phaser.GameObjects.Sprite {
     this.setPosition(x, y);
     this.setVisible(true);
     this.setActive(true);
+    
+    this.scene.sound.playAudioSprite('sounds', 'explosion_1');
     this.play('explosion');
     this.on('animationcomplete', _ => {
       this.hide();
