@@ -11,7 +11,7 @@ export default class PlayerShootState extends State {
 
     let arrow = scene.playerArrows.get();
     if (arrow) {
-      arrow.shoot();
+      arrow.shoot(player.body.center.x, player.body.center.y);
     } else {
       player.actionStateMachine.transition('idle');
     }

@@ -29,7 +29,7 @@ export default class Enemy extends Character {
 
     // Loots from this enemy with the rate (%).
     this.loots = [
-      {name: 'potion-red-small', rate: 50}
+      {name: 'potion-red-small', rate: 10}
     ];
 
     // Aggro exclamation.
@@ -81,7 +81,6 @@ export default class Enemy extends Character {
   loot() {
     this.loots.forEach(item => {
       let rng = ~~(Math.random() * ~~(100)) + 1;
-      console.log(rng);
       if (rng <= item.rate) {
         let i;
         switch (item.name) {

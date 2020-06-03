@@ -29,5 +29,8 @@ export default class Mage extends Enemy {
       'hurt': undefined,
       'dead': 'smoke-small'
     };
+
+    // No loots for this cowards.
+    this.loots = [];
   }
 }

@@ -26,8 +26,18 @@ export default class Loot extends Phaser.GameObjects.Sprite {
     this.setVisible(true);
     this.setActive(true);
 
-    this.scene.time.delayedCall(5000, _ => {
-      this.hide();
+    this.scene.time.delayedCall(10000, _ => {
+      this.scene.tweens.add({
+        targets: this,
+        alpha: 0,
+        ease: 'Cubic.easeOut',
+        duration: 1000,
+        repeat: 0,
+        onComplete: _ => {
+          this.hide();
+          this.setAlpha(1);
+        }
+      });
     });
   }
 

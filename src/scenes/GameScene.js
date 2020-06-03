@@ -259,7 +259,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.potionHealSmallGroup = this.add.group({
       classType: PotionHealSmall,
-      maxSize: 10
+      maxSize: 16
     });
 
     // Player dash shadows.

@@ -15,5 +15,9 @@ export default class LeafBig extends Enemy {
       'hurt': undefined,
       'dead': 'smoke-big'
     };
+
+    this.loots = [
+      {name: 'potion-red-small', rate: 50}
+    ];
   }
 }

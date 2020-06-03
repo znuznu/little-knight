@@ -10,15 +10,13 @@ export default class PlayerArrow extends Phaser.GameObjects.Sprite {
     this.loadTime = 400;
   }
 
-  shoot() {
+  shoot(x, y) {
     if (this.scene.player.lastShot < this.loadTime) return;
 
     this.scene.player.lastShot = 0;
 
-    this.x = this.scene.player.body.x;
-    this.y = this.scene.player.body.y;
+    this.setPosition(x, y);
 
-    //let randIndex = ~~(Math.random() * ~~(2)) + 1;
     this.scene.sound.playAudioSprite('sounds', 'arrow_1');
 
     let crosshair = this.scene.crosshair;

@@ -154,19 +154,7 @@
          "draworder":"topdown",
          "id":5,
          "name":"chests",
-         "objects":[
-                {
-                 "height":0,
-                 "id":46,
-                 "name":"",
-                 "point":true,
-                 "rotation":0,
-                 "type":"bomb",
-                 "visible":true,
-                 "width":0,
-                 "x":672,
-                 "y":128
-                }],
+         "objects":[],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
