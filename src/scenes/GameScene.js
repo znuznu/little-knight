@@ -165,20 +165,17 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createCrosshair() {
-    let crosshairFrame = 'crosshair-simple';
-
-    if (this.player.getCurrentWeapon() == 'bow') {
-      crosshairFrame = 'crosshair-bow';
-    } else if (this.player.getCurrentWeapon() == 'bomb') {
-      crosshairFrame = 'crosshair-bomb';
-    }
+    let crosshairFrame = 'crosshair-';
+    let currentWeapon = this.player.getCurrentWeapon();
 
     this.crosshair = this.physics.add.sprite(
       this.player.x,
       this.player.y,
       'atlas',
-      crosshairFrame
+      'crosshair-simple'
     );
+
+    this.events.emit('update-crosshair-frame', currentWeapon);
 
     this.crosshair.setDepth(11);
 
@@ -627,6 +624,24 @@ export default class GameScene extends Phaser.Scene {
         false,
         layer);
     }, this);
+
+    // I find it better to put this here instead of the HUDScene,
+    // I like to see the crosshair as a "living" entity.
+    this.events.on('update-crosshair-frame', weapon => {
+      let crosshairFrame = 'crosshair-';
+      switch (weapon) {
+        case 'sword':
+        case 'bow':
+        case 'bomb':
+          crosshairFrame += weapon;
+          break;
+        default:
+          crosshairFrame += 'simple';
+          break;
+      }
+
+      this.crosshair.setFrame(crosshairFrame);
+    });
   }
 
   createSound() {
@@ -638,9 +653,8 @@ export default class GameScene extends Phaser.Scene {
       this.player.update(time, delta);
   }
 
-  /* Too much lines in here. */
+  // Crosshair movements.
   updateCrosshair() {
-    // Crosshair movements.
     let screenWidth = this.game.config.width;
     let cameraLeft = this.cameras.main.scrollX;
     let cameraRight = cameraLeft + screenWidth;

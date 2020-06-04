@@ -81,40 +81,13 @@ export default class Player extends Character {
     if (!current) return;
 
     this.getData('weapons').push(current);
-
-    switch (this.getCurrentWeapon()) {
-      case 'bow':
-        this.scene.crosshair.setFrame('crosshair-bow');
-        break;
-      case 'sword':
-        this.scene.crosshair.setFrame('crosshair-simple');
-        break;
-      case 'bomb':
-        this.scene.crosshair.setFrame('crosshair-bomb');
-        break;
-      default:
-        this.scene.crosshair.setFrame('crosshair-simple');
-        break;
-    }
-
+    this.scene.events.emit('update-crosshair-frame', this.getCurrentWeapon());
     HUDEventsManager.emit('update-weapons', this.getData('weapons'));
   }
 
   equip(weapon) {
-    let crosshairType = 'crosshair-simple';
-
-    switch (weapon) {
-      case 'bow':
-      case 'bomb':
-        crosshairType = 'crosshair-' + weapon;
-        break;
-      default:
-        crosshairType = 'crosshair-simple';
-        break;
-    }
-
-    this.scene.crosshair.setFrame(crosshairType);
     this.scene.player.getData('weapons').unshift(weapon);
+    this.scene.events.emit('update-crosshair-frame', this.getCurrentWeapon());
     HUDEventsManager.emit('update-weapons', this.getData('weapons'));
   }
 
