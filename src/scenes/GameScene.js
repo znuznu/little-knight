@@ -30,6 +30,7 @@ import Explosion from '../sprites/effects/Explosion.js';
 import Loot from '../sprites/loots/Loot.js';
 import PotionHealSmall from '../sprites/loots/PotionHealSmall.js';
 import HUDEventsManager from '../events/HUDEventsManager.js';
+import AnimatedTiles from 'phaser-animated-tiles/dist/AnimatedTiles.min.js';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -60,6 +61,15 @@ export default class GameScene extends Phaser.Scene {
     HUDEventsManager.emit('update-key-boss', 0);
   }
 
+  preload() {
+    this.load.scenePlugin(
+      'animatedTiles',
+      AnimatedTiles,
+      'animatedTiles',
+      'animatedTiles'
+    );
+   }
+
   create() {
     this.cameras.main.fadeIn(1000);
     this.createKeys();
@@ -69,6 +79,7 @@ export default class GameScene extends Phaser.Scene {
     this.createObjects();
     this.createEvents();
     this.createSound();
+    this.sys.animatedTiles.init(this.map);
   }
 
   update(time, delta) {
@@ -106,6 +117,7 @@ export default class GameScene extends Phaser.Scene {
     this.blocks.setDepth(2);
 
     this.details = this.map.createDynamicLayer('detail', tileset, 0, 0);
+    this.details.setDepth(3);
 
     this.spikes = this.map.createDynamicLayer('spike', tileset, 0, 0);
     this.spikes.setCollisionByProperty({ collides: true });
@@ -355,6 +367,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.physics.add.collider(this.playerBombsGroup, this.blocks);
     this.physics.add.collider(this.playerBombsGroup, this.spikes);
+    this.physics.add.collider(this.playerBombsGroup, this.doorsGroup);
 
     // Explosions.
     this.physics.add.overlap(
