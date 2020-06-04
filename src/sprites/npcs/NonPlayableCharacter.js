@@ -7,8 +7,6 @@ export default class NonPlayableCharacter extends Phaser.GameObjects.Sprite {
     this.isSpeaking = false;
     this.dialog = 'Default dialog.';
 
-    this.setDepth(4);
-
     config.scene.physics.add.overlap(
       this,
       this.scene.player,
@@ -32,6 +30,14 @@ export default class NonPlayableCharacter extends Phaser.GameObjects.Sprite {
         this.dialogDisplayed.destroy();
         this.isSpeaking = false;
       });
+    }
+  }
+
+  update() {
+    if (this.y > this.scene.player.y) {
+      this.setDepth(this.scene.player.depth + 1);
+    } else {
+      this.setDepth(this.scene.player.depth - 1);
     }
   }
 }

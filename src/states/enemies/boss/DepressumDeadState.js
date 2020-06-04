@@ -13,6 +13,8 @@ export default class DepressumDeadState extends State {
       y: dk.y
     });
 
+    scene.sound.playAudioSprite('sounds', 'explosion_1');
+
     dk.actionStateMachine.stop();
     scene.fireballsArcanicGroup.clear(true, true);
     scene.pursuitSwordGroup.clear(true, true);

@@ -223,6 +223,10 @@ export default class GameScene extends Phaser.Scene {
       runChildUpdate: true
     });
 
+    this.npcsGroup = this.add.group({
+      runChildUpdate: true
+    });
+
     this.doorsGroup = this.add.group({
       runChildUpdate: true
     });
@@ -610,6 +614,8 @@ export default class GameScene extends Phaser.Scene {
           });
           break;
       }
+
+      this.npcsGroup.add(npcObject);
     });
   }
 
