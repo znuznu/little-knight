@@ -1,0 +1,45 @@
+{
+  "resources": [
+    "musics.ogg",
+    "musics.m4a",
+    "musics.mp3",
+    "musics.ac3"
+  ],
+  "spritemap": {
+    "depressum-intro": {
+      "start": 0,
+      "end": 21.3362358276644,
+      "loop": false
+    },
+    "depressum-loop": {
+      "start": 23,
+      "end": 87.00290249433107,
+      "loop": false
+    },
+    "gameover": {
+      "start": 89,
+      "end": 96.09804988662131,
+      "loop": false
+    },
+    "victory": {
+      "start": 98,
+      "end": 105.73369614512471,
+      "loop": false
+    },
+    "level-1": {
+      "start": 107,
+      "end": 259.32145124716556,
+      "loop": false
+    },
+    "menu": {
+      "start": 261,
+      "end": 417.88997732426304,
+      "loop": false
+    },
+    "sounds": {
+      "start": 419,
+      "end": 1662.0207709750566,
+      "loop": false
+    }
+  }
+}

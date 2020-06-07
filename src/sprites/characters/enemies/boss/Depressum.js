@@ -16,7 +16,7 @@ export default class Depressum extends Enemy {
     this.body.setSize(36, 26);
     this.body.setOffset(15, 40);
     this.maximumHealth = 20;
-    this.health = 1;
+    this.health = 20;
     this.meleeDamage = 3;
     this.speed = 100;
     this.aggroRadius = 3200;
@@ -36,7 +36,7 @@ export default class Depressum extends Enemy {
 
     this.body.setImmovable(true);
     this.teleportationTiles = [
-      {x: 25, y:  6}, {x: 19, y: 11}, {x: 25, y: 10},
+      {x: 25, y:  6}, {x: 19, y: 11}, {x: 25, y: 11},
       {x: 31, y: 11}, {x: 14, y: 17}, {x: 19, y: 17},
       {x: 31, y: 17}, {x: 36, y: 17}, {x: 19, y: 23},
       {x: 25, y: 23}, {x: 31, y: 23}, {x: 25, y: 28}

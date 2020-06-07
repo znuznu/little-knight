@@ -1,9 +1,12 @@
+import MusicsEventsManager from '../events/MusicsEventsManager.js';
+
 export default class VictoryScene extends Phaser.Scene {
   constructor() {
     super('victoryScene');
   }
 
   create() {
+    MusicsEventsManager.emit('play-music', 'Victory');
     this.cameras.main.fadeIn(5000);
     this.cursors = this.input.keyboard.createCursorKeys();
     this.add.image(0, 0, 'background-game-victory').setOrigin(0, 0);

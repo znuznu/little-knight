@@ -1,9 +1,12 @@
+import MusicsEventsManager from '../events/MusicsEventsManager.js';
+
 export default class InstructionsScene extends Phaser.Scene {
   constructor() {
     super('instructionsScene');
   }
 
   create() {
+    MusicsEventsManager.emit('prout');
     this.cursors = this.input.keyboard.createCursorKeys();
 
     // Default is AZERTY (queue).
@@ -45,7 +48,7 @@ export default class InstructionsScene extends Phaser.Scene {
       this.sound.playAudioSprite('sounds', 'confirm_2');
       this.scene.start('gameScene', {
           level: '1',
-          floor: '1',
+          floor: '5',
           player: undefined,
           moveControls: this.controls[0]
         }

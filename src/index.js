@@ -6,6 +6,7 @@ import HUDScene from './scenes/HUDScene.js';
 import MenuScene from './scenes/MenuScene.js';
 import GameOverScene from './scenes/GameOverScene.js';
 import VictoryScene from './scenes/VictoryScene.js';
+import MusicsScene from './scenes/MusicsScene.js';
 import InstructionsScene from './scenes/InstructionsScene.js';
 
 var config = {
@@ -30,7 +31,8 @@ var config = {
       MenuScene,
       InstructionsScene,
       GameOverScene,
-      VictoryScene
+      VictoryScene,
+      MusicsScene
     ]
 };
 

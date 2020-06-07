@@ -29,8 +29,9 @@ import Door from '../sprites/misc/Door.js';
 import Explosion from '../sprites/effects/Explosion.js';
 import Loot from '../sprites/loots/Loot.js';
 import PotionHealSmall from '../sprites/loots/PotionHealSmall.js';
-import HUDEventsManager from '../events/HUDEventsManager.js';
 import AnimatedTiles from 'phaser-animated-tiles/dist/AnimatedTiles.min.js';
+import HUDEventsManager from '../events/HUDEventsManager.js';
+import MusicsEventsManager from '../events/MusicsEventsManager.js';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -46,8 +47,7 @@ export default class GameScene extends Phaser.Scene {
       this.createPlayer(player.health, player.weapons, player.inventory);
     } else {
       this.scene.run('hudScene');
-      this.scene.run('bossHudScene');
-      this.createPlayer(6, [], {});
+      this.createPlayer(6, ['bow', 'sword'], {});
     }
 
     this.saveState(data.level, data.floor, this.player, this.moveControls);
@@ -79,7 +79,9 @@ export default class GameScene extends Phaser.Scene {
     this.createObjects();
     this.createEvents();
     this.createSound();
-    this.sys.animatedTiles.init(this.map);
+    this.createAnimatedTiles();
+    // this.createFog();
+    this.createMusic();
   }
 
   update(time, delta) {
@@ -313,7 +315,13 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(
       this.playerArrows,
       this.enemyGroup,
-      (a, e) => { a.enemyCollide(e) }
+      (a, e) => { a.enemyCollide(e); }
+    );
+
+    this.physics.add.collider(
+      this.playerArrows,
+      this.fireballsArcanicGroup,
+      (pa, fa) => { fa.explode(); pa.hide(); }
     );
 
     // Player.
@@ -667,6 +675,10 @@ export default class GameScene extends Phaser.Scene {
     this.sound.volume = 0.1;
   }
 
+  createMusic() {
+    MusicsEventsManager.emit('play-music', 'Level-1');
+  }
+
   updatePlayer(time, delta) {
     if (!this.player.isDead())
       this.player.update(time, delta);
@@ -697,6 +709,53 @@ export default class GameScene extends Phaser.Scene {
     // Crosshair linked to the player velocity.
     this.crosshair.body.velocity.x = this.player.body.velocity.x;
     this.crosshair.body.velocity.y = this.player.body.velocity.y;
+  }
+
+  // AnimatedTiles plugin by nkholski.
+  // (See https://github.com/nkholski/phaser3-es6-webpack)
+  createAnimatedTiles() {
+    this.sys.animatedTiles.init(this.map);
+  }
+
+  createFog() {
+    let fog = this.add.rectangle(
+      this.cameras.main.x,
+      this.cameras.main.y,
+      this.game.config.width,
+      this.game.config.height,
+      0x0000000,
+      0.7
+    ).setOrigin(0, 0);
+    fog.setDepth(11);
+
+/*
+    let container = new Phaser.GameObjects.Container(this, 0, 0);
+    container.add([
+      this.void,
+      this.spikes,
+      this.walkables,
+      this.blocks,
+      this.above,
+      this.player
+    ]);
+
+    const width = this.scale.width;
+  	const height = this.scale.height;
+
+  	// make a RenderTexture that is the size of the screen
+  	const rt = this.make.renderTexture({
+  		width,
+  		height
+  	}, true);
+
+  	// fill it with black
+  	rt.fill(0x000000, 1);
+
+  	// draw the floorLayer into it
+  	rt.draw(container
+    );
+
+	   rt.setTint(0x0a2948);*/
   }
 
   /*

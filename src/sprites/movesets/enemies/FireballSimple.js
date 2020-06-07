@@ -5,6 +5,7 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.damage = 2;
     this.speed = 150;
+    this.body.setCircle(15, 0, 0);
     this.setDepth(3);
 
     this.audioSprites = [

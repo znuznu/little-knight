@@ -23,16 +23,15 @@ export default class DepressumCastFireballsState extends State {
       {x: x + 64, y: y + 128 },
       {x: x - 128, y: y - 128},
       {x: x - 64, y: y - 128},
-      {x: x - 128, y: y - 64}
+      {x: x - 128, y: y - 64 }
     ];
 
     positions.forEach(p => {
       let fireballArcanic = scene.fireballsArcanicGroup.get();
       if (fireballArcanic) {
         scene.cameras.main.shake(1000, 0.01);
-        // Fireballs around the knight.
-        fireballArcanic.setX(dk.x);
-        fireballArcanic.setY(dk.y);
+        // Fireballs around Depressum.
+        fireballArcanic.setPosition(dk.x, dk.y);
         fireballArcanic.cast(p.x, p.y);
       }
     });

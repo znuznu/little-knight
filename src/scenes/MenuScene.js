@@ -1,12 +1,15 @@
+import MusicsEventsManager from '../events/MusicsEventsManager.js';
+
 export default class MenuScene extends Phaser.Scene {
   constructor() {
     super('menuScene');
   }
 
   create() {
+    //this.scene.launch('musicsScene');
     this.cursors = this.input.keyboard.createCursorKeys();
     this.add.image(0, 0, 'background-menu').setOrigin(0, 0);
-    let pressSpace = this.add.image(this.game.config.width/2, 400, 'press-space');
+    let pressSpace = this.add.image(this.game.config.width / 2, 400, 'press-space');
     this.tweens.add({
       targets: pressSpace,
       alpha: 0,

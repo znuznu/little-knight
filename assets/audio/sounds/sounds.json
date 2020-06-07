@@ -6,149 +6,144 @@
     "sounds.ac3"
   ],
   "spritemap": {
-    "arrow_1": {
+    "arrow_2": {
       "start": 0,
       "end": 0.37498866213151927,
       "loop": false
     },
-    "arrow_2": {
-      "start": 2,
-      "end": 2.3708163265306124,
-      "loop": false
-    },
     "swing_1": {
-      "start": 4,
-      "end": 4.229160997732427,
+      "start": 2,
+      "end": 2.2291609977324263,
       "loop": false
     },
     "swing_2": {
-      "start": 6,
-      "end": 6.145827664399093,
+      "start": 4,
+      "end": 4.145827664399093,
       "loop": false
     },
     "swing_3": {
-      "start": 8,
-      "end": 8.138027210884355,
+      "start": 6,
+      "end": 6.138027210884354,
       "loop": false
     },
     "chest_default": {
-      "start": 10,
-      "end": 13.430748299319728,
+      "start": 8,
+      "end": 11.430748299319728,
       "loop": false
     },
     "chest_weapon": {
-      "start": 15,
-      "end": 20.143219954648526,
+      "start": 13,
+      "end": 18.143219954648526,
       "loop": false
     },
     "dash_1": {
-      "start": 22,
-      "end": 22.528684807256237,
+      "start": 20,
+      "end": 20.528684807256237,
       "loop": false
     },
     "dash_2": {
-      "start": 24,
-      "end": 24.590544217687075,
+      "start": 22,
+      "end": 22.590544217687075,
       "loop": false
     },
     "hit_1": {
-      "start": 26,
-      "end": 26.416666666666668,
+      "start": 24,
+      "end": 24.416666666666668,
       "loop": false
     },
     "hit_2": {
-      "start": 28,
-      "end": 28.395850340136054,
+      "start": 26,
+      "end": 26.395850340136054,
       "loop": false
     },
     "potion": {
-      "start": 30,
-      "end": 30.479160997732425,
+      "start": 28,
+      "end": 28.479160997732425,
       "loop": false
     },
     "confirm_1": {
-      "start": 32,
-      "end": 38,
+      "start": 30,
+      "end": 36,
       "loop": false
     },
     "confirm_2": {
-      "start": 39,
-      "end": 45,
+      "start": 37,
+      "end": 43,
       "loop": false
     },
     "switch": {
-      "start": 46,
-      "end": 52,
+      "start": 44,
+      "end": 50,
       "loop": false
     },
     "fireball_1": {
-      "start": 53,
-      "end": 54.98687074829932,
+      "start": 51,
+      "end": 52.98687074829932,
       "loop": false
     },
     "fireball_2": {
-      "start": 56,
-      "end": 58.1091156462585,
+      "start": 54,
+      "end": 56.1091156462585,
       "loop": false
     },
     "ghost": {
-      "start": 60,
-      "end": 63.25,
+      "start": 58,
+      "end": 61.25,
       "loop": false
     },
     "teleport_1": {
-      "start": 65,
-      "end": 66.62498866213151,
+      "start": 63,
+      "end": 64.62498866213151,
       "loop": false
     },
     "stepstone_1": {
+      "start": 66,
+      "end": 66.41795918367347,
+      "loop": false
+    },
+    "stepstone_2": {
       "start": 68,
       "end": 68.41795918367347,
       "loop": false
     },
-    "stepstone_2": {
+    "stepstone_3": {
       "start": 70,
-      "end": 70.41795918367347,
+      "end": 70.37501133786849,
       "loop": false
     },
-    "stepstone_3": {
+    "stepstone_4": {
       "start": 72,
       "end": 72.37501133786849,
       "loop": false
     },
-    "stepstone_4": {
+    "stepstone_5": {
       "start": 74,
       "end": 74.37501133786849,
       "loop": false
     },
-    "stepstone_5": {
+    "stepstone_6": {
       "start": 76,
       "end": 76.37501133786849,
       "loop": false
     },
-    "stepstone_6": {
+    "stepstone_7": {
       "start": 78,
       "end": 78.37501133786849,
       "loop": false
     },
-    "stepstone_7": {
+    "stepstone_8": {
       "start": 80,
       "end": 80.37501133786849,
       "loop": false
     },
-    "stepstone_8": {
-      "start": 82,
-      "end": 82.37501133786849,
-      "loop": false
-    },
     "door_open_1": {
-      "start": 84,
-      "end": 85,
+      "start": 82,
+      "end": 83,
       "loop": false
     },
     "explosion_1": {
-      "start": 86,
-      "end": 87.1836507936508,
+      "start": 84,
+      "end": 85.1836507936508,
       "loop": false
     }
   }

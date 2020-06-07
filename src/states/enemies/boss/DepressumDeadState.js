@@ -1,9 +1,12 @@
 import State from '../../State.js';
 import HUDEventsManager from '../../../events/HUDEventsManager.js';
+import MusicsEventsManager from '../../../events/MusicsEventsManager.js';
 import SmokeBoss from '../../../sprites/effects/SmokeBoss.js';
 
 export default class DepressumDeadState extends State {
   enter(scene, dk, damage) {
+    MusicsEventsManager.emit('play-music', 'Level-1');
+
     dk.setVisible(false);
 
     let smoke = new SmokeBoss({

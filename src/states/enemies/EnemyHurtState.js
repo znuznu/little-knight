@@ -2,7 +2,6 @@ import State from '../State.js';
 
 export default class EnemyHurtState extends State {
   enter(scene, enemy) {
-
     let randIndex = ~~(Math.random() * ~~(2)) + 1;
     scene.sound.playAudioSprite('sounds', 'hit_' + randIndex);
     const direction = new Phaser.Math.Vector2(

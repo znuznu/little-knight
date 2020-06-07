@@ -1,5 +1,6 @@
 import State from '../../State.js';
 import HUDEventsManager from '../../../events/HUDEventsManager.js';
+import MusicsEventsManager from '../../../events/MusicsEventsManager.js';
 
 export default class DepressumWaitState extends State {
   enter(scene, dk) {
@@ -8,6 +9,7 @@ export default class DepressumWaitState extends State {
 
   execute(scene, dk) {
     if (dk.distanceBetween(dk.target) <= 320) {
+      MusicsEventsManager.emit('play-music', 'DepressumLoop');
       HUDEventsManager.emit('show-boss-stats');
       HUDEventsManager.emit(
         'update-boss-name',

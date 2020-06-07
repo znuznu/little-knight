@@ -5,14 +5,24 @@ export default class BootScene extends Phaser.Scene {
 
   preload() {
     this.progress = this.add.graphics();
+    this.bar = this.add.graphics();
+    this.bar.fillStyle(0xffffff, 1);
+    this.bar.lineStyle(4, 0xffffff, 1);
+    this.bar.strokeRect(
+      this.sys.game.config.width / 4,
+      this.sys.game.config.height / 2,
+      this.sys.game.config.width / 2,
+      30
+    );
+
     this.load.on('progress', (value) => {
         this.progress.clear();
         this.progress.fillStyle(0xffffff, 1);
         this.progress.fillRect(
-          0,
+          this.sys.game.config.width / 4,
           this.sys.game.config.height / 2,
-          this.sys.game.config.width * value,
-          60
+          (this.sys.game.config.width / 2 ) * value,
+          30
         );
     });
 
@@ -38,12 +48,18 @@ export default class BootScene extends Phaser.Scene {
     this.load.tilemapTiledJSON('level-1-floor-666', 'assets/tilemaps/level-1-floor-666.json');
 
     this.load.audioSprite('sounds', 'assets/audio/sounds/sounds.json', [
+      'assets/audio/sounds/sounds.ogg',
       'assets/audio/sounds/sounds.mp3',
-      'assets/audio/sounds/sounds.ogg'
-      ], {
-        instances: 4
-    });
+      'assets/audio/sounds/sounds.m4a',
+      'assets/audio/sounds/sounds.ac3'
+    ]);
 
+/*
+    this.load.audioSprite('musics', 'assets/audio/musics/musics.json', [
+      'assets/audio/musics/musics.ogg',
+      'assets/audio/musics/musics.mp3'
+    ]);
+*/
     this.load.atlas(
       'atlas',
       'assets/images/atlas/atlas.png',
@@ -239,7 +255,7 @@ export default class BootScene extends Phaser.Scene {
           zeroPad: 0
         }
       ),
-      frameRate: 6,
+      frameRate: 4,
       repeat: -1
     });
 

@@ -4,7 +4,10 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     this.scene.physics.world.enable(this);
     this.scene.add.existing(this);
     this.damage = 2;
+    this.body.setCircle(15, 0, 0);
     this.setDepth(3);
+
+    this.play('fireball-arcanic', true);
 
     this.audioSprites = [
       'fireball_1',
@@ -25,14 +28,7 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     let angleDeg = Phaser.Math.RadToDeg(angleRad);
     this.angle = angleDeg;
 
-    this.rotate();
-
-    // Flip the fireball because of the evil face on it.
-    if (this.angle >= 45 && this.angle <= 180 || this.angle >= -180 && this.angle <= -45) {
-      this.setFlipY(true);
-    } else {
-      this.setFlipY(false);
-    }
+    this.updateAngle();
 
     // Avoid player getting hit by an inactive fireball.
     this.body.checkCollision.none = false;
@@ -54,19 +50,12 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     this.scene.physics.moveTo(this, x, y, speed);
   }
 
-  // Rotate toward the angle from this fireball.
-  // To adjust.
-  rotate() {
-    // Adjust the hitbox.
-    let leftLimit = 135, rightLimit = 45;
-    let top = this.angle > rightLimit && this.angle < leftLimit;
-    let down = this.angle < -rightLimit && this.angle > -leftLimit;
-
-    if (top || down) {
-      this.body.setSize(32, 64);
-      this.body.setOffset(16, 0);
+  // Adjust the Y axis of the sprite depending on the angle.
+  updateAngle() {
+    if (this.angle >= 90 && this.angle <= 179 || this.angle >= -180 && this.angle <= -90) {
+      this.setFlipY(true);
     } else {
-      this.body.setSize(64, 32);
+      this.setFlipY(false);
     }
   }
 

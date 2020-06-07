@@ -1,3 +1,5 @@
+import MusicsEventsManager from '../events/MusicsEventsManager.js';
+
 export default class GameOverScene extends Phaser.Scene {
   constructor() {
     super('gameOverScene');
@@ -8,6 +10,7 @@ export default class GameOverScene extends Phaser.Scene {
   }
 
   create() {
+    MusicsEventsManager.emit('play-music', 'GameOver');
     this.cursors = this.input.keyboard.createCursorKeys();
     this.cameras.main.fadeIn(5000);
     this.add.image(0, 0, 'background-game-over').setOrigin(0, 0);
