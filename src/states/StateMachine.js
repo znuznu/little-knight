@@ -39,5 +39,6 @@ export default class StateMachine {
 
   stop() {
     this.run = false;
+    this.state = null;
   }
 }

@@ -4,7 +4,7 @@ export default class PlayerDeadState extends State {
   enter(scene, player) {
     scene.cameras.main.stopFollow();
     scene.crosshair.setVisible(false);
-    
+
     player.clearTint();
     player.actionStateMachine.stop();
     player.healthStateMachine.stop();
