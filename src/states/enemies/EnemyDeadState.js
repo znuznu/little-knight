@@ -7,12 +7,10 @@ export default class EnemyDeadState extends State {
     let smoke;
     switch (enemy.animationState['dead']) {
       case 'smoke-small':
-        smoke = new SmokeSmall({
-          scene: scene,
-          key: 'smoke-small',
-          x: enemy.x,
-          y: enemy.y
-        });
+        let smokeSmall = scene.smokeSmallGroup.get();
+        if (smokeSmall) {
+          smokeSmall.use(enemy.x, enemy.y);
+        }
         break;
       case 'smoke-big':
         smoke = new SmokeBig({

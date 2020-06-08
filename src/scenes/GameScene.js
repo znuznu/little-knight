@@ -27,6 +27,7 @@ import PursuitSword from '../sprites/movesets/enemies/PursuitSword.js';
 import Chest from '../sprites/misc/Chest.js';
 import Door from '../sprites/misc/Door.js';
 import Explosion from '../sprites/effects/Explosion.js';
+import SmokeSmall from '../sprites/effects/SmokeSmall.js';
 import Loot from '../sprites/loots/Loot.js';
 import PotionHealSmall from '../sprites/loots/PotionHealSmall.js';
 import AnimatedTiles from 'phaser-animated-tiles/dist/AnimatedTiles.min.js';
@@ -275,6 +276,11 @@ export default class GameScene extends Phaser.Scene {
     this.potionHealSmallGroup = this.add.group({
       classType: PotionHealSmall,
       maxSize: 16
+    });
+
+    this.smokeSmallGroup = this.add.group({
+      classType: SmokeSmall,
+      maxSize: 99
     });
 
     // Player dash shadows.

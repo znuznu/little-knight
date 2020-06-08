@@ -2,8 +2,6 @@
  * Explosion caused (for example) by bomb.
  */
 
-import SmokeSmall from './SmokeSmall.js';
-
 export default class Explosion extends Phaser.GameObjects.Sprite {
   constructor(scene) {
     super(scene, 0, 0, 'atlas', 'smoke-big-0');
@@ -29,18 +27,25 @@ export default class Explosion extends Phaser.GameObjects.Sprite {
       this.scene.blocks
     );
 
-    console.dir(tiles);
-
     tiles.forEach(tile => {
       if (tile.index == 84) {
-        this.scene.map.removeTileAt(tile.x, tile.y - 1, false, false, this.scene.above);
+        this.scene.map.removeTileAt(
+          tile.x,
+          tile.y - 1,
+          false,
+          false,
+          this.scene.above
+        );
+
         this.scene.map.removeTile(tile);
-        let smoke = new SmokeSmall({
-          scene: this.scene,
-          key: 'smoke-small',
-          x: (tile.x + 1) * 32 - 16,
-          y: (tile.y + 1) * 32 - 16
-        });
+
+        let smokeSmall = this.scene.smokeSmallGroup.get();
+
+        if (smokeSmall) {
+          let x = (tile.x + 1) * 32 - 16;
+          let y = (tile.y + 1) * 32 - 16;
+          smokeSmall.use(x, y);
+        }
       }
     });
 

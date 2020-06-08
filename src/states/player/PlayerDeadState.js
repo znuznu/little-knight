@@ -1,20 +1,21 @@
 import State from '../State.js';
-import SmokeSmall from '../../sprites/effects/SmokeSmall.js';
 
 export default class PlayerDeadState extends State {
   enter(scene, player) {
-    player.setVisible(false);
-
-    let smoke = new SmokeSmall({
-      scene: scene,
-      key: 'smoke-small',
-      x: player.x,
-      y: player.y
-    });
-
-    smoke.on('animationcomplete', _ => {
-      player.actionStateMachine.stop();
-      scene.events.emit('player-death');
+    player.clearTint();
+    player.body.checkCollision.none = true;
+    player.actionStateMachine.stop();
+    player.play('smoke-small', true);
+    player.on('animationcomplete', _ => {
+      player.setVisible(false);
+      scene.time.addEvent({
+        delay: 1000,
+        repeat: 0,
+        callbackScope: this,
+        callback: _ => {
+          scene.events.emit('player-death');
+        }
+      });
     }, this);
   }
 }
