@@ -47,7 +47,7 @@ export default class GameScene extends Phaser.Scene {
       this.createPlayer(player.health, player.weapons, player.inventory);
     } else {
       this.scene.run('hudScene');
-      this.createPlayer(6, ['bow', 'sword'], {});
+      this.createPlayer(6, [], {});
     }
 
     this.saveState(data.level, data.floor, this.player, this.moveControls);
@@ -269,7 +269,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.explosionsGroups = this.add.group({
       classType: Explosion,
-      maxSize: 18
+      maxSize: 3
     });
 
     this.potionHealSmallGroup = this.add.group({
