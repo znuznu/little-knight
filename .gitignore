@@ -1,7 +1,5 @@
-# System and IDE files
-Thumbs.db
+# System
 .DS_Store
-.idea
 
 # Vendors
 node_modules/
@@ -9,3 +7,4 @@ node_modules/
 # Build
 dist/
 /npm-debug.log
+dist.zip

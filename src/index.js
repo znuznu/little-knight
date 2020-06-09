@@ -10,7 +10,7 @@ import MusicsScene from './scenes/MusicsScene.js';
 import InstructionsScene from './scenes/InstructionsScene.js';
 
 var config = {
-    autoCenter: Phaser.Scale.CENTER_BOTH,
+    autoCenter: Phaser.Scale.NO_CENTER,
     backgroundColor: '#222222',
     type: Phaser.AUTO,
     width: 800,
@@ -19,10 +19,10 @@ var config = {
     parent: 'content',
     pixelArt: true,
     physics: {
-        default: 'arcade',
-        arcade: {
-          debug: false
-        }
+      default: 'arcade',
+      arcade: {
+        debug: false
+      }
     },
     scene: [
       BootScene,
