@@ -4,8 +4,8 @@ Few assets of the game have been created by myself, but most of them comes from 
 Please follow the links associated to the assets to see the licence(s).  
 
 ### Sprites  
-[Simple dungeon crawler 16x16](https://o-lobster.itch.io/simple-dungeon-crawler-16x16-pixel-pack) (modified) by __o_lobster__  
 [Sprites from the Dungeon Tileset II](https://0x72.itch.io/dungeontileset-ii)   (modified) by __0x72__  
+[Simple dungeon crawler 16x16](https://o-lobster.itch.io/simple-dungeon-crawler-16x16-pixel-pack) (modified) by __o_lobster__  
 [16x16 Enchanted Forest Characters](https://superdark.itch.io/enchanted-forest-characters) (modified) by __superdark__  
 
 ### Fonts  
