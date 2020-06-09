@@ -41,7 +41,7 @@ Build with production settings
     npm run build
 
 ### External plugins
-[Animated Tiles](https://github.com/nkholski/phaser-animated-tiles) by [nholski](https://github.com/nkholski)
+[Animated Tiles](https://github.com/nkholski/phaser-animated-tiles) by [nkholski](https://github.com/nkholski)
 
 ### Credits
 Please see the CREDITS.md file.
