@@ -1,9 +1,8 @@
 /*
  * Abstract class.
  *
- * Items dropped by enemies at their death that can
- * be grabbed by the player. Disappear after a 10 seconds
- * by default.
+ * Items dropped by enemies at their death that can be grabbed by the player.
+ * Disappear after 10 seconds by default.
  */
 
 export default class Loot extends Phaser.GameObjects.Sprite {

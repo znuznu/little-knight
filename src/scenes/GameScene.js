@@ -1,3 +1,10 @@
+/*
+ * Main levels scene.
+ *
+ * There's only one scene to handle each level.
+ *
+ */
+
 import Character from '../sprites/characters/Character.js';
 import Father from '../sprites/npcs/Father.js';
 import Sister from '../sprites/npcs/Sister.js';
@@ -82,9 +89,8 @@ export default class GameScene extends Phaser.Scene {
     this.createEvents();
     this.createSound();
     this.createAnimatedTiles();
-    // this.createFog();
     this.createMusic();
-    this.createTitle();
+    this.createFloorTitle();
   }
 
   update(time, delta) {
@@ -383,7 +389,12 @@ export default class GameScene extends Phaser.Scene {
       this.transitionsGroup,
       this.player,
       (t, p) => {
-        this.changeLevel(t.getData('level'), t.getData('floor'), this.player, this.moveControls);
+        this.changeLevel(
+          t.getData('level'),
+          t.getData('floor'),
+          this.player,
+          this.moveControls
+        );
       }
     );
 
@@ -690,8 +701,11 @@ export default class GameScene extends Phaser.Scene {
     MusicsEventsManager.emit('play-music', 'Level-1');
   }
 
-  createTitle() {
-    let cameraWorld = this.cameras.main.getWorldPoint(this.cameras.main.x, this.cameras.main.y);
+  createFloorTitle() {
+    let cameraWorld = this.cameras.main.getWorldPoint(
+      this.cameras.main.x,
+      this.cameras.main.y
+    );
     this.floorTitle = this.add.bitmapText(
       cameraWorld.x + this.game.config.width / 2,
       cameraWorld.y + this.game.config.height / 4,
@@ -751,6 +765,7 @@ export default class GameScene extends Phaser.Scene {
     this.sys.animatedTiles.init(this.map);
   }
 
+  // Not used.
   createFog() {
     let fog = this.add.rectangle(
       this.cameras.main.x,
@@ -761,35 +776,6 @@ export default class GameScene extends Phaser.Scene {
       0.7
     ).setOrigin(0, 0);
     fog.setDepth(11);
-
-/*
-    let container = new Phaser.GameObjects.Container(this, 0, 0);
-    container.add([
-      this.void,
-      this.spikes,
-      this.walkables,
-      this.blocks,
-      this.above,
-      this.player
-    ]);
-
-    const width = this.scale.width;
-  	const height = this.scale.height;
-
-  	// make a RenderTexture that is the size of the screen
-  	const rt = this.make.renderTexture({
-  		width,
-  		height
-  	}, true);
-
-  	// fill it with black
-  	rt.fill(0x000000, 1);
-
-  	// draw the floorLayer into it
-  	rt.draw(container
-    );
-
-	   rt.setTint(0x0a2948);*/
   }
 
   /*

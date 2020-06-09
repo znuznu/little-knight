@@ -1,3 +1,10 @@
+/*
+ * Instructions scene.
+ *
+ * The first level is started here.
+ *
+ */
+
 import MusicsEventsManager from '../events/MusicsEventsManager.js';
 
 export default class InstructionsScene extends Phaser.Scene {

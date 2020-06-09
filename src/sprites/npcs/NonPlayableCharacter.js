@@ -1,3 +1,8 @@
+/*
+ * Abstract class.
+ *
+ * Not the good way to handle dialogs, but okay for this project.
+ */
 export default class NonPlayableCharacter extends Phaser.GameObjects.Sprite {
   constructor(config) {
     super(config.scene, config.x, config.y, config.key);

@@ -1,3 +1,9 @@
+/*
+ * Abstract class.
+ *
+ * Enemies and Player extends this class.
+ */
+
 export default class Character extends Phaser.GameObjects.Sprite {
   constructor(config) {
     super(config.scene, config.x, config.y, config.key);

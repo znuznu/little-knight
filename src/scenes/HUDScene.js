@@ -1,3 +1,10 @@
+/*
+ * The player HUD scene.
+ *
+ * Note: The crosshair isn't here.
+ *
+ */
+
 import HUDEventsManager from '../events/HUDEventsManager.js';
 
 export default class HUDScene extends Phaser.Scene {

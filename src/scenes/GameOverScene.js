@@ -1,3 +1,10 @@
+/*
+ * Ending scene (failed).
+ *
+ * Sad music.
+ *
+ */
+
 import MusicsEventsManager from '../events/MusicsEventsManager.js';
 
 export default class GameOverScene extends Phaser.Scene {

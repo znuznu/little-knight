@@ -1,3 +1,7 @@
+/*
+ * The sword thrown by Depressum.
+ */
+
 export default class PursuitSword extends Phaser.GameObjects.Sprite {
   constructor(scene, master) {
     super(scene, 0, 0, 'atlas', 'sword-boss-01-simple');

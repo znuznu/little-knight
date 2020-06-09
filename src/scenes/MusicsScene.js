@@ -1,3 +1,11 @@
+/*
+ * Music scene.
+ *
+ * Provides functions in order to handle the music.
+ * Only one music is played at the same time.
+ *
+ */
+
 import MusicsEventsManager from '../events/MusicsEventsManager.js';
 
 export default class MusicsScene extends Phaser.Scene {

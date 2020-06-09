@@ -1,3 +1,10 @@
+/*
+ * Ending scene (victory).
+ *
+ * Happy music.
+ *
+ */
+
 import MusicsEventsManager from '../events/MusicsEventsManager.js';
 
 export default class VictoryScene extends Phaser.Scene {

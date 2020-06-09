@@ -1,3 +1,11 @@
+/*
+ * First scene.
+ *
+ * Load every assets from the game.
+ * I'm sure there's a better way to handle the animations tho.
+ *
+ */
+
 export default class BootScene extends Phaser.Scene {
   constructor() {
     super('bootScene');
@@ -54,12 +62,12 @@ export default class BootScene extends Phaser.Scene {
       'assets/audio/sounds/sounds.m4a',
       'assets/audio/sounds/sounds.ac3'
     ]);
-/*
+
     this.load.audioSprite('musics', 'assets/audio/musics/musics.json', [
       'assets/audio/musics/musics.ogg',
       'assets/audio/musics/musics.mp3'
     ]);
-*/
+
     this.load.atlas(
       'atlas',
       'assets/images/atlas/atlas.png',
