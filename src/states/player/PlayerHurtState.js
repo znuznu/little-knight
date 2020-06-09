@@ -8,6 +8,7 @@ import HUDEventsManager from '../../events/HUDEventsManager.js';
 
 export default class PlayerHurtState extends State {
   enter(scene, player, damage) {
+    scene.sound.playAudioSprite('sounds', 'hit_3');
     player.hit(damage);
     player.setTint(0xb20000);
     scene.cameras.main.shake(500, 0.02);
