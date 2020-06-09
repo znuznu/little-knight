@@ -40,6 +40,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   init(data) {
+    this.floor = data.floor;
     this.moveControls = data.moveControls;
     this.createMap(data.level, data.floor);
     let player = data.player;
@@ -83,6 +84,7 @@ export default class GameScene extends Phaser.Scene {
     this.createAnimatedTiles();
     // this.createFog();
     this.createMusic();
+    this.createTitle();
   }
 
   update(time, delta) {
@@ -236,7 +238,8 @@ export default class GameScene extends Phaser.Scene {
 
     this.playerArrows = this.add.group({
       classType: PlayerArrow,
-      maxSize: 5
+      maxSize: 5,
+      runChildUpdate: true
     });
 
     this.transitionsGroup = this.add.group({
@@ -249,7 +252,8 @@ export default class GameScene extends Phaser.Scene {
 
     this.fireballsSimpleGroup = this.add.group({
       classType: FireballSimple,
-      maxSize: 30
+      maxSize: 16,
+      runChildUpdate: true
     });
 
     this.fireballsArcanicGroup = this.add.group({
@@ -385,6 +389,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.physics.add.collider(this.playerBombsGroup, this.blocks);
     this.physics.add.collider(this.playerBombsGroup, this.spikes);
+    this.physics.add.collider(this.playerBombsGroup, this.void);
     this.physics.add.collider(this.playerBombsGroup, this.doorsGroup);
 
     // Explosions.
@@ -685,6 +690,29 @@ export default class GameScene extends Phaser.Scene {
     MusicsEventsManager.emit('play-music', 'Level-1');
   }
 
+  createTitle() {
+    let cameraWorld = this.cameras.main.getWorldPoint(this.cameras.main.x, this.cameras.main.y);
+    this.floorTitle = this.add.bitmapText(
+      cameraWorld.x + this.game.config.width / 2,
+      cameraWorld.y + this.game.config.height / 4,
+      'bitty',
+      'Floor ' + this.floor,
+      64
+    ).setCenterAlign();
+
+    this.floorTitle.setDepth(12);
+    this.floorTitle.setOrigin(0.5, 0.5);
+
+    this.tweens.add({
+      targets: this.floorTitle,
+      alpha: 0,
+      ease: 'Cubic.easeIn',
+      duration: 3000,
+      repeat: 0,
+      onComplete: _ => { this.floorTitle.setVisible(false); }
+    });
+  }
+
   updatePlayer(time, delta) {
     if (!this.player.isDead())
       this.player.update(time, delta);
@@ -794,6 +822,12 @@ export default class GameScene extends Phaser.Scene {
     this.blocks.renderDebug(debugGraphics, {
       tileColor: null,
       collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255),
+      faceColor: new Phaser.Display.Color(40, 39, 37, 255)
+    });
+
+    this.void.renderDebug(debugGraphics, {
+      tileColor: null,
+      collidingTileColor: new Phaser.Display.Color(255, 51, 91, 255),
       faceColor: new Phaser.Display.Color(40, 39, 37, 255)
     });
   }

@@ -45,6 +45,7 @@ export default class BootScene extends Phaser.Scene {
     this.load.tilemapTiledJSON('level-1-floor-3', 'assets/tilemaps/level-1-floor-3.json');
     this.load.tilemapTiledJSON('level-1-floor-4', 'assets/tilemaps/level-1-floor-4.json');
     this.load.tilemapTiledJSON('level-1-floor-5', 'assets/tilemaps/level-1-floor-5.json');
+    this.load.tilemapTiledJSON('level-1-floor-6', 'assets/tilemaps/level-1-floor-6.json');
     this.load.tilemapTiledJSON('level-1-floor-666', 'assets/tilemaps/level-1-floor-666.json');
 
     this.load.audioSprite('sounds', 'assets/audio/sounds/sounds.json', [
@@ -53,7 +54,6 @@ export default class BootScene extends Phaser.Scene {
       'assets/audio/sounds/sounds.m4a',
       'assets/audio/sounds/sounds.ac3'
     ]);
-
 /*
     this.load.audioSprite('musics', 'assets/audio/musics/musics.json', [
       'assets/audio/musics/musics.ogg',

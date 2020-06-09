@@ -8,11 +8,14 @@ export default class PlayerArrow extends Phaser.GameObjects.Sprite {
 
     // Time between shots.
     this.loadTime = 400;
+
+    this.duration = 0;
   }
 
   shoot(x, y) {
     if (this.scene.player.lastShot < this.loadTime) return;
 
+    this.duration = 0;
     this.scene.player.lastShot = 0;
 
     this.setPosition(x, y);
@@ -74,5 +77,13 @@ export default class PlayerArrow extends Phaser.GameObjects.Sprite {
     this.setActive(false);
     this.setVisible(false);
     this.body.checkCollision.none = true;
+  }
+
+  update(time, delta) {
+    this.duration += delta;
+
+    if (this.duration > 5000) {
+      this.break();
+    }
   }
 }

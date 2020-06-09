@@ -8,6 +8,8 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     this.body.setCircle(15, 0, 0);
     this.setDepth(3);
 
+    this.duration = 0;
+
     this.audioSprites = [
       'fireball_1',
       'fireball_2'
@@ -54,11 +56,22 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
   }
 
   explode() {
+    this.duration = 0;
     this.play('fireball-simple-explosion', true);
     this.once('animationcomplete', _ => {
       this.setActive(false);
       this.setVisible(false);
       this.body.checkCollision.none = true;
     });
+  }
+
+  update(time, delta) {
+    // Avoid fireballs flying forever into the void of bits.
+    // Using delta, not the "good" way (time better) but it's okay.
+    this.duration += delta;
+
+    if (this.duration > 10000) {
+      this.explode();
+    }
   }
 }

@@ -3,6 +3,12 @@ import FireballSimple from '../../../sprites/movesets/enemies/FireballSimple.js'
 
 export default class MageCastFireballState extends State {
   enter(scene, mage) {
+    if (mage.x > mage.target.x) {
+      mage.view = 'left';
+    } else {
+      mage.view = 'right';
+    }
+
     let fireball = scene.fireballsSimpleGroup.get();
 
     if (fireball) {

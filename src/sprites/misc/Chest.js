@@ -54,7 +54,7 @@ export default class Chest extends Phaser.GameObjects.Sprite {
         this.itemsToFrame[this.treasure]
       );
 
-      item.setDepth(3);
+      item.setDepth(this.scene.player.depth + 1);
 
       this.scene.tweens.add({
         targets: item,

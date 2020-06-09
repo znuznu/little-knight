@@ -30,7 +30,7 @@ export default class Mage extends Enemy {
       'dead': 'smoke-small'
     };
 
-    // No loots for this cowards.
+    // No loots for them, they're always on a platform alone.
     this.loots = [];
   }
 }
