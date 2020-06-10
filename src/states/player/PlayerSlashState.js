@@ -4,7 +4,6 @@
  */
 
 import State from '../State.js';
-import PlayerSlash from '../../sprites/movesets/player/PlayerSlash.js';
 
 export default class PlayerSlashState extends State {
   enter(scene, player) {
@@ -48,36 +47,20 @@ export default class PlayerSlashState extends State {
     };
 
     let direction = angleToDirection(angle);
-
-    let position = [
-      directionToPosition[direction][0],
-      directionToPosition[direction][1]
-    ];
-
-    this.slash = new PlayerSlash({
-      scene: scene,
-      key: 'slash-effect',
-      x: position[0],
-      y: position[1]
-    });
-
-    let directionToAngle = {
-      'north': -1.57,
-      'south': 1.57,
-      'east': 0,
-      'west': -3.14,
-      'north-west': -2.35,
-      'north-east': -0.785,
-      'south-west': 2.35,
-      'south-east': 0.785
+    let position = {
+      x: directionToPosition[direction][0],
+      y: directionToPosition[direction][1]
     };
 
-    this.slash.rotation = directionToAngle[direction];
+    let slash = scene.playerSlashsGroup.get();
+    if (slash) {
+      slash.use(position.x, position.y, direction);
+    }
 
     let randIndex = ~~(Math.random() * ~~(3)) + 1;
     scene.sound.playAudioSprite('sounds', 'swing_' + randIndex);
 
-    scene.time.delayedCall(200, _ => {
+    scene.time.delayedCall(slash.recovery, _ => {
       player.actionStateMachine.transition('idle');
     });
   }

@@ -1,22 +1,41 @@
 export default class PlayerSlash extends Phaser.GameObjects.Sprite {
-  constructor(config) {
-    super(config.scene, config.x, config.y, config.key);
-    config.scene.physics.world.enable(this);
-    config.scene.add.existing(this);
-    config.scene.physics.add.overlap(
-      this,
-      config.scene.enemyGroup,
-      (s, e) => { e.meleeAttackTaken(2); },
-      null,
-      config.scene
-    );
-
+  constructor(scene) {
+    super(scene, 0, 0, 'atlas', 'slash-effect-0');
+    this.scene.physics.world.enable(this);
+    this.scene.add.existing(this);
     this.setDepth(12);
+    this.damage = 2;
 
-    // Note: This object should be inside a pool.
+    // Recovery time, in ms.
+    this.recovery = 200;
+
+    this.directionToAngle = {
+      'north': -1.57,
+      'south': 1.57,
+      'east': 0,
+      'west': -3.14,
+      'north-west': -2.35,
+      'north-east': -0.785,
+      'south-west': 2.35,
+      'south-east': 0.785
+    };
+  }
+
+  use(x, y, direction) {
+    this.rotation = this.directionToAngle[direction];
+    this.setPosition(x, y);
+    this.setVisible(true);
+    this.setActive(true);
+    this.body.checkCollision.none = false;
     this.play('slash-effect');
     this.on('animationcomplete', _ => {
-      this.destroy();
+      this.hide();
     }, this);
+  }
+
+  hide() {
+    this.setVisible(false);
+    this.setActive(false);
+    this.body.checkCollision.none = true;
   }
 }

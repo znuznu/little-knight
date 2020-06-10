@@ -28,6 +28,7 @@ import Mage from '../sprites/characters/enemies/mage/Mage.js';
 import Depressum from '../sprites/characters/enemies/boss/Depressum.js';
 import PlayerArrow from '../sprites/movesets/player/PlayerArrow.js';
 import PlayerBomb from '../sprites/movesets/player/PlayerBomb.js';
+import PlayerSlash from '../sprites/movesets/player/PlayerSlash.js';
 import FireballSimple from '../sprites/movesets/enemies/FireballSimple.js';
 import FireballArcanic from '../sprites/movesets/enemies/FireballArcanic.js';
 import PursuitSword from '../sprites/movesets/enemies/PursuitSword.js';
@@ -242,12 +243,6 @@ export default class GameScene extends Phaser.Scene {
       runChildUpdate: true
     });
 
-    this.playerArrows = this.add.group({
-      classType: PlayerArrow,
-      maxSize: 5,
-      runChildUpdate: true
-    });
-
     this.transitionsGroup = this.add.group({
       classType: Phaser.GameObjects.Zone
     });
@@ -272,10 +267,21 @@ export default class GameScene extends Phaser.Scene {
       runChildUpdate: true
     });
 
+    this.playerArrows = this.add.group({
+      classType: PlayerArrow,
+      maxSize: 5,
+      runChildUpdate: true
+    });
+
     this.playerBombsGroup = this.add.group({
       classType: PlayerBomb,
       maxSize: 3,
       runChildUpdate: true
+    });
+
+    this.playerSlashsGroup = this.add.group({
+      classType: PlayerSlash,
+      maxSize: 16
     });
 
     this.explosionsGroups = this.add.group({
@@ -337,7 +343,19 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(
       this.playerArrows,
       this.fireballsArcanicGroup,
-      (pa, fa) => { fa.explode(); pa.hide(); }
+      (pa, fa) => {
+        fa.explode();
+        pa.hide();
+      }
+    );
+
+    // Player slashs (sword).
+    this.physics.add.overlap(
+      this.playerSlashsGroup,
+      this.enemyGroup,
+      (s, e) => { e.meleeAttackTaken(s.damage); },
+      null,
+      this
     );
 
     // Player.
@@ -431,6 +449,7 @@ export default class GameScene extends Phaser.Scene {
    * I'm not passing the player itself because in this case his
    * scene from his states machines needs to be updated and it
    * gets tricky.
+   *
    */
   changeLevel(level, floor, player, moveControls) {
     this.scene.restart(

@@ -130,8 +130,8 @@
                  "type":"demon-big",
                  "visible":true,
                  "width":0,
-                 "x":416,
-                 "y":640
+                 "x":672,
+                 "y":288
                 }],
          "opacity":1,
          "type":"objectgroup",
