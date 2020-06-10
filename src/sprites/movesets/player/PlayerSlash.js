@@ -11,7 +11,7 @@ export default class PlayerSlash extends Phaser.GameObjects.Sprite {
       config.scene
     );
 
-    this.setDepth(4);
+    this.setDepth(12);
 
     // Note: This object should be inside a pool.
     this.play('slash-effect');

@@ -389,12 +389,14 @@ export default class GameScene extends Phaser.Scene {
       this.transitionsGroup,
       this.player,
       (t, p) => {
-        this.changeLevel(
-          t.getData('level'),
-          t.getData('floor'),
-          this.player,
-          this.moveControls
-        );
+        if (!p.isDead()) {
+          this.changeLevel(
+            t.getData('level'),
+            t.getData('floor'),
+            this.player,
+            this.moveControls
+          );
+        }
       }
     );
 

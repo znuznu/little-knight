@@ -36,6 +36,7 @@ export default class Enemy extends Character {
     this.aggroIcon = this.scene.add.bitmapText(
       this.x, this.y - 32, 'bitty', '!', 32
     ).setOrigin(0.5, 0.5);
+    this.aggroIcon.setDepth(12);
     this.aggroIcon.setAlpha(0);
 
     // Default state machine for enemies, they simply chase
