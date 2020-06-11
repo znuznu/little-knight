@@ -1,4 +1,4 @@
-/*
+/**
  * Main levels scene.
  *
  * There's only one scene to handle each level.
@@ -167,7 +167,7 @@ export default class GameScene extends Phaser.Scene {
     );
 
     // Ugly, should be inside the Player[Idle/Run]State
-    // but dunno how to test only one time.
+    // but dunno how to test only "just" one time.
     this.input.on('pointerdown', pointer => {
       let state = this.player.actionStateMachine.state;
       if (!this.player.isDead() && (state === 'idle' || state === 'run')) {
@@ -452,6 +452,8 @@ export default class GameScene extends Phaser.Scene {
    *
    */
   changeLevel(level, floor, player, moveControls) {
+    HUDEventsManager.emit('update-minimap', undefined);
+
     this.scene.restart(
       {
         level: level,
@@ -675,6 +677,9 @@ export default class GameScene extends Phaser.Scene {
       // If the player died against a boss.
       HUDEventsManager.emit('hide-boss-stats');
 
+      // Clear the map.
+      HUDEventsManager.emit('update-minimap', undefined);
+
       this.scene.start('gameOverScene', {
         dataSaved: this.dataSaved
       });
@@ -799,7 +804,7 @@ export default class GameScene extends Phaser.Scene {
     fog.setDepth(11);
   }
 
-  /*
+  /**
    * Save-state of the player for this scene at the beginning of
    * the level. If he die we can simply restart the level with
    * this stats.

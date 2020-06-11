@@ -1,4 +1,4 @@
-/*
+/**
  * Ending scene (failed).
  *
  * Sad music.

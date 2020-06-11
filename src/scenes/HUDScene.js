@@ -1,4 +1,4 @@
-/*
+/**
  * The player HUD scene.
  *
  * Note: The crosshair isn't here.
@@ -19,9 +19,8 @@ export default class HUDScene extends Phaser.Scene {
     this.createWeapons();
     this.createKeys();
     this.createKeyBoss();
-    this.createBossName();
-    this.createBossHealth();
-    this.hideBossStats();
+    this.createBossStats();
+    this.createMinimap();
   }
 
   createEventsListener() {
@@ -31,8 +30,8 @@ export default class HUDScene extends Phaser.Scene {
     HUDEventsManager.on('update-key-boss', this.updateKeyBoss, this);
     HUDEventsManager.on('update-boss-health', this.updateBossHealth, this);
     HUDEventsManager.on('update-boss-name', this.updateBossName, this);
+    HUDEventsManager.on('update-minimap', this.updateMinimap, this);
     HUDEventsManager.on('show-boss-stats', this.showBossStats, this);
-    HUDEventsManager.on('hide-boss-stats', this.hideBossStats, this);
   }
 
   createHealth() {
@@ -93,6 +92,12 @@ export default class HUDScene extends Phaser.Scene {
     this.keyBoss.setVisible(false);
   }
 
+  createBossStats() {
+    this.createBossName();
+    this.createBossHealth();
+    this.showBossStats(false);
+  }
+
   createBossName() {
     this.bossName = this.add.bitmapText(
       128, 380, 'bitty', 'Default', 32
@@ -141,6 +146,18 @@ export default class HUDScene extends Phaser.Scene {
       this.currentHealthBarTop.y + 21,
       0, 7, 0x800000
     ).setOrigin(0, 0);
+  }
+
+  createMinimap() {
+    // The container.
+    this.minimap = undefined;
+    this.mmTopBar = undefined;
+    this.mmBottomBar = undefined;
+    this.mmLeftBar = undefined;
+    this.mmRightBar = undefined;
+
+    // Datas from the minimap.
+    this.mmData = undefined;
   }
 
   updateWeapons(weapons) {
@@ -224,25 +241,139 @@ export default class HUDScene extends Phaser.Scene {
     );
   }
 
-  showBossStats() {
-    this.maximumHealthBar.setVisible(true);
-    this.currentHealthBarTop.setVisible(true);
-    this.currentHealthBarDown.setVisible(true);
-    this.borderTop.setVisible(true);
-    this.borderDown.setVisible(true);
-    this.borderRight.setVisible(true);
-    this.borderLeft.setVisible(true);
-    this.bossName.setVisible(true);
+  showBossStats(isVisible) {
+    this.maximumHealthBar.setVisible(isVisible);
+    this.currentHealthBarTop.setVisible(isVisible);
+    this.currentHealthBarDown.setVisible(isVisible);
+    this.borderTop.setVisible(isVisible);
+    this.borderDown.setVisible(isVisible);
+    this.borderRight.setVisible(isVisible);
+    this.borderLeft.setVisible(isVisible);
+    this.bossName.setVisible(isVisible);
   }
 
-  hideBossStats() {
-    this.maximumHealthBar.setVisible(false);
-    this.currentHealthBarTop.setVisible(false);
-    this.currentHealthBarDown.setVisible(false);
-    this.borderTop.setVisible(false);
-    this.borderDown.setVisible(false);
-    this.borderRight.setVisible(false);
-    this.borderLeft.setVisible(false);
-    this.bossName.setVisible(false);
+  updateMinimap(map) {
+    // Clear the map in any case.
+    this.clearMinimap();
+
+    if (!map) {
+      this.showMinimap(false);
+      return;
+    }
+
+    let layer = map.getLayer('walkable').data;
+
+    let x = (this.sys.game.config.width - 32);
+    let y = (this.sys.game.config.height - 32);
+
+    let rows = layer.length;
+    let cols = layer[0].length;
+
+    this.mmSize = {
+      w: cols,
+      h: rows
+    };
+
+    this.minimap = this.add.rectangle(
+      x, y, this.mmSize.w, this.mmSize.h, 0x222222, 0.5
+    ).setOrigin(1, 1);
+
+    this.mmTopBar = this.add.rectangle(
+      x, y - this.mmSize.h, this.mmSize.w, 2, 0xfdf7ed
+    ).setOrigin(1, 1);
+
+    this.mmBottomBar = this.add.rectangle(
+      x, y + 2, this.mmSize.w, 2, 0xfdf7ed
+    ).setOrigin(1, 1);
+
+    this.mmLeftBar = this.add.rectangle(
+      x - this.mmSize.w, y, 2, this.mmSize.h, 0xfdf7ed
+    ).setOrigin(1, 1);
+
+    this.mmRightBar = this.add.rectangle(
+      x + 2, y, 2, this.mmSize.h, 0xfdf7ed
+    ).setOrigin(1, 1);
+
+    // Datas from the minimap.
+    this.mmData = this.add.graphics();
+    this.mmData.setPosition(
+      this.minimap.x - this.mmSize.w,
+      this.minimap.y - this.mmSize.h
+    );
+    this.mmData.fillStyle(0xffffff, 1);
+
+    this.showMinimap(true);
+
+    // Datas from the minimap.
+    this.mmData = this.add.graphics();
+    this.mmData.setPosition(
+      this.minimap.x - this.mmSize.w,
+      this.minimap.y - this.mmSize.h
+    );
+    this.mmData.fillStyle(0xffffff, 1);
+
+    let row, col;
+
+    for (row = 0; row < rows; row++)
+    for (col = 0; col < cols; col++) {
+      let tile = layer[row][col];
+      if (tile.index !== -1) {
+        this.mmData.fillPoint(col, row);
+      }
+    }
+
+    map.getObjectLayer('chests').objects.forEach(chest => {
+      let tile = map.getTileAtWorldXY(chest.x + 16, chest.y - 16, true);
+
+      switch (chest.type) {
+        case 'key-simple':
+        case 'key-boss':
+          this.mmData.fillStyle(0xee8e2e, 1);
+          break;
+        case 'potion-heal':
+          this.mmData.fillStyle(0xda4e38, 1);
+          break;
+        case 'sword':
+        case 'bow':
+        case 'bomb':
+          this.mmData.fillStyle(0x9b56cc, 1);
+          break;
+        case 'map':
+          this.mmData.fillStyle(0x5698cc, 1);
+          break;
+        default:
+          break;
+      }
+
+      // The fillPoint with an odd value is blurry.
+      this.mmData.fillRect(tile.x - 1, tile.y - 1, 3, 3);
+    });
+
+    map.getObjectLayer('transitions').objects.forEach(transition => {
+      let tile = map.getTileAtWorldXY(transition.x + 16, transition.y - 16, true);
+      this.mmData.fillStyle(0x4ba747, 1);
+      this.mmData.fillRect(tile.x - 1, tile.y - 1, 3, 3);
+    });
+  }
+
+  showMinimap(isVisible) {
+    if (!this.minimap) return;
+    this.minimap.setVisible(isVisible);
+    this.mmTopBar.setVisible(isVisible);
+    this.mmBottomBar.setVisible(isVisible);
+    this.mmRightBar.setVisible(isVisible);
+    this.mmLeftBar.setVisible(isVisible);
+  }
+
+  clearMinimap() {
+    // There's only one map per level so we don't need a pool.
+    if (this.minimap) {
+      this.minimap.destroy();
+      this.mmTopBar.destroy();
+      this.mmBottomBar.destroy();
+      this.mmLeftBar.destroy();
+      this.mmRightBar.destroy();
+      this.mmData.destroy();
+    }
   }
 }

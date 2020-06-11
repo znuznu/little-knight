@@ -1,4 +1,4 @@
-/*
+/**
  * First scene.
  *
  * Load every assets from the game.
@@ -34,7 +34,7 @@ export default class BootScene extends Phaser.Scene {
         );
     });
 
-    this.load.on('complete', function () {
+    this.load.on('complete', _ => {
       this.progress.destroy();
     }, this);
 
@@ -62,11 +62,11 @@ export default class BootScene extends Phaser.Scene {
       'assets/audio/sounds/sounds.m4a',
       'assets/audio/sounds/sounds.ac3'
     ]);
-/*
+
     this.load.audioSprite('musics', 'assets/audio/musics/musics.json', [
       'assets/audio/musics/musics.ogg',
       'assets/audio/musics/musics.mp3'
-    ]);*/
+    ]);
 
     this.load.atlas(
       'atlas',

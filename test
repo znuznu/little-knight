@@ -1,0 +1,102 @@
+updateMinimap(map) {
+  // Clear the map in any case.
+  this.clearMinimap();
+
+  if (!map) {
+    this.showMinimap(false);
+    return;
+  }
+
+  let layer = map.getLayer('walkable').data;
+
+  let x = (this.sys.game.config.width - 32);
+  let y = (this.sys.game.config.height - 32);
+
+  let rows = layer.length;
+  let cols = layer[0].length;
+
+  this.mmSize = {
+    w: cols,
+    h: rows
+  };
+
+  this.minimap = this.add.rectangle(
+    x, y, this.mmSize.w, this.mmSize.h, 0x222222, 0.5
+  ).setOrigin(1, 1);
+
+  this.mmTopBar = this.add.rectangle(
+    x, y - this.mmSize.h, this.mmSize.w, 2, 0xfdf7ed
+  ).setOrigin(1, 1);
+
+  this.mmBottomBar = this.add.rectangle(
+    x, y + 2, this.mmSize.w, 2, 0xfdf7ed
+  ).setOrigin(1, 1);
+
+  this.mmLeftBar = this.add.rectangle(
+    x - this.mmSize.w, y, 2, this.mmSize.h, 0xfdf7ed
+  ).setOrigin(1, 1);
+
+  this.mmRightBar = this.add.rectangle(
+    x + 2, y, 2, this.mmSize.h, 0xfdf7ed
+  ).setOrigin(1, 1);
+
+  // Datas from the minimap.
+  this.mmData = this.add.graphics();
+  this.mmData.setPosition(
+    this.minimap.x - this.mmSize.w,
+    this.minimap.y - this.mmSize.h
+  );
+  this.mmData.fillStyle(0xffffff, 1);
+
+  this.showMinimap(true);
+
+  // Datas from the minimap.
+  this.mmData = this.add.graphics();
+  this.mmData.setPosition(
+    this.minimap.x - this.mmSize.w,
+    this.minimap.y - this.mmSize.h
+  );
+  this.mmData.fillStyle(0xffffff, 1);
+
+  let row, col;
+
+  for (row = 0; row < rows; row++)
+  for (col = 0; col < cols; col++) {
+    let tile = layer[row][col];
+    if (tile.index !== -1) {
+      this.mmData.fillPoint(col * 2, row * 2, 2);
+    }
+  }
+
+  map.getObjectLayer('chests').objects.forEach(chest => {
+    let tile = map.getTileAtWorldXY(chest.x + 16, chest.y - 16, true);
+
+    switch (chest.type) {
+      case 'key-simple':
+      case 'key-boss':
+        this.mmData.fillStyle(0xffcc68, 1);
+        break;
+      case 'potion-heal':
+        this.mmData.fillStyle(0xda4e38, 1);
+        break;
+      case 'sword':
+      case 'bow':
+      case 'bomb':
+        this.mmData.fillStyle(0x9b56cc, 1);
+        break;
+      case 'map':
+        this.mmData.fillStyle(0x5698cc, 1);
+        break;
+      default:
+        break;
+    }
+
+    this.mmData.fillPoint(tile.x * 2, tile.y * 2, 2);
+  });
+
+  this.minimap.setScale(2);
+  this.mmTopBar.scaleX = 2;
+  this.mmBottomBar.scaleX = 2;
+  this.mmRightBar.scaleY = 2;
+  this.mmLeftBar.scaleY = 2;
+}

@@ -110,6 +110,12 @@ export default class Player extends Character {
       case 'potion-heal-small':
         this.drink(item);
         break;
+      case 'map':
+        HUDEventsManager.emit(
+          'update-minimap',
+          this.scene.map
+        );
+        break;
     }
   }
 

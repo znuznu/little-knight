@@ -10,7 +10,7 @@ export default class DepressumWaitState extends State {
   execute(scene, dk) {
     if (dk.distanceBetween(dk.target) <= 320) {
       MusicsEventsManager.emit('play-music', 'DepressumLoop');
-      HUDEventsManager.emit('show-boss-stats');
+      HUDEventsManager.emit('show-boss-stats', true);
       HUDEventsManager.emit(
         'update-boss-name',
         'Depressum, relentless knight of Desolation'

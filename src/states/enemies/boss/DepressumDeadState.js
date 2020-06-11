@@ -27,7 +27,7 @@ export default class DepressumDeadState extends State {
 
     smoke.on('animationcomplete', _ => {
       scene.sound.playAudioSprite('sounds', 'spike');
-      HUDEventsManager.emit('hide-boss-stats');
+      HUDEventsManager.emit('show-boss-stats', false);
       scene.events.emit('replace-tiles', dk.areaGuarded, 'spike', 79);
     }, this);
   }
