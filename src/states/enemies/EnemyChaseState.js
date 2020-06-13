@@ -12,12 +12,14 @@ export default class EnemyChaseState extends State {
   }
 
   execute(scene, enemy) {
-    let ownTile = scene.map.worldToTileXY(enemy.body.center.x, enemy.body.center.y);
+    let ownTile = scene.map.worldToTileXY(
+      enemy.body.center.x, enemy.body.center.y
+    );
     let targetTile = scene.map.worldToTileXY(
       enemy.target.body.center.x, enemy.target.body.center.y
     );
 
-    if (enemy.distanceBetween(enemy.target) > enemy.aggroRadius) {
+    if (enemy.distanceBetween(enemy.target) > enemy.aggroRadius * 3) {
       enemy.actionStateMachine.transition('idle');
       return;
     }

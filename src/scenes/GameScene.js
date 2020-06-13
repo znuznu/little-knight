@@ -31,6 +31,7 @@ import PlayerBomb from '../sprites/movesets/player/PlayerBomb.js';
 import PlayerSlash from '../sprites/movesets/player/PlayerSlash.js';
 import FireballSimple from '../sprites/movesets/enemies/FireballSimple.js';
 import FireballArcanic from '../sprites/movesets/enemies/FireballArcanic.js';
+import Knife from '../sprites/movesets/enemies/Knife.js';
 import PursuitSword from '../sprites/movesets/enemies/PursuitSword.js';
 import Chest from '../sprites/misc/Chest.js';
 import Door from '../sprites/misc/Door.js';
@@ -251,6 +252,12 @@ export default class GameScene extends Phaser.Scene {
       maxSize: 5
     });
 
+    this.knivesGroup = this.add.group({
+      classType: Knife,
+      maxSize: 32,
+      runChildUpdate: true
+    });
+
     this.fireballsSimpleGroup = this.add.group({
       classType: FireballSimple,
       maxSize: 16,
@@ -363,6 +370,19 @@ export default class GameScene extends Phaser.Scene {
       this.player,
       this.enemyGroup,
       (p, e) => { e.meleeAttack(p); }
+    );
+
+    // Knives.
+    this.physics.add.collider(
+      this.knivesGroup,
+      this.blocks,
+      (k, b) => { k.break(); }
+    );
+
+    this.physics.add.overlap(
+      this.knivesGroup,
+      this.player,
+      (k, p) => { k.playerCollide(p); }
     );
 
     // Fireballs.

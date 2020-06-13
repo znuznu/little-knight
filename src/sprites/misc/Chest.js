@@ -13,7 +13,7 @@ export default class Chest extends Phaser.GameObjects.Sprite {
       'key-simple': 'key-simple',
       'key-boss': 'key-boss',
       'potion-heal': 'potion-red-0',
-      'map': 'potion-red-0'
+      'map': 'map'
     };
 
     this.treasure = treasure;

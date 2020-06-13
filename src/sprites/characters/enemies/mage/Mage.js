@@ -1,7 +1,7 @@
 import Enemy from '../Enemy.js';
 import StateMachine from '../../../../states/StateMachine.js';
-import MageIdleState from '../../../../states/enemies/mage/MageIdleState.js';
-import MageCastFireballState from '../../../../states/enemies/mage/MageCastFireballState.js';
+import MageIdleState from '../../../../states/enemies/Mage/MageIdleState.js';
+import MageCastFireballState from '../../../../states/enemies/Mage/MageCastFireballState.js';
 import EnemyHurtState from '../../../../states/enemies/EnemyHurtState.js';
 import EnemyDeadState from '../../../../states/enemies/EnemyDeadState.js';
 

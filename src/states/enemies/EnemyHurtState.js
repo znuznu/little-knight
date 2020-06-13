@@ -17,7 +17,7 @@ export default class EnemyHurtState extends State {
         enemy.actionStateMachine.transition('dead');
       } else {
         enemy.clearTint(),
-        enemy.actionStateMachine.transition('idle');
+        enemy.actionStateMachine.transition('chase');
       }
     });
   }

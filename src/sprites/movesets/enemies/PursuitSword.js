@@ -1,4 +1,4 @@
-/*
+/**
  * The sword thrown by Depressum.
  */
 

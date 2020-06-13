@@ -88,7 +88,7 @@ export default class HUDScene extends Phaser.Scene {
   }
 
   createKeyBoss() {
-    this.keyBoss = this.add.sprite(64, 74, 'atlas', 'key-boss');
+    this.keyBoss = this.add.sprite(64, 116, 'atlas', 'key-boss');
     this.keyBoss.setVisible(false);
   }
 
@@ -149,6 +149,9 @@ export default class HUDScene extends Phaser.Scene {
   }
 
   createMinimap() {
+    this.map = this.add.sprite(64, 74, 'atlas', 'map');
+    this.map.setVisible(false);
+
     // The container.
     this.minimap = undefined;
     this.mmTopBar = undefined;
@@ -363,6 +366,7 @@ export default class HUDScene extends Phaser.Scene {
     this.mmBottomBar.setVisible(isVisible);
     this.mmRightBar.setVisible(isVisible);
     this.mmLeftBar.setVisible(isVisible);
+    this.map.setVisible(isVisible);
   }
 
   clearMinimap() {

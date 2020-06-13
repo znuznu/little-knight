@@ -1,5 +1,4 @@
 import State from '../../State.js';
-import FireballSimple from '../../../sprites/movesets/enemies/FireballSimple.js';
 
 export default class MageCastFireballState extends State {
   enter(scene, mage) {

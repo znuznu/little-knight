@@ -1,4 +1,4 @@
-/*
+/**
  * First real scene.
  *
  * I'm using background images for all the menu scenes. This is not the way it
@@ -15,7 +15,7 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   create() {
-    this.scene.launch('musicsScene');
+    //this.scene.launch('musicsScene');
     this.cursors = this.input.keyboard.createCursorKeys();
     this.add.image(0, 0, 'background-menu').setOrigin(0, 0);
     let pressSpace = this.add.image(this.game.config.width / 2, 400, 'press-space');
