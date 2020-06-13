@@ -36,6 +36,17 @@ export default class Chest extends Phaser.GameObjects.Sprite {
     this.isOpen = true;
     this.play('chest');
 
+    switch (this.treasure) {
+      case 'sword':
+      case 'bow':
+      case 'bomb':
+        this.play('chest-unique');
+        break;
+      default:
+        this.play('chest');
+        break;
+    }
+
     this.on('animationcomplete', _ => {
       switch (this.treasure) {
         case 'sword':

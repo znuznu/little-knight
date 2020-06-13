@@ -14,7 +14,7 @@ export default class OrcTattoo extends Enemy {
     this.body.setOffset(7, 16);
     this.health = 3;
     this.meleeDamage = 1;
-    this.speed = 120;
+    this.speed = 100;
     this.lastKnivesThrown = 0;
 
     this.actionStateMachine = new StateMachine('idle', {

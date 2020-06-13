@@ -2,6 +2,7 @@ import Enemy from '../Enemy.js';
 import StateMachine from '../../../../states/StateMachine.js';
 import MageIdleState from '../../../../states/enemies/Mage/MageIdleState.js';
 import MageCastFireballState from '../../../../states/enemies/Mage/MageCastFireballState.js';
+import MageHurtState from '../../../../states/enemies/Mage/MageHurtState.js';
 import EnemyHurtState from '../../../../states/enemies/EnemyHurtState.js';
 import EnemyDeadState from '../../../../states/enemies/EnemyDeadState.js';
 
@@ -18,14 +19,14 @@ export default class Mage extends Enemy {
 
     this.actionStateMachine = new StateMachine('idle', {
         idle: new MageIdleState(),
-        castFireball: new MageCastFireballState(),
-        hurt: new EnemyHurtState(),
+        cast: new MageCastFireballState(),
+        hurt: new MageHurtState(),
         dead: new EnemyDeadState()
       }, [config.scene, this]);
 
     this.animationState = {
       'idle': 'mage',
-      'castFireball': 'mage',
+      'cast': 'mage',
       'hurt': undefined,
       'dead': 'smoke-small'
     };

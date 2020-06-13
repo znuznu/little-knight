@@ -24,18 +24,16 @@ export default class PlayerSlash extends Phaser.GameObjects.Sprite {
   use(x, y, direction) {
     this.rotation = this.directionToAngle[direction];
     this.setPosition(x, y);
-    this.setVisible(true);
-    this.setActive(true);
-    this.body.checkCollision.none = false;
+    this.show(true);
     this.play('slash-effect');
     this.on('animationcomplete', _ => {
-      this.hide();
+      this.show(false);
     }, this);
   }
 
-  hide() {
-    this.setVisible(false);
-    this.setActive(false);
-    this.body.checkCollision.none = true;
+  show(isActive) {
+    this.setVisible(isActive);
+    this.setActive(isActive);
+    this.body.checkCollision.none = !isActive;
   }
 }

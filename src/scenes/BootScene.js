@@ -719,12 +719,27 @@ export default class BootScene extends Phaser.Scene {
       repeat: -1
     });
 
-    /* Chest */
+    /* Chests */
     this.anims.create({
       key: 'chest',
       frames: this.anims.generateFrameNames(
         'atlas', {
           prefix: 'chest-',
+          suffix: '',
+          start: 0,
+          end: 2,
+          zeroPad: 0
+        }
+      ),
+      frameRate: 10,
+      repeat: 0
+    });
+
+    this.anims.create({
+      key: 'chest-unique',
+      frames: this.anims.generateFrameNames(
+        'atlas', {
+          prefix: 'chest-unique-',
           suffix: '',
           start: 0,
           end: 2,

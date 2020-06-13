@@ -32,6 +32,7 @@ import PlayerSlash from '../sprites/movesets/player/PlayerSlash.js';
 import FireballSimple from '../sprites/movesets/enemies/FireballSimple.js';
 import FireballArcanic from '../sprites/movesets/enemies/FireballArcanic.js';
 import Knife from '../sprites/movesets/enemies/Knife.js';
+import Boomerang from '../sprites/movesets/enemies/Boomerang.js';
 import PursuitSword from '../sprites/movesets/enemies/PursuitSword.js';
 import Chest from '../sprites/misc/Chest.js';
 import Door from '../sprites/misc/Door.js';
@@ -274,6 +275,12 @@ export default class GameScene extends Phaser.Scene {
       runChildUpdate: true
     });
 
+    this.boomerangsGroup = this.add.group({
+      classType: Boomerang,
+      maxSize: 16,
+      runChildUpdate: true
+    });
+
     this.playerArrows = this.add.group({
       classType: PlayerArrow,
       maxSize: 5,
@@ -365,6 +372,14 @@ export default class GameScene extends Phaser.Scene {
       this
     );
 
+    this.physics.add.overlap(
+      this.playerSlashsGroup,
+      this.knivesGroup,
+      (s, k) => { k.deflects(); },
+      null,
+      this
+    );
+
     // Player.
     this.physics.add.collider(
       this.player,
@@ -385,11 +400,36 @@ export default class GameScene extends Phaser.Scene {
       (k, p) => { k.playerCollide(p); }
     );
 
+    // Boomerangs.
+    this.physics.add.collider(
+      this.boomerangsGroup,
+      this.blocks,
+      (bo, bl) => { bo.blocksCollide(); }
+    );
+
+    this.physics.add.overlap(
+      this.boomerangsGroup,
+      this.player,
+      (bo, p) => { bo.playerCollide(p); }
+    );
+
     // Fireballs.
     this.physics.add.collider(
       this.fireballsSimpleGroup,
       this.blocks,
       (fb, b) => { fb.explode(); }
+    );
+
+    this.physics.add.overlap(
+      this.fireballsSimpleGroup,
+      this.player,
+      (fb, p) => { fb.playerCollide(p); }
+    );
+
+    this.physics.add.overlap(
+      this.fireballsArcanicGroup,
+      this.player,
+      (fa, p) => { fa.playerCollide(p); }
     );
 
     this.physics.add.collider(

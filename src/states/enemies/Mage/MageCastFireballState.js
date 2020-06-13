@@ -11,9 +11,7 @@ export default class MageCastFireballState extends State {
     let fireball = scene.fireballsSimpleGroup.get();
 
     if (fireball) {
-      fireball.setX(mage.x);
-      fireball.setY(mage.y);
-      fireball.cast();
+      fireball.cast(mage.x, mage.y, mage.target.x, mage.target.y);
     }
 
     scene.time.delayedCall(mage.castLoadDuration, _ => {

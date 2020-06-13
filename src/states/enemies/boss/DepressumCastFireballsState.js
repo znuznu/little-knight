@@ -30,9 +30,7 @@ export default class DepressumCastFireballsState extends State {
       let fireballArcanic = scene.fireballsArcanicGroup.get();
       if (fireballArcanic) {
         scene.cameras.main.shake(1000, 0.01);
-        // Fireballs around Depressum.
-        fireballArcanic.setPosition(dk.x, dk.y);
-        fireballArcanic.cast(p.x, p.y);
+        fireballArcanic.cast(dk.x, dk.y, p.x, p.y);
       }
     });
 

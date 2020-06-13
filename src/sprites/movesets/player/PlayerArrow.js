@@ -44,13 +44,11 @@ export default class PlayerArrow extends Phaser.GameObjects.Sprite {
       this.body.setSize(32, 8);
     }
 
-    // We don't want enemies hit by an invisible arrow when inactive.
-    this.body.checkCollision.none = false;
     // Active arrow doesn't need any animations.
     this.anims.stop();
     this.setFrame('arrow-small');
-    this.setActive(true);
-    this.setVisible(true);
+
+    this.show(true);
 
     this.scene.physics.moveToObject(this, crosshair, this.speed);
   }
@@ -60,7 +58,7 @@ export default class PlayerArrow extends Phaser.GameObjects.Sprite {
     if (enemy.arrowProof) {
       this.break();
     } else {
-      this.hide();
+      this.show(false);
     }
   }
 
@@ -69,14 +67,14 @@ export default class PlayerArrow extends Phaser.GameObjects.Sprite {
     this.angle = 0;
     this.play('smoke-small', true);
     this.once('animationcomplete', _ => {
-      this.hide();
+      this.show(false);
     });
   }
 
-  hide() {
-    this.setActive(false);
-    this.setVisible(false);
-    this.body.checkCollision.none = true;
+  show(isActive) {
+    this.setVisible(isActive);
+    this.setActive(isActive);
+    this.body.checkCollision.none = !isActive;
   }
 
   update(time, delta) {

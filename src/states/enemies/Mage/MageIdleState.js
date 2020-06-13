@@ -5,7 +5,7 @@ export default class MageIdleState extends State {
 
   execute(scene, mage) {
     if (mage.distanceBetween(mage.target) < mage.aggroRadius) {
-      mage.actionStateMachine.transition('castFireball');
+      mage.actionStateMachine.transition('cast');
     }
   }
 }

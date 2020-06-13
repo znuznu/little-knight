@@ -15,8 +15,7 @@ export default class PlayerBomb extends Phaser.GameObjects.Sprite {
   throw(x, y, velocity) {
     this.body.setVelocity(velocity.x, velocity.y);
     this.setPosition(x, y);
-    this.setVisible(true);
-    this.setActive(true);
+    this.show(true);
     this.play('bomb', true);
     this.once('animationcomplete', _ => {
       this.explode();
@@ -24,15 +23,15 @@ export default class PlayerBomb extends Phaser.GameObjects.Sprite {
   }
 
   explode() {
-    this.hide();
+    this.show(false);
     let explosion = this.scene.explosionsGroups.get();
     if (explosion) {
       explosion.use(this.x, this.y);
     }
   }
 
-  hide() {
-    this.setVisible(false);
-    this.setActive(false);
+  show(isVisible) {
+    this.setVisible(isVisible);
+    this.setActive(isVisible);
   }
 }

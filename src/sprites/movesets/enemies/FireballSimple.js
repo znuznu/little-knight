@@ -8,46 +8,31 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     this.body.setCircle(15, 0, 0);
     this.setDepth(3);
 
-    this.duration = 0;
+    this.timeAlive = 0;
 
     this.audioSprites = [
       'fireball_1',
       'fireball_2'
     ];
-
-    this.scene.physics.add.overlap(
-      this,
-      this.scene.player,
-      (fb, p) => { fb.playerCollide(p); },
-      null,
-      this.scene
-    );
   }
 
-  cast() {
-    let angleRad = Phaser.Math.Angle.Between(
-      this.x,
-      this.y,
-      this.scene.player.x,
-      this.scene.player.y
-    );
+  cast(x, y, targetX, targetY) {
+    let angleRad = Phaser.Math.Angle.Between(x, y, targetX, targetY);
     let angleDeg = Phaser.Math.RadToDeg(angleRad);
     this.angle = angleDeg;
 
-    // Avoid player getting hit by an inactive fireball.
-    this.body.checkCollision.none = false;
-
     this.anims.stop();
-    this.setActive(true);
-    this.setVisible(true);
     this.play('fireball-simple', true);
+
+    this.show(true);
 
     this.scene.sound.playAudioSprite(
       'sounds',
       this.audioSprites[~~(Math.random() * ~~(this.audioSprites.length))]
     );
 
-    this.scene.physics.moveToObject(this, this.scene.player, this.speed);
+    this.setPosition(x, y);
+    this.scene.physics.moveTo(this, targetX, targetY, this.speed);
   }
 
   playerCollide(player) {
@@ -56,21 +41,25 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
   }
 
   explode() {
-    this.duration = 0;
+    this.timeAlive = 0;
     this.play('fireball-simple-explosion', true);
     this.once('animationcomplete', _ => {
-      this.setActive(false);
-      this.setVisible(false);
-      this.body.checkCollision.none = true;
+      this.show(false);
     });
+  }
+
+  show(isActive) {
+    this.setVisible(isActive);
+    this.setActive(isActive);
+    this.body.checkCollision.none = !isActive;
   }
 
   update(time, delta) {
     // Avoid fireballs flying forever into the void of bits.
     // Using delta, not the "good" way (time better) but it's okay.
-    this.duration += delta;
+    this.timeAlive += delta;
 
-    if (this.duration > 10000) {
+    if (this.timeAlive > 10000) {
       this.explode();
     }
   }

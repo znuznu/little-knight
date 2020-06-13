@@ -13,30 +13,21 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
       'fireball_1',
       'fireball_2'
     ];
-
-    this.scene.physics.add.overlap(
-      this,
-      this.scene.player,
-      (fa, p) => { fa.playerCollide(p); },
-      null,
-      this.scene
-    );
   }
 
-  cast(x, y) {
-    let angleRad = Phaser.Math.Angle.Between(this.x, this.y, x, y);
+  cast(x, y, targetX, targetY) {
+    this.setPosition(x, y);
+
+    let angleRad = Phaser.Math.Angle.Between(x, y, targetX, targetY);
     let angleDeg = Phaser.Math.RadToDeg(angleRad);
     this.angle = angleDeg;
 
     this.updateAngle();
 
-    // Avoid player getting hit by an inactive fireball.
-    this.body.checkCollision.none = false;
-
     this.anims.stop();
-    this.setActive(true);
-    this.setVisible(true);
     this.play('fireball-arcanic', true);
+
+    this.show(true);
 
     this.scene.sound.playAudioSprite(
       'sounds',
@@ -47,7 +38,7 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
 
     // Random but at least 80.
     let speed = ~~(Math.random() * ~~(100)) + 80;
-    this.scene.physics.moveTo(this, x, y, speed);
+    this.scene.physics.moveTo(this, targetX, targetY, speed);
   }
 
   // Adjust the Y axis of the sprite depending on the angle.
@@ -64,12 +55,16 @@ export default class FireballSimple extends Phaser.GameObjects.Sprite {
     this.explode();
   }
 
+  show(isActive) {
+    this.setVisible(isActive);
+    this.setActive(isActive);
+    this.body.checkCollision.none = !isActive;
+  }
+
   explode() {
     this.play('fireball-arcanic-explosion', true);
     this.once('animationcomplete', _ => {
-      this.setActive(false);
-      this.setVisible(false);
-      this.body.checkCollision.none = true;
+      this.show(false);
     });
   }
 }

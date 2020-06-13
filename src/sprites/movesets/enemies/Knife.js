@@ -5,7 +5,7 @@ export default class Knife extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.setDepth(3);
     this.damage = 1;
-    this.speed = 200;
+    this.speed = 250;
     this.activeTime = 0;
   }
 
@@ -16,14 +16,9 @@ export default class Knife extends Phaser.GameObjects.Sprite {
     let angleDeg = Phaser.Math.RadToDeg(angleRad);
     this.angle = angleDeg;
 
-    // Avoid player getting hit by an inactive knife.
-    this.body.checkCollision.none = false;
-
     this.anims.stop();
     this.setFrame('large-knife');
-    this.setActive(true);
-    this.setVisible(true);
-
+    this.show(true);
     this.scene.physics.moveTo(this, directionX, directionY, this.speed);
   }
 
@@ -32,18 +27,32 @@ export default class Knife extends Phaser.GameObjects.Sprite {
     this.break();
   }
 
+  deflects() {
+    this.scene.physics.moveTo(
+      this,
+      -this.body.velocity.x,
+      -this.body.velocity.y,
+      this.speed * 1.5
+    );
+
+    if (this.angle < 0)
+      this.angle += 180;
+    else
+      this.angle -= 180;
+  }
+
   break() {
     this.activeTime = 0;
     this.play('smoke-small', true);
     this.once('animationcomplete', _ => {
-      this.hide();
+      this.show(false);
     });
   }
 
-  hide() {
-    this.setActive(false);
-    this.setVisible(false);
-    this.body.checkCollision.none = true;
+  show(isActive) {
+    this.setVisible(isActive);
+    this.setActive(isActive);
+    this.body.checkCollision.none = !isActive;
   }
 
   update(time, delta) {
