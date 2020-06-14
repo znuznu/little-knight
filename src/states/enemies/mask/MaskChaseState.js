@@ -31,7 +31,7 @@ export default class MaskChaseState extends State {
     if (distance > enemy.aggroRadius * 3) {
       enemy.actionStateMachine.transition('idle');
       return;
-    } else if (distance > enemy.aggroRadius) {
+    } else if (distance > 80) {
       let targetTile = scene.map.getTileAtWorldXY(
         enemy.target.body.center.x,
         enemy.target.body.center.y,

@@ -359,7 +359,7 @@ export default class GameScene extends Phaser.Scene {
       this.fireballsArcanicGroup,
       (pa, fa) => {
         fa.explode();
-        pa.hide();
+        pa.show(false);
       }
     );
 

@@ -20,13 +20,13 @@ export default class OrcTattooChaseState extends State {
       orc.target.body.center.x, orc.target.body.center.y
     );
 
-    if (orc.distanceBetween(orc.target) > orc.aggroRadius * 3) {
+    let distance = orc.distanceBetween(orc.target);
+    let ellapsedTime = scene.time.now - orc.lastKnivesThrown > 1000;
+
+    if (distance > orc.aggroRadius * 3) {
       orc.actionStateMachine.transition('idle');
       return;
-    } else if (
-      orc.distanceBetween(orc.target) > orc.aggroRadius &&
-      scene.time.now - orc.lastKnivesThrown > 1000
-    ) {
+    } else if (distance > 64 && ellapsedTime) {
       orc.actionStateMachine.transition('knife');
       return;
     }

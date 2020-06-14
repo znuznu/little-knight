@@ -28,7 +28,7 @@ export default class LizardChaseState extends State {
     if (distance > lizard.aggroRadius * 3) {
       lizard.actionStateMachine.transition('idle');
       return;
-    } else if (distance > lizard.aggroRadius && lizard.hasBoomerang && totalFree) {
+    } else if (distance > 64 && lizard.hasBoomerang && totalFree) {
       lizard.actionStateMachine.transition('boomerang');
       return;
     }
