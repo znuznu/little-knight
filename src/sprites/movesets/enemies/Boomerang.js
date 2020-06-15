@@ -1,5 +1,5 @@
 /**
- * The sword thrown by Depressum.
+ * The boomerang thrown by Lizard.
  */
 
 export default class Boomerang extends Phaser.GameObjects.Sprite {

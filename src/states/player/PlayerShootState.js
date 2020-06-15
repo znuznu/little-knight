@@ -1,4 +1,4 @@
-/*
+/**
  * State of the player attacking with a bow.
  */
 

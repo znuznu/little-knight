@@ -1,4 +1,4 @@
-/*
+/**
  * Abstract class.
  *
  * Not the good way to handle dialogs, but okay for this project.

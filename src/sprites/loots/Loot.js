@@ -1,4 +1,4 @@
-/*
+/**
  * Abstract class.
  *
  * Items dropped by enemies at their death that can be grabbed by the player.

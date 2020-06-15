@@ -1,3 +1,11 @@
+/**
+ * The boss.
+ *
+ * Basically a tanky guy throwing everything at the player and
+ * teleporting at hard-coded tile positions.
+ *
+ */
+
 import Enemy from '../Enemy.js';
 import StateMachine from '../../../../states/StateMachine.js';
 import DepressumIdleState from '../../../../states/enemies/boss/DepressumIdleState.js';

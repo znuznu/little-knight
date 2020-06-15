@@ -1,6 +1,7 @@
-/*
+/**
  * Dash state for the player.
  * The dash "shadows" are part of a pool.
+ *
  */
 
 import State from '../State.js';

@@ -1,4 +1,4 @@
-/*
+/**
  * Heavily inspired by the Finite-State Machine implementation
  * of Michael Kelly. His (awesome) article can be found on his
  * blog: https://www.mkelly.me/blog/phaser-finite-state-machine/

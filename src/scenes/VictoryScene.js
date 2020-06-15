@@ -1,4 +1,4 @@
-/*
+/**
  * Ending scene (victory).
  *
  * Happy music.

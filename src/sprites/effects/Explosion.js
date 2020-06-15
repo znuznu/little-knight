@@ -1,4 +1,4 @@
-/*
+/**
  * Explosion caused (for example) by bomb.
  */
 

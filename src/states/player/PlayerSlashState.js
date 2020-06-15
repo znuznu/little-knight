@@ -1,5 +1,6 @@
-/*
+/**
  * State of the player attacking with a sword.
+ *
  * Huge improvements possible here, too simple, need some maths.
  */
 

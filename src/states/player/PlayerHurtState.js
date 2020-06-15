@@ -1,6 +1,7 @@
-/*
+/**
  * Things related to the player taking damage.
  * Like his sprite getting red or the camera shaking.
+ *
  */
 
 import State from '../State.js';

@@ -1,4 +1,4 @@
-/*
+/**
  * Music scene.
  *
  * Provides functions in order to handle the music.
