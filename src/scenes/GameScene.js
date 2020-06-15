@@ -867,7 +867,7 @@ export default class GameScene extends Phaser.Scene {
 
   /**
    * Save-state of the player for this scene at the beginning of
-   * the level. If he die we can simply restart the level with
+   * the level. If he dies we can simply restart the level with
    * this stats.
    */
   saveState(level, floor, player, moveControls) {
