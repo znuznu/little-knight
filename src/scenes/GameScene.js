@@ -463,11 +463,11 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.enemyGroup, this.void);
 
     // Transitions.
-    this.physics.add.collider(
+    this.physics.add.overlap(
       this.transitionsGroup,
       this.player,
       (t, p) => {
-        if (!p.isDead()) {
+        if (!p.isDead() && p.actionStateMachine.state !== 'dash') {
           this.changeLevel(
             t.getData('level'),
             t.getData('floor'),
@@ -735,7 +735,7 @@ export default class GameScene extends Phaser.Scene {
   createEvents() {
     this.events.on('player-death', _ => {
       // If the player died against a boss.
-      HUDEventsManager.emit('hide-boss-stats');
+      HUDEventsManager.emit('show-boss-stats', false);
 
       // Clear the map.
       HUDEventsManager.emit('update-minimap', undefined);
@@ -746,6 +746,7 @@ export default class GameScene extends Phaser.Scene {
     }, this);
 
     this.events.on('sister-saved', _ => {
+      this.scene.setVisible(false, 'hudScene');
       this.scene.start('victoryScene');
     }, this);
 

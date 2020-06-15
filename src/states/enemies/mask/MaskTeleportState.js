@@ -2,6 +2,8 @@ import State from '../../State.js';
 
 export default class MaskTeleportState extends State {
   enter(scene, maskEnemy, tile) {
+    maskEnemy.body.reset(maskEnemy.x, maskEnemy.y);
+
     scene.tweens.add({
       targets: maskEnemy,
       alpha: 0,

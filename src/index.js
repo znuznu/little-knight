@@ -1,13 +1,14 @@
 import Phaser from 'phaser';
 
-import GameScene from './scenes/GameScene.js';
 import BootScene from './scenes/BootScene.js';
+import GameScene from './scenes/GameScene.js';
 import HUDScene from './scenes/HUDScene.js';
 import MenuScene from './scenes/MenuScene.js';
+import InstructionsScene from './scenes/InstructionsScene.js';
 import GameOverScene from './scenes/GameOverScene.js';
 import VictoryScene from './scenes/VictoryScene.js';
 import MusicsScene from './scenes/MusicsScene.js';
-import InstructionsScene from './scenes/InstructionsScene.js';
+import CreditsScene from './scenes/CreditsScene.js';
 
 var config = {
     autoCenter: Phaser.Scale.NO_CENTER,
@@ -32,7 +33,8 @@ var config = {
       InstructionsScene,
       GameOverScene,
       VictoryScene,
-      MusicsScene
+      MusicsScene,
+      CreditsScene
     ]
 };
 

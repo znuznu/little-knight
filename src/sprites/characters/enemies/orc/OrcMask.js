@@ -12,7 +12,7 @@ export default class OrcMask extends Enemy {
     super(config);
     this.body.setSize(19, 15);
     this.body.setOffset(7, 16);
-    this.health = 4;
+    this.health = 1;
     this.meleeDamage = 1;
     this.speed = 100;
 

@@ -1,4 +1,4 @@
-/*
+/**
  * Instructions scene.
  *
  * The first level is started here.
@@ -53,8 +53,8 @@ export default class InstructionsScene extends Phaser.Scene {
     if (this.keys.space.isDown) {
       this.sound.playAudioSprite('sounds', 'confirm_2');
       this.scene.start('gameScene', {
-          level: '1',
-          floor: '1',
+          level: '0',
+          floor: '0',
           player: undefined,
           moveControls: this.controls[0]
         }

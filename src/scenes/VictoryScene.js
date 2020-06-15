@@ -31,7 +31,7 @@ export default class VictoryScene extends Phaser.Scene {
 
   update() {
     if (this.cursors.space.isDown) {
-      this.scene.start('menuScene');
+      this.scene.start('creditsScene');
     }
   }
 }

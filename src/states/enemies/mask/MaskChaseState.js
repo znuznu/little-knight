@@ -52,8 +52,10 @@ export default class MaskChaseState extends State {
       let randIndex = ~~(Math.random() * ~~(tilesFiltered.length));
       let randTile = tilesFiltered[randIndex];
 
-      enemy.actionStateMachine.transition('teleport', randTile);
-      return;
+      if (randTile) {
+        enemy.actionStateMachine.transition('teleport', randTile);
+        return;
+      }
     }
 
     scene.physics.moveToObject(enemy, enemy.target, enemy.speed);

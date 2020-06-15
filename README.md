@@ -10,7 +10,7 @@ This is my first project using [Phaser 3](https://phaser.io/phaser3). I've made 
 - 3 unique weapons to find in chests
 - Fantastic NPCs with one dialog line
 - Loots (sometimes, a small potion)
-- Multiple enemies (with the same dumb AI that could be easily changed)
+- Multiple enemies (with dumb AI that could be easily changed)
 - A Lordran type inspired boss
 
 ### How to play
