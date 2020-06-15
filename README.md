@@ -6,7 +6,7 @@ This is my first project using [Phaser 3](https://phaser.io/phaser3). I've made 
 ### What you can find
 - A tiny but fast hero
 - Zelda games inspired elements
-- Multiple levels
+- Multiple hand-crafted levels
 - 3 unique weapons to find in chests
 - Fantastic NPCs with one dialog line
 - Loots (sometimes, a small potion)
