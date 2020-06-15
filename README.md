@@ -1,7 +1,7 @@
 # little-knight
 A fast paced "dungeon crawler" written in JavaScript and based on Phaser 3.
 
-This is my first project using [Phaser 3](https://phaser.io/phaser3). I've made it in order to understand the basics of the framework so there's nothing incredible about it and the way I did things can't be the best ones for everything, but I have tried to make it the more expendable possible and I hope it can helps beginners to speed up their projects.  
+This is my first project using [Phaser 3](https://phaser.io/phaser3). I've made it in order to understand the basics of this framework so there's nothing incredible about it and the way I did things can't be the best ones for everything, but I have tried to make it the more expendable possible and I hope it can helps beginners to speed up their projects.  
 
 ### What you can find
 - A tiny but fast hero
@@ -10,7 +10,7 @@ This is my first project using [Phaser 3](https://phaser.io/phaser3). I've made 
 - 3 unique weapons to find in chests
 - Fantastic NPCs with one dialog line
 - Loots (sometimes, a small potion)
-- Multiple enemies (with dumb AI that could be easily changed)
+- Multiple enemies (with dumb AI)
 - A boss
 
 ### How to play
