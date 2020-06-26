@@ -11,7 +11,7 @@ export default class Enemy extends Character {
     config.scene.physics.world.enable(this);
     config.scene.add.existing(this);
 
-    // Default character to chase.
+    // Default Character to chase.
     // We could imagine enemies chasing other enemies.
     this.target = config.scene.player;
 
@@ -52,12 +52,12 @@ export default class Enemy extends Character {
       }, [config.scene, this]);
   }
 
-  // Attack from the enemy to the player.
+  // Enemy attack against the player.
   meleeAttack(player) {
     player.hurt(this.meleeDamage);
   }
 
-  // Attack taken from an enemy with a melee weapon of the player.
+  // Attack taken by an enemy with a melee weapon of the player.
   meleeAttackTaken(damage) {
     this.hurt(damage);
   }
@@ -67,7 +67,7 @@ export default class Enemy extends Character {
     this.hurt(damage);
   }
 
-  // Attack taken from an enemy with an arrow of the player.
+  // Attack taken by an enemy with an arrow of the player.
   arrowAttackTaken(damage) {
     if (!this.arrowProof)
       this.hurt(damage);
