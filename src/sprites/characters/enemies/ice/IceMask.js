@@ -10,7 +10,7 @@ import MaskChaseState from '../../../../states/enemies/mask/MaskChaseState.js';
 export default class IceMask extends Enemy {
   constructor(config) {
     super(config);
-    this.body.setSize(20, 15);
+    this.body.setSize(20, 23);
     this.body.setOffset(10, 20);
     this.health = 1;
     this.meleeDamage = 2;

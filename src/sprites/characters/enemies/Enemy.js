@@ -32,6 +32,9 @@ export default class Enemy extends Character {
       {name: 'potion-red-small', rate: 10}
     ];
 
+    // The tile chased at the moment.
+    this.tileChased = undefined;
+
     // Aggro exclamation.
     this.aggroIcon = this.scene.add.bitmapText(
       this.x, this.y - 32, 'bitty', '!', 32
@@ -97,6 +100,81 @@ export default class Enemy extends Character {
     });
   }
 
+  // Whether this Enemy is colliding with a wall.
+  isTouching() {
+    let up = this.body.onCeiling();
+    let down = this.body.onFloor();
+    let side = this.body.onWall();
+
+    return up || down || side;
+  }
+
+  chaseTarget() {
+    let ownTile = this.tileOn;
+
+    let targetTile = this.target.tileOn;
+
+    if (ownTile === targetTile) {
+      this.scene.physics.moveToObject(this, this.target, this.speed);
+      return;
+    }
+
+    // Process A* if the target tile has changed.
+    if (this.tileChased !== targetTile) {
+      let aStarResult = this.scene.aStar.search(
+        {r: ownTile.y, c: ownTile.x},
+        {r: targetTile.y, c: targetTile.x},
+      );
+
+      this.tileChased = undefined;
+      this.tilePath = [];
+
+      if (aStarResult.status === 'Found') {
+        this.tileChased = targetTile;
+        aStarResult.path.forEach(node => {
+          let nodeTile = this.scene.map.getLayer('walkable').data[node.r][node.c];
+          this.tilePath.push(nodeTile);
+
+          // Uncomment to show the path.
+          /*
+          nodeTile.tint = 0xfec9ff;
+          this.scene.time.delayedCall(100, _ => {
+            nodeTile.tint = 0xffffff;
+          });
+          */
+        });
+      } else {
+        this.tileChased = undefined;
+        this.tilePath = [];
+        return;
+      }
+    }
+
+    // Small hack to avoid problems with moveTo().
+    let tileCenterX = this.tilePath[0].getCenterX() - this.body.offset.x / 2;
+    let tileCenterY = this.tilePath[0].getCenterY() - this.body.offset.y / 2;
+    let bodyCenterX = this.x;
+    let bodyCenterY = this.y;
+
+    let distance = Phaser.Math.Distance.Between(
+      tileCenterX, tileCenterY,
+      bodyCenterX, bodyCenterY
+    );
+
+    if (distance <= 4) {
+      this.tilePath.shift();
+    }
+
+    let nextTile = this.tilePath[0];
+
+    this.scene.physics.moveTo(
+      this,
+      nextTile.getCenterX() - this.body.offset.x / 2,
+      nextTile.getCenterY() - this.body.offset.y / 2,
+      this.speed
+    );
+  }
+
   // Update enemy depth to appear in front or behind the player.
   updateDepth() {
     if (this.y > this.target.y) {
@@ -107,9 +185,8 @@ export default class Enemy extends Character {
   }
 
   update() {
+    super.update();
     this.aggroIcon.setPosition(this.x, this.y - 32);
-    this.actionStateMachine.update();
     this.updateDepth();
-    this.updateAnimation();
   }
 }

@@ -37,6 +37,6 @@ export default class OrcTattooChaseState extends State {
       orc.view = 'right';
     }
 
-    scene.physics.moveToObject(orc, orc.target, orc.speed);
+    orc.chaseTarget();
   }
 }

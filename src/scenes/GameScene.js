@@ -43,6 +43,8 @@ import PotionHealSmall from '../sprites/loots/PotionHealSmall.js';
 import AnimatedTiles from 'phaser-animated-tiles/dist/AnimatedTiles.min.js';
 import HUDEventsManager from '../events/HUDEventsManager.js';
 import MusicsEventsManager from '../events/MusicsEventsManager.js';
+import Node from '../algorithms/pathfinder/Node.js';
+import AStar from '../algorithms/pathfinder/AStar.js';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -88,6 +90,7 @@ export default class GameScene extends Phaser.Scene {
     this.createCrosshair();
     this.createCamera();
     this.createGroups();
+    this.createPathfinder();
     this.createObjects();
     this.createEvents();
     this.createSound();
@@ -103,12 +106,12 @@ export default class GameScene extends Phaser.Scene {
 
   createKeys() {
     this.keys = this.input.keyboard.addKeys({
-        up:     this.moveControls[0],
-        down:   this.moveControls[2],
-        left:   this.moveControls[1],
-        right:  this.moveControls[3],
-        space:  'SPACE',
-        shift:  'SHIFT'
+        up:    this.moveControls[0],
+        down:  this.moveControls[2],
+        left:  this.moveControls[1],
+        right: this.moveControls[3],
+        space: 'SPACE',
+        shift: 'SHIFT'
     });
   }
 
@@ -504,6 +507,38 @@ export default class GameScene extends Phaser.Scene {
     );
   }
 
+  createPathfinder() {
+    let walkableLayerDatas = this.map.getLayer('walkable').data;
+    let blockLayerDatas = this.map.getLayer('block').data;
+
+    let datas = [];
+
+    let row, col;
+
+    for (row = 0; row < walkableLayerDatas.length; row++) {
+      if (!datas[row])
+        datas.push([]);
+
+      for (col = 0; col < walkableLayerDatas[0].length; col++) {
+        let isWalkable = walkableLayerDatas[row][col].index !== -1;
+        let isFree = blockLayerDatas[row][col].index === -1;
+
+        if (isWalkable && isFree) {
+          datas[row].push(0);
+        } else {
+          datas[row].push(1);
+        }
+      }
+    }
+
+    let aStarConfig = {
+      datas: datas,
+      block: element => element === 1
+    };
+
+    this.aStar = new AStar(aStarConfig);
+  }
+
   /*
    * Change level and pass player's arguments to the next scene.
    * I'm not passing the player itself because in this case his
@@ -867,7 +902,7 @@ export default class GameScene extends Phaser.Scene {
 
   /**
    * Save-state of the player for this scene at the beginning of
-   * the level. If he dies we can simply restart the level with
+   * the level. If he die we can simply restart the level with
    * this stats.
    */
   saveState(level, floor, player, moveControls) {

@@ -12,14 +12,6 @@ export default class EnemyChaseState extends State {
   }
 
   execute(scene, enemy) {
-    let ownTile = scene.map.worldToTileXY(
-      enemy.body.center.x, enemy.body.center.y
-    );
-
-    let targetTile = scene.map.worldToTileXY(
-      enemy.target.body.center.x, enemy.target.body.center.y
-    );
-
     let distance = enemy.distanceBetween(enemy.target);
 
     if (distance > enemy.aggroRadius * 3) {
@@ -33,6 +25,6 @@ export default class EnemyChaseState extends State {
       enemy.view = 'right';
     }
 
-    scene.physics.moveToObject(enemy, enemy.target, enemy.speed);
+    enemy.chaseTarget();
   }
 }

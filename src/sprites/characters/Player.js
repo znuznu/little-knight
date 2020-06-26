@@ -14,8 +14,8 @@ import HUDEventsManager from '../../events/HUDEventsManager.js';
 export default class Player extends Character {
   constructor(config, health, weapons, inventory) {
     super(config);
-    this.body.setSize(15, 15);
-    this.body.setOffset(5, 15);
+    this.body.setSize(17, 15);
+    this.body.setOffset(4, 15);
 
     this.aimDirection = {
       up:     'up',
@@ -23,6 +23,7 @@ export default class Player extends Character {
       right:  'right',
       left:   'left'
     };
+
     this.speed = 150;
 
     // General (frame dependant) time counter.
@@ -174,11 +175,11 @@ export default class Player extends Character {
   }
 
   update(time, delta) {
+    super.update();
     this.timeAlive += delta;
+
     this.lastShot += delta;
     this.updateView();
-    this.actionStateMachine.update();
-    this.updateAnimation();
 
     if (Phaser.Input.Keyboard.JustDown(this.scene.keys.shift)) {
       this.nextWeapon();

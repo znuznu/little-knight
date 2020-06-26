@@ -39,6 +39,6 @@ export default class LizardChaseState extends State {
       lizard.view = 'right';
     }
 
-    scene.physics.moveToObject(lizard, lizard.target, lizard.speed);
+    lizard.chaseTarget();
   }
 }

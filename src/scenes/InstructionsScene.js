@@ -19,8 +19,8 @@ export default class InstructionsScene extends Phaser.Scene {
     this.controls = ['ZQSD', 'WASD'];
 
     this.keys = this.input.keyboard.addKeys({
-        space:  'SPACE',
-        shift:  'SHIFT'
+        space: 'SPACE',
+        shift: 'SHIFT'
     });
 
     // Background.

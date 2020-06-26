@@ -1,40 +1,40 @@
 import State from '../../State.js';
 
 export default class MaskChaseState extends State {
-  enter(scene, enemy) {
-    enemy.aggroIcon.setAlpha(1);
+  enter(scene, maskEnemy) {
+    maskEnemy.aggroIcon.setAlpha(1);
 
     scene.time.delayedCall(1000, _ => {
-      enemy.aggroIcon.setAlpha(0);
+      maskEnemy.aggroIcon.setAlpha(0);
     });
 
-    this.execute(scene, enemy);
+    this.execute(scene, maskEnemy);
   }
 
-  execute(scene, enemy) {
-    if (enemy.x > enemy.target.x) {
-      enemy.view = 'left';
+  execute(scene, maskEnemy) {
+    if (maskEnemy.x > maskEnemy.target.x) {
+      maskEnemy.view = 'left';
     } else {
-      enemy.view = 'right';
+      maskEnemy.view = 'right';
     }
 
     let ownTile = scene.map.worldToTileXY(
-      enemy.body.center.x, enemy.body.center.y
+      maskEnemy.body.center.x, maskEnemy.body.center.y
     );
 
     let targetTile = scene.map.worldToTileXY(
-      enemy.target.body.center.x, enemy.target.body.center.y
+      maskEnemy.target.body.center.x, maskEnemy.target.body.center.y
     );
 
-    let distance = enemy.distanceBetween(enemy.target);
+    let distance = maskEnemy.distanceBetween(maskEnemy.target);
 
-    if (distance > enemy.aggroRadius * 3) {
-      enemy.actionStateMachine.transition('idle');
+    if (distance > maskEnemy.aggroRadius * 3) {
+      maskEnemy.actionStateMachine.transition('idle');
       return;
     } else if (distance > 80) {
       let targetTile = scene.map.getTileAtWorldXY(
-        enemy.target.body.center.x,
-        enemy.target.body.center.y,
+        maskEnemy.target.body.center.x,
+        maskEnemy.target.body.center.y,
         true, undefined, 'walkable'
       );
 
@@ -53,11 +53,11 @@ export default class MaskChaseState extends State {
       let randTile = tilesFiltered[randIndex];
 
       if (randTile) {
-        enemy.actionStateMachine.transition('teleport', randTile);
+        maskEnemy.actionStateMachine.transition('teleport', randTile);
         return;
       }
     }
 
-    scene.physics.moveToObject(enemy, enemy.target, enemy.speed);
+    maskEnemy.chaseTarget();
   }
 }

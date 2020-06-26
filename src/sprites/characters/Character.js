@@ -20,6 +20,9 @@ export default class Character extends Phaser.GameObjects.Sprite {
       right: false
     };
 
+    // Updated when the Character moves.
+    this.tileOn = undefined;
+
     this.setDepth(4);
     this.health = 1;
     this.animationState = {};
@@ -52,5 +55,34 @@ export default class Character extends Phaser.GameObjects.Sprite {
     if (anim) {
       this.play(anim, true);
     }
+  }
+
+  getTileOn() {
+    return this.scene.map.getTileAtWorldXY(
+      this.body.center.x,
+      this.body.center.y,
+      true,
+      this.scene.cameras.main,
+      this.scene.walkables
+    );
+  }
+
+  update(time, delta) {
+    if (!this.tileOn) {
+      this.tileOn = this.getTileOn();
+    }
+
+    if (~~this.body.velocity.x !== 0 || ~~this.body.velocity.y !== 0) {
+      if (this.getTileOn().index !== -1) {
+        this.tileOn = this.getTileOn();
+      } else {
+        let previousX = this.tileOn.getCenterX() - this.body.offset.x / 2;
+        let previousY = this.tileOn.getCenterY() - this.body.offset.y / 2;
+        this.setPosition(previousX, previousY);
+      }
+    }
+
+    this.actionStateMachine.update();
+    this.updateAnimation();
   }
 }

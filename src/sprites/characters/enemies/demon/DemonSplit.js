@@ -3,7 +3,7 @@ import Enemy from '../Enemy.js';
 export default class DemonSplit extends Enemy {
   constructor(config) {
     super(config);
-    this.body.setSize(20, 15);
+    this.body.setSize(20, 17);
     this.body.setOffset(5, 28);
     this.health = 2;
     this.meleeDamage = 1;

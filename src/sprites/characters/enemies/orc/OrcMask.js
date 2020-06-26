@@ -10,7 +10,7 @@ import MaskChaseState from '../../../../states/enemies/mask/MaskChaseState.js';
 export default class OrcMask extends Enemy {
   constructor(config) {
     super(config);
-    this.body.setSize(19, 15);
+    this.body.setSize(19, 21);
     this.body.setOffset(7, 16);
     this.health = 1;
     this.meleeDamage = 1;

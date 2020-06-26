@@ -10,7 +10,7 @@ import OrcTattooKnifeState from '../../../../states/enemies/orc/OrcTattoo/OrcTat
 export default class OrcTattoo extends Enemy {
   constructor(config) {
     super(config);
-    this.body.setSize(19, 15);
+    this.body.setSize(19, 18);
     this.body.setOffset(7, 16);
     this.health = 3;
     this.meleeDamage = 1;
