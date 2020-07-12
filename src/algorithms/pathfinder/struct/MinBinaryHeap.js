@@ -1,13 +1,14 @@
-export default class BinaryHeap {
+export default class MinBinaryHeap {
   /**
-   * Represent a Binary Heap.
+   * Represent a (Min) Binary Heap.
    * Inspired by the Eloquent JavaScript book.
    *
    * @constructor
-   * @param {function} scoreFunction - The function used to insert data.
+   * @param {function} scoreFunction - The function used to insert data
    */
   constructor(scoreFunction) {
     this.datas = [];
+    this.datasSet = new Set([]);
     this.scoreFunction = scoreFunction;
   }
 
@@ -26,6 +27,7 @@ export default class BinaryHeap {
   push(element) {
     this.datas.push(element);
     this.ascend(this.datas.length - 1);
+    this.datasSet.add(element);
   }
 
   /**
@@ -41,13 +43,20 @@ export default class BinaryHeap {
       this.descend(0);
     }
 
+    this.datasSet.delete(result);
+
     return result;
   }
 
   /**
    * Remove the node given from this BinaryHeap that is updated.
+   * @param {*} element - The node to remove
+   *
    */
   remove(node) {
+    if (this.datasSet.has(node))
+      this.datasSet.delete(node);
+
     var length = this.datas.length;
 
     for (var i = 0; i < length; i++) {
@@ -70,7 +79,7 @@ export default class BinaryHeap {
   /**
    * Move up the element with index n of this BinaryHeap.
    *
-   * @param{int} n - The nth element.
+   * @param{int} n - The nth element
    */
   ascend(n) {
     var element = this.datas[n];
@@ -92,7 +101,7 @@ export default class BinaryHeap {
   /**
    * Move down the element with index n of this BinaryHeap.
    *
-   * @param{int} n - The nth element.
+   * @param{int} n - The nth element
    */
   descend(n) {
    var length = this.datas.length,
@@ -100,19 +109,19 @@ export default class BinaryHeap {
    elemScore = this.scoreFunction(element);
 
    while(true) {
-     var c2 = (n + 1) * 2, c1 = c2 - 1;
+     let c2 = (n + 1) * 2, c1 = c2 - 1;
+     let swap = null;
 
-     var swap = null;
      if (c1 < length) {
-       var child1 = this.datas[c1],
-       child1Score = this.scoreFunction(child1);
+       let child1 = this.datas[c1];
+       var child1Score = this.scoreFunction(child1);
        if (child1Score < elemScore)
          swap = c1;
      }
 
      if (c2 < length) {
-       var child2 = this.datas[c2],
-       child2Score = this.scoreFunction(child2);
+       let child2 = this.datas[c2];
+       let child2Score = this.scoreFunction(child2);
        if (child2Score < (swap == null ? elemScore : child1Score))
          swap = c2;
      }
@@ -124,5 +133,15 @@ export default class BinaryHeap {
      this.datas[swap] = element;
      n = swap;
    }
+  }
+
+  /**
+   * Check whether this node exists in the heap.
+   *
+   * @param {*} node - The node to check
+   * @returns True if the node exists in the Heap
+   */
+  contains(node) {
+      return this.datasSet.has(node);
   }
 }

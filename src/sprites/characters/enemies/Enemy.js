@@ -126,6 +126,8 @@ export default class Enemy extends Character {
         {r: targetTile.y, c: targetTile.x},
       );
 
+      console.dir(aStarResult)
+
       this.tileChased = undefined;
       this.tilePath = [];
 

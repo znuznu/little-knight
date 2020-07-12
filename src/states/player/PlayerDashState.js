@@ -15,6 +15,7 @@ export default class PlayerDashState extends State {
       if (dashShadow) {
         dashShadow.setX(player.x);
         dashShadow.setY(player.y);
+        dashShadow.setDepth(3);
         dashShadow.setFlipX(player.view === 'left');
         dashShadow.setAlpha(1);
         dashShadow.setVisible(true);
@@ -35,17 +36,17 @@ export default class PlayerDashState extends State {
     }, 50);
 
     if (player.direction.up) {
-      player.body.setVelocityY(-player.speed*2);
+      player.body.setVelocityY(-player.speed * 2);
     } else if (player.direction.down) {
-      player.body.setVelocityY(player.speed*2);
+      player.body.setVelocityY(player.speed * 2);
     }
 
     if (player.direction.left) {
       player.view = 'left';
-      player.body.setVelocityX(-player.speed*2);
+      player.body.setVelocityX(-player.speed * 2);
     } else if (player.direction.right) {
       player.view = 'right';
-      player.body.setVelocityX(player.speed*2);
+      player.body.setVelocityX(player.speed * 2);
     }
 
     scene.time.delayedCall(player.dashDuration, _ => {

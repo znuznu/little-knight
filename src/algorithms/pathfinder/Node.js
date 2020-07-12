@@ -12,6 +12,6 @@ export default class Node {
     this.r = r;
     this.c = c;
     this.data = data;
-    this.neighbors = undefined;
+    this.neighbors = [];
   }
 }

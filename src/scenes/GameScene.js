@@ -533,10 +533,53 @@ export default class GameScene extends Phaser.Scene {
 
     let aStarConfig = {
       datas: datas,
-      block: element => element === 1
+      block: element => element,
+      topology: 8
     };
 
     this.aStar = new AStar(aStarConfig);
+
+    let grid = [
+      [0, 1, 0, 0, 0, 0],
+      [0, 1, 1, 0, 1, 0],
+      [0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 1, 0, 1],
+      [0, 1, 1, 1, 0, 0]
+    ];
+
+    // The config object used to initialize the A* Class.
+    // The testing block function is simple.
+    let config = {
+      datas: grid,
+      block: n => n === 1
+    };
+
+    let aaaaaa = new AStar(config);
+
+    // r stands for row, c for col.
+    let start = {r: 0, c: 0};
+    let end = {r: 0, c: 2};
+
+    let result = aaaaaa.search(start, end);
+
+    //  {
+    //    status: 'Found',
+    //    path: (8) [...]
+    //  }
+    console.dir(result);
+
+    result.path.forEach(n => {
+      grid[n.r][n.c] = 9;
+    });
+
+    //  [
+    //    [9, 1, 9, 9, 0, 0],
+    //    [9, 1, 1, 9, 1, 0],
+    //    [9, 9, 9, 9, 0, 0],
+    //    [0, 0, 0, 1, 0, 1],
+    //    [0, 1, 1, 1, 0, 0]
+    //  ]
+    console.dir(grid);
   }
 
   /*
